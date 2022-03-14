@@ -29,3 +29,5 @@ RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.ma
 RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9302)], null).remove();
 RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9303)], null).remove();
 RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9972)], null).remove();
+
+//Remove gem turbine blades from JEI, as they're completely nonproducible and wouldn't be good in a turbine anyway

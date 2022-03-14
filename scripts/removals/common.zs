@@ -211,6 +211,72 @@ function removeBasicIngot(id as int, protons as int, neutrons as int, blast as b
 }
 
 /**
+* Function that removes a gem and its constituent parts from the game - this does the whole shebang
+*/
+function removeGem(id as int, size as int, protons as int, neutrons as int, electrolyze as bool, tool as bool, ore as IItemStack, liquids as int[], lens as bool = true) {
+    print("Removing gem material for " + id);
+    removeDust(id, size, protons, neutrons, true, false, false, electrolyze, ore);
+    //Hide components from JEI
+    removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 8000));
+    removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 12000));
+    removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 14000));
+    removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 15000));
+    removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 16000));
+    removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 17000));
+    removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 19000));
+    removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 22000));
+    removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 23000));
+    removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 24000));
+    removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 25000));
+    //Hide tool parts from JEI
+    if (tool) {
+        for t in 0 to 16 {
+            if (t != 13) {
+                removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + (t * 1000)));
+                RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + (t * 1000))], null).remove();
+            }
+        }
+    }
+    //Gem production recipes
+    furnace.remove(<gregtech:meta_item_1>.definition.makeStack(id + 8000));
+    RecipeMap.getByName("implosion_compressor").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(id + 2000) * 4, <minecraft:tnt> * 2], null).remove();
+    //Remove forge hammer recipes for gems
+    RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
+    RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 14000) * 2], null).remove();
+    RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_2>.definition.makeStack(id + 23000)], null).remove();
+    RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_2>.definition.makeStack(id + 24000)], null).remove();
+    RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_2>.definition.makeStack(id + 25000)], null).remove();
+    RecipeMap.getByName("forge_hammer").findRecipe(24, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], null).remove();
+    //Remove macerator recipes
+    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], null).remove();
+    if (lens) RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 15000)], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 16000)], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 22000)], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 23000)], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 24000)], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 25000)], null).remove();
+    //Remove lathe and other recipes for gems
+    RecipeMap.getByName("lathe").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
+    if (lens) RecipeMap.getByName("lathe").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], null).remove();
+    //Cutting saw
+    //Long rod
+    RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:water> * 4]).remove();
+    RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:distilled_water> * 3]).remove();
+    RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:lubricant> * 1]).remove();
+    //Bolt
+    RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:water> * 4]).remove();
+    RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:distilled_water> * 3]).remove();
+    RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:lubricant> * 1]).remove();
+    //Plate
+    RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:water> * liquids[0]]).remove();
+    RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:distilled_water> * liquids[1]]).remove();
+    RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:lubricant> * liquids[2]]).remove();
+}
+
+/**
 * Function that removes a dust and its constituent parts from the game - this does nothing about _ingot_ parts, just dust. Does no special recipes
 */
 function removeDust(id as int, size as int, protons as int, neutrons as int, ingot as bool, blast as bool, vacuum as bool, electrolyze as bool, ore as IItemStack, superheat as bool = false) {
@@ -233,9 +299,11 @@ function removeDust(id as int, size as int, protons as int, neutrons as int, ing
     RecipeMap.getByName("packer").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id) * 9, <gtadditions:ga_meta_item:32134>], null).remove();
     RecipeMap.getByName("packer").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id + 1000) * 4, <gtadditions:ga_meta_item:32134>], null).remove();
     //Remove production/destruction recipes [electrolyser, replication]
-    if(electrolyze) RecipeMap.getByName("electrolyzer").findRecipe(size == 2 ? 30 : 60, [<gregtech:meta_item_1>.definition.makeStack(id + 2000) * size], null).remove();
-    RecipeMap.getByName("mass_fab").findRecipe(32, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], null).remove();
-    RecipeMap.getByName("replicator").findRecipe(32, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], [<liquid:neutral_matter> * neutrons, <liquid:positive_matter> * protons]).remove();
+    if(electrolyze) RecipeMap.getByName("electrolyzer").findRecipe((size < 4 || (ingot && size < 6)) ? 30 : 60, [<gregtech:meta_item_1>.definition.makeStack(id + 2000) * size], null).remove();
+    if (protons != 0 && neutrons != 0) {
+        RecipeMap.getByName("mass_fab").findRecipe(32, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], null).remove();
+        RecipeMap.getByName("replicator").findRecipe(32, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], [<liquid:neutral_matter> * neutrons, <liquid:positive_matter> * protons]).remove();
+    }
     if (!isNull(ore)) {
         //Hide ore & crushed vairants in JEI
         removeAndHide(ore.anyDamage());
@@ -366,16 +434,16 @@ function removeAllCentrifugedOres() as void {
 * Retools all sifter recipes to not have or use flawed or chipped gems, instead producing small and tiny dusts and removing flawed/chips from JEI
 */
 function recalibrateAllSifterRecipes() as void {
-    var ids = [85, 92, 103, 106, 111, 113, 117, 122, 128, 154, 157, 161, 187, 190, 201, 202, 203, 206, 209, 211, 212, 213, 214, 216, 226, 243, 244, 247, 281, 357] as int[];
+    var ids = [85, 103, 106, 111, 113, 117, 122, 128, 154, 157, 161, 201, 202, 203, 209, 211, 212, 216, 226, 243, 244, 281, 357] as int[];
     print("Removing all chipped and flawed gems from JEI as well as their recipes");
+    //Remove default recipes
+    for recipe in RecipeMap.getByName("sifter").recipes {
+       recipe.remove();
+    }
     for id in ids {
         //Hide from JEI
         removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 22000));
         removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 23000));
-        //If not a vanilla gem, remove gregtech recipes
-        if (id != 111 && id != 113 && id != 216 && id != 106 && id != 201) {
-            RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
-        }
         //Remove recipes with only gregtech components
         RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_2>.definition.makeStack(id + 23000)], null).remove();
         RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 22000)], null).remove();
@@ -384,7 +452,7 @@ function recalibrateAllSifterRecipes() as void {
         if (id != 209 && id != 357) {
         //Sifter recipes for both washed and unwashed ore - washed is better for gems, unwashed is better for total yield
             if (id != 111 && id != 113 && id != 216 && id != 106 && id != 201) {
-                RecipeMap.getByName("sifter").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 6000)], null).remove();
+                RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
                 RecipeMap.getByName("sifter").recipeBuilder()
                     .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 5000)])
                     .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 300, 60)
@@ -405,7 +473,7 @@ function recalibrateAllSifterRecipes() as void {
                     .duration(800).EUt(16).buildAndRegister();
             } else {//Vanilla gems my beloathed
                 if (id == 111) {
-                    RecipeMap.getByName("sifter").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 6000)], null).remove();
+                    RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:diamond>], null).remove();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 5000)])
                         .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 300, 60)
@@ -425,7 +493,7 @@ function recalibrateAllSifterRecipes() as void {
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id), 10000, 0)
                         .duration(800).EUt(16).buildAndRegister();
                 } else if (id == 113) {
-                    RecipeMap.getByName("sifter").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 6000)], null).remove();
+                    RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:emerald>], null).remove();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 5000)])
                         .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 300, 60)
@@ -445,7 +513,7 @@ function recalibrateAllSifterRecipes() as void {
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id), 10000, 0)
                         .duration(800).EUt(16).buildAndRegister();
                 } else if (id == 216) {
-                    RecipeMap.getByName("sifter").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 6000)], null).remove();
+                    RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:dye:4>], null).remove();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 5000)])
                         .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 300, 60)
@@ -465,7 +533,7 @@ function recalibrateAllSifterRecipes() as void {
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id), 10000, 0)
                         .duration(800).EUt(16).buildAndRegister();
                 } else if (id == 106) {
-                    RecipeMap.getByName("sifter").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 6000)], null).remove();
+                    RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:coal>], null).remove();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 5000)])
                         .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 300, 60)
@@ -485,7 +553,7 @@ function recalibrateAllSifterRecipes() as void {
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id), 10000, 0)
                         .duration(800).EUt(16).buildAndRegister();
                 } else if (id == 111) {
-                    RecipeMap.getByName("sifter").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 6000)], null).remove();
+                    RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:quartz>], null).remove();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 5000)])
                         .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 300, 60)
@@ -508,10 +576,4 @@ function recalibrateAllSifterRecipes() as void {
             }
         }
     }
-    //Remove vanilla gem smashing recipes
-    RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:coal>], null).remove();
-    RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:diamond>], null).remove();
-    RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:emerald>], null).remove();
-    RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:quartz>], null).remove();
-    RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:dye:4>], null).remove();
 }

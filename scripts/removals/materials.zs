@@ -7,6 +7,7 @@ import mods.gregtech.recipe.RecipeMap;
 import scripts.removals.common.removeCable;
 import scripts.removals.common.removePipe;
 import scripts.removals.common.removeDust;
+import scripts.removals.common.removeGem;
 import scripts.removals.common.removeBasicIngot;
 import scripts.removals.common.removeRodIngot;
 import scripts.removals.common.removeAdvancedIngot;
@@ -19,8 +20,11 @@ import scripts.removals.common.removeTool;
 */
 //Remove nonmetal useless dusts
 removeDust(88, 18, 140, 136, false, false, false, true, null);
+removeDust(163, 3, 38, 38, false, false, false, true, null);
+RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:2063> * 2, <gregtech:meta_item_1:2065>], null).remove();
 removeDust(210, 3, 270, 276, false, false, false, true, null);
 removeDust(221, 10, 366, 374, false, false, false, true, null);
+removeDust(223, 1, 50, 51, false, false, false, true, null);
 removeDust(225, 9, 58, 56, false, false, false, true, null);
 RecipeMap.getByName("fluid_extractor").findRecipe(128, [<gregtech:meta_item_1:2225>], null).remove();
 RecipeMap.getByName("chemical_bath").findRecipe(4, [<gregtech:meta_item_1:2106>], [<liquid:water> * 125]).remove();
@@ -50,6 +54,7 @@ removeBasicIngot(20, 66, 96, true, false, false, [], null);
 removeBasicIngot(21, 68, 99, true, true, true, [125, 94, 31], null);
 removeBasicIngot(24, 64, 93, true, false, false, [], null);
 removeBasicIngot(27, 67, 97, true, false, false, [], null);
+removeBasicIngot(37, 71, 103, true, true, false, [], null);
 removeBasicIngot(55, 59, 81, true, false, true, [105, 78, 26], null);
 removeBasicIngot(56, 61, 83, true, false, true, [108, 81, 27], null);
 removeBasicIngot(58, 37, 48, false, false, true, [63, 47, 15], null);
@@ -60,6 +65,24 @@ removeBasicIngot(67, 52, 75, false, false, true, [95, 71, 28], null);
 removeBasicIngot(68, 65, 93, true, false, true, [118, 89, 29], null);
 removeBasicIngot(70, 69, 99, true, true, true, [126, 94, 31], null);
 removeBasicIngot(353, 70, 103, true, false, true, [129, 97, 32], null);
+
+//Remove basic gems
+recipes.removeByRegex(".*(blue_topaz).*");
+removeGem(92, 13, 108, 106, true, true, <gregtech:ore_blue_topaz_0>, [12, 9, 3]);
+recipes.removeByRegex(".*(tanzanite).*");
+removeGem(187, 22, 226, 225, true, true, <gregtech:ore_tanzanite_0>, [15, 11, 3], false);
+recipes.removeByRegex(".*(topaz).*");
+removeGem(190, 13, 108, 106, true, true, <gregtech:ore_topaz_0>, [12, 9, 3]);
+recipes.removeByRegex(".*(jasper).*");
+removeGem(206, 0, 0, 0, false, false, <gregtech:ore_jasper_0>, [73, 55, 18]);
+recipes.removeByRegex(".*(opal).*");
+removeGem(213, 1, 30, 30, true, true, <gregtech:ore_opal_0>, [15, 11, 3]);
+recipes.removeByRegex(".*(amethyst).*");
+removeGem(214, 5, 146, 150, true, true, <gregtech:ore_amethyst_0>, [20, 15, 5]);
+recipes.removeByRegex(".*(vinteum).*");
+removeGem(247, 0, 0, 0, false, true, <gregtech:ore_vinteum_0>, [73, 55, 18]);
+
+
 
 /**
 * Remove otherwise useful but worthless to us materials - some of these may have MANY uses but metals go because they're too bloat-y or I just dislike them on principle (looking at you, tin)
@@ -100,6 +123,18 @@ RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:1018> * 3, <gr
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2018> * 3, <gregtech:meta_item_1:2071>], null).remove();
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(95 + 2000) * 4], null).remove();
 //Tin, Tin Alloy, & Cassiterites
+removeCable(71, true, 1, true, true);
+removeAdvancedIngot(71, 50, 68, false, false, [88, 66, 22], <gregtech:ore_tin_0>, [4, 3, 1, 4, 3, 1], [true, true, true, true, false, true, true]);
+removeAdvancedIngot(189, 76, 98, false, false, [65, 49, 16], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2033>, <gregtech:meta_item_1:2071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<minecraft:iron_ingot>, <gregtech:meta_item_1:2071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2033>, <gregtech:meta_item_1:10071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<minecraft:iron_ingot>, <gregtech:meta_item_1:10071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2197>, <gregtech:meta_item_1:2071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10197>, <gregtech:meta_item_1:2071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2197>, <gregtech:meta_item_1:10071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10197>, <gregtech:meta_item_1:10071>], null).remove();
+RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(189 + 2000) * 2], null).remove();
 removeDust(98, 3, 66, 84, false, false, false, true, <gregtech:ore_cassiterite_0>);
 removeDust(99, 3, 66, 84, false, false, false, true, <gregtech:ore_cassiterite_sand_0>);
 
@@ -108,7 +143,11 @@ removeDust(99, 3, 66, 84, false, false, false, true, <gregtech:ore_cassiterite_s
 removeTool(69, 90, 140, false, false, [172, 129, 43], <gregtech:ore_thorium_0>, null, [false, false, false, false, false, true, false], false, null);
 //Uranium & accessories
 removeDust(193, 0, 108, 162, false, false, false, false, <gregtech:ore_uraninite_0>);
+furnace.remove(<gregtech:meta_item_1:2193>);
+RecipeMap.getByName("chemical_reactor").findRecipe(120, [<ore:dustAluminium>.firstItem, <ore:dustUraninite>.firstItem * 3], null).remove();
+RecipeMap.getByName("chemical_reactor").findRecipe(120, [<ore:dustMagnesium>.firstItem, <ore:dustUraninite>.firstItem * 3], null).remove();
 removeDust(280, 5, 496, 751, false, false, false, true, <gregtech:ore_pitchblende_0>);
+furnace.remove(<gregtech:meta_item_1:2280>);
 removeTool(75, 92, 146, false, false, [178, 138, 44], <gregtech:ore_uranium_0>, null, [false, false, false, false, false, true, false], false, null);
 removeTool(76, 92, 143, false, false, [176, 132, 44], <gregtech:ore_uranium235_0>, null, [false, false, false, false, false, true, false], false, null);
 //Plutonium 241 & Plutonium 244
@@ -125,7 +164,11 @@ removeRodIngot(424, 226, 249, true, false, [24, 18, 6], null, [4, 3, 1, 4, 3, 1]
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1>.definition.makeStack(424 + 2000) * 14], null).remove();
 RecipeMap.getByName("blast_furnace").findRecipe(120, [<gregtech:meta_item_1>.definition.makeStack(423 + 2000) * 6], [<liquid:oxygen> * 8000]).remove();
 
-//High Speed Steels, because they're BS and I don't care
+//Ultimet and High Speed Steels, because they're BS and I don't care
+recipes.removeByRegex(".*(ultimet).*");
+removePipe(192, 4);
+removeTool(192, 253, 299, true, true, [45, 34, 11], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false], true);
+RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(192 + 2000) * 9], null).remove();
 recipes.removeByRegex(".*(hssg).*");
 removeCable(302 as int, true, 4, false, true);
 removeTool(302, 631, 857, true, true, [73, 55, 18], null, [4, 3, 1, 4, 3, 1], [true, true, true, true, true, true, true], true, <gregtech:frame_hssg>);
@@ -158,8 +201,18 @@ RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:1231> * 4, <gr
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2231> * 4, <gregtech:meta_item_1:2184> * 2, <gregtech:meta_item_1:2228>, <gregtech:meta_item_1:2094>], null).remove();
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(233 + 2000) * 8], null).remove();
 
-
-
-
+//Specialty precious metals, like sterling silver and rose gold - they serve no use and make for bad turbines, which objectively makes them worse in my book
+recipes.removeByRegex(".*(sterling_silver).*");
+removeTool(227, 217, 274, true, false, [73 , 55, 18], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
+RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:62> * 4, <gregtech:meta_item_1:18>], null).remove();
+RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:1062> * 4, <gregtech:meta_item_1:1018>], null).remove();
+RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:2062> * 4, <gregtech:meta_item_1:2018>], null).remove();
+RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(227 + 2000) * 5], null).remove();
+recipes.removeByRegex(".*(rose_gold).*");
+removeTool(228, 345, 502, true, false, [126, 95, 31], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
+RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:26> * 4, <gregtech:meta_item_1:18>], null).remove();
+RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:1026> * 4, <gregtech:meta_item_1:1018>], null).remove();
+RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2026> * 4, <gregtech:meta_item_1:2018>], null).remove();
+RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(228 + 2000) * 5], null).remove();
 
 
