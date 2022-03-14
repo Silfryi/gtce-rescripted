@@ -5,6 +5,7 @@ import mods.jei.JEI.removeAndHide;
 import mods.jei.JEI.hideCategory;
 import mods.gregtech.recipe.RecipeMap;
 import scripts.removals.common.removeCable;
+import scripts.removals.common.removePipe;
 import scripts.removals.common.removeDust;
 import scripts.removals.common.removeBasicIngot;
 import scripts.removals.common.removeRodIngot;
@@ -20,6 +21,10 @@ import scripts.removals.common.removeTool;
 removeDust(88, 18, 140, 136, false, false, false, true, null);
 removeDust(210, 3, 270, 276, false, false, false, true, null);
 removeDust(221, 10, 366, 374, false, false, false, true, null);
+removeDust(225, 9, 58, 56, false, false, false, true, null);
+RecipeMap.getByName("fluid_extractor").findRecipe(128, [<gregtech:meta_item_1:2225>], null).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(4, [<gregtech:meta_item_1:2106>], [<liquid:water> * 125]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(4, [<gregtech:meta_item_1:2106>], [<liquid:distilled_water> * 125]).remove();
 removeDust(248, 4, 269, 258, false, false, false, true, null);
 removeDust(253, 1, 140, 136, false, false, false, true, null);
 removeDust(254, 8, 196, 232, false, false, false, true, null);
@@ -79,7 +84,20 @@ RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definit
 
 //Tin, Tin Alloys, Cassierite, Cassiterite Sand
 //Bronze
+recipes.removeByRegex("(gregtech).*(bronze).*");
+removePipe(95, 1);
 removeTool(95, 137, 170, false, false, [57, 42, 14], null, [4, 3, 1, 4, 3, 1], [true, true, true, true, false, true, false], false, <gregtech:frame_bronze>);
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2018> * 3, <gregtech:meta_item_1:2071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10018> * 3, <gregtech:meta_item_1:2071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2018> * 3, <gregtech:meta_item_1:10071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10018> * 3, <gregtech:meta_item_1:10071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2087> * 3, <gregtech:meta_item_1:2071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10087> * 3, <gregtech:meta_item_1:2071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2087> * 3, <gregtech:meta_item_1:10071>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10087> * 3, <gregtech:meta_item_1:10071>], null).remove();
+RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:18> * 3, <gregtech:meta_item_1:71>], null).remove();
+RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:1018> * 3, <gregtech:meta_item_1:1071>], null).remove();
+RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2018> * 3, <gregtech:meta_item_1:2071>], null).remove();
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(95 + 2000) * 4], null).remove();
 //Tin, Tin Alloy, & Cassiterites
 removeDust(98, 3, 66, 84, false, false, false, true, <gregtech:ore_cassiterite_0>);

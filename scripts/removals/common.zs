@@ -331,6 +331,24 @@ function removeCable(id as int, fine as bool, mult as int, rubber as bool, styre
 }
 
 /**
+* Our trusty old "make a function to remove stuff" function - gets rid of all wires and all recipes
+*/
+function removePipe(id as int, mult as int) as void {
+    print("Removing pipe for material " + id as string);
+    //Oxygen levels for cables
+    var oxygen = [30, 60, 180, 360] as int[];
+    //Remove all cables from the packer and the bundler
+    for y in 0 to 4 {
+        removeAndHide(<gregtech:fluid_pipe>.definition.makeStack(id + (y * 1000)));
+        RecipeMap.getByName("extruder").findRecipe(48, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * (y == 3 ? 6 : 3), <gregtech:meta_item_1>.definition.makeStack(32358 + y)], null).remove();
+        //Recycling
+        RecipeMap.getByName("macerator").findRecipe(8 * mult * mult, [<gregtech:fluid_pipe>.definition.makeStack(id + (y * 1000))], null).remove();
+        RecipeMap.getByName("fluid_extractor").findRecipe(32 * mult * mult, [<gregtech:fluid_pipe>.definition.makeStack(id + (y * 1000))], null).remove();
+        RecipeMap.getByName("arc_furnace").findRecipe(30 * mult * mult, [<gregtech:fluid_pipe>.definition.makeStack(id + (y * 1000))], [<liquid:oxygen> * oxygen[y]]).remove();
+    }
+}
+
+/**
 * Another remove everything function, this one removes all recipes and items from JEI that would go through the now-disabled thermal centrifuge. The centrifuge did shit all so it goes
 */
 function removeAllCentrifugedOres() as void {

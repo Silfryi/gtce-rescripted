@@ -7,6 +7,9 @@ import mods.gregtech.recipe.RecipeMap;
 
 
 //Add table brass recipes for bronze (disabled) items
+recipes.remove(<gregtech:machine:2208>);
+recipes.remove(<gregtech:machine:2196>);
+recipes.remove(<gregtech:machine:3>);
 recipes.addShaped(<gregtech:metal_casing> * 3,
     [[<ore:plateBrass>, <ore:craftingToolHardHammer>, <ore:plateBrass>],
     [<ore:plateBrass>, <ore:frameGtBrass>, <ore:plateBrass>],
@@ -43,6 +46,10 @@ recipes.addShaped(<gregtech:machine:825>,
     [[<ore:plateWroughtIron>, <minecraft:crafting_table>, <ore:plateWroughtIron>],
     [<ore:plateWroughtIron>, <gregtech:machine:802>, <ore:plateWroughtIron>],
     [<ore:plateWroughtIron>, <ore:plateWroughtIron>, <ore:plateWroughtIron>]]);
+recipes.addShaped(<gregtech:machine:3>,
+    [[<ore:paneGlass>, <ore:paneGlass>, <ore:paneGlass>],
+    [<ore:plateSilver>, <gregtech:fluid_pipe:1094>, <ore:plateSilver>],
+    [<gregtech:fluid_pipe:1094>, <gregtech:machine_casing:13>, <gregtech:fluid_pipe:1094>]]);
     
 //Change turbine casing recipes to be neither sequential nor wrong material (steel != magnalium, looking at YOU)
 //Crafting table
