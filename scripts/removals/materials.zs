@@ -6,6 +6,7 @@ import mods.jei.JEI.hideCategory;
 import mods.gregtech.recipe.RecipeMap;
 import scripts.removals.common.removeCable;
 import scripts.removals.common.removePipe;
+import scripts.removals.common.removeOre;
 import scripts.removals.common.removeDust;
 import scripts.removals.common.removeGem;
 import scripts.removals.common.removeBasicIngot;
@@ -50,6 +51,7 @@ removeDust(293, 17, 130, 126, false, false, false, true, null);
 //Remove basic metals - ingot/plate/etc but not much else
 removeBasicIngot(2, 95, 150, false, false, false, [], null);
 removeBasicIngot(10, 55, 77, false, false, false, [], null);
+removeBasicIngot(14, 58, 82, true, false, false, [], null);
 removeBasicIngot(20, 66, 96, true, false, false, [], null);
 removeBasicIngot(21, 68, 99, true, true, true, [125, 94, 31], null);
 removeBasicIngot(24, 64, 93, true, false, false, [], null);
@@ -215,4 +217,6 @@ RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:1026> * 4, <gr
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2026> * 4, <gregtech:meta_item_1:2018>], null).remove();
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(228 + 2000) * 5], null).remove();
 
-
+//Magnetic iron
+removeAdvancedIngot(297, 26, 30, false, false, [42, 31, 10], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
+RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(297 + 2000)], null).remove();

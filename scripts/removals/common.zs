@@ -281,6 +281,7 @@ function removeGem(id as int, size as int, protons as int, neutrons as int, elec
 */
 function removeDust(id as int, size as int, protons as int, neutrons as int, ingot as bool, blast as bool, vacuum as bool, electrolyze as bool, ore as IItemStack, superheat as bool = false) {
     if (!ingot) print("Removing dust material for " + id);
+    if (!isNull(ore)) removeOre(id, ore);
     //Hide the requisite items from JEI
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id));
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 1000));
@@ -304,30 +305,34 @@ function removeDust(id as int, size as int, protons as int, neutrons as int, ing
         RecipeMap.getByName("mass_fab").findRecipe(32, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], null).remove();
         RecipeMap.getByName("replicator").findRecipe(32, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], [<liquid:neutral_matter> * neutrons, <liquid:positive_matter> * protons]).remove();
     }
-    if (!isNull(ore)) {
-        //Hide ore & crushed vairants in JEI
-        removeAndHide(ore.anyDamage());
-        removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 3000));
-        removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 4000));
-        removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 5000));
-        removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 6000));
-        //Remove from macerator & forge hammer processing processing
-        for q in 3 to 14 { // We need to skip some because the recipes are added by OD so get removed for multiple metas at a time
-            if (q != 5 && q != 9) {
-                RecipeMap.getByName("macerator").findRecipe(12, [ore.definition.makeStack(q)], null).remove();
-                RecipeMap.getByName("forge_hammer").findRecipe(6, [ore.definition.makeStack(q)], null).remove();
-            }
+}
+
+/**
+* Function that removes an ore from the game - nothing but an ore, but an ore
+*/
+function removeOre(id as int, ore as IItemStack) {
+    //Hide ore & crushed vairants in JEI
+    removeAndHide(ore.anyDamage());
+    removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 3000));
+    removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 4000));
+    removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 5000));
+    removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 6000));
+    //Remove from macerator & forge hammer processing processing
+    for q in 3 to 14 { // We need to skip some because the recipes are added by OD so get removed for multiple metas at a time
+        if (q != 5 && q != 9) {
+            RecipeMap.getByName("macerator").findRecipe(12, [ore.definition.makeStack(q)], null).remove();
+            RecipeMap.getByName("forge_hammer").findRecipe(6, [ore.definition.makeStack(q)], null).remove();
         }
-        RecipeMap.getByName("macerator").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id + 5000)], null).remove();
-        RecipeMap.getByName("macerator").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id + 6000)], null).remove();
-        RecipeMap.getByName("forge_hammer").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 5000)], null).remove();
-        RecipeMap.getByName("forge_hammer").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 6000)], null).remove();
-        //Remove from other processing
-        RecipeMap.getByName("orewasher").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 5000)], [<liquid:water> * 1000]).remove();
-        RecipeMap.getByName("orewasher").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 5000)], [<liquid:distilled_water> * 1000]).remove();
-        RecipeMap.getByName("centrifuge").findRecipe(24, [<gregtech:meta_item_1>.definition.makeStack(id + 3000)], null).remove();
-        RecipeMap.getByName("centrifuge").findRecipe(5, [<gregtech:meta_item_1>.definition.makeStack(id + 4000)], null).remove();
     }
+    RecipeMap.getByName("macerator").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id + 5000)], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id + 6000)], null).remove();
+    RecipeMap.getByName("forge_hammer").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 5000)], null).remove();
+    RecipeMap.getByName("forge_hammer").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 6000)], null).remove();
+    //Remove from other processing
+    RecipeMap.getByName("orewasher").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 5000)], [<liquid:water> * 1000]).remove();
+    RecipeMap.getByName("orewasher").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 5000)], [<liquid:distilled_water> * 1000]).remove();
+    RecipeMap.getByName("centrifuge").findRecipe(24, [<gregtech:meta_item_1>.definition.makeStack(id + 3000)], null).remove();
+    RecipeMap.getByName("centrifuge").findRecipe(5, [<gregtech:meta_item_1>.definition.makeStack(id + 4000)], null).remove();
 }
 
 /**
