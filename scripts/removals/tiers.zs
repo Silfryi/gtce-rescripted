@@ -44,6 +44,33 @@ removeAndHide(<gregtech:meta_item_1:32606>);
 removeAndHide(<gregtech:meta_item_1:32605>);
 
 /**
+* Remove higher-tier battery buffers/etc from JEI - we don't need them and they clog it up with promises of higher tiers 
+*/
+//UV & MAX Components
+removeAndHide(<gregtech:machine:689>);
+removeAndHide(<gregtech:machine:649>);
+removeAndHide(<gregtech:machine:648>);
+removeAndHide(<gregtech:machine:647>);
+removeAndHide(<gregtech:machine:646>);
+removeAndHide(<gregtech:machine:688>);
+removeAndHide(<gregtech:machine:645>);
+removeAndHide(<gregtech:machine:644>);
+removeAndHide(<gregtech:machine:643>);
+removeAndHide(<gregtech:machine:642>);
+//ZPM Components
+removeAndHide(<gregtech:machine:687>);
+removeAndHide(<gregtech:machine:641>);
+removeAndHide(<gregtech:machine:640>);
+removeAndHide(<gregtech:machine:639>);
+removeAndHide(<gregtech:machine:638>);
+//LuV Components
+removeAndHide(<gregtech:machine:686>);
+removeAndHide(<gregtech:machine:637>);
+removeAndHide(<gregtech:machine:636>);
+removeAndHide(<gregtech:machine:635>);
+removeAndHide(<gregtech:machine:634>);
+
+/**
 * Remove higher-tier wires & cables from JEI - past IV you should just be using superconductors, the voltage is too great otherwise
 */
 //UV & MAX Wires
