@@ -220,3 +220,20 @@ RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definit
 //Magnetic iron
 removeAdvancedIngot(297, 26, 30, false, false, [42, 31, 10], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(297 + 2000)], null).remove();
+
+/**
+* Remove ores for metals it makes no sense to have them - pure aluminium ore, pure beryllium, etc
+*/
+removeOre(1, <gregtech:ore_aluminium_0>);
+removeOre(7, <gregtech:ore_beryllium_0>);
+removeOre(17, <gregtech:ore_cobalt_0>);
+removeOre(32, <gregtech:ore_iridium_0>);
+removeOre(36, <gregtech:ore_lithium_0>);
+removeOre(41, <gregtech:ore_molybdenum_0>);
+removeOre(42, <gregtech:ore_neodymium_0>);
+removeOre(45, <gregtech:ore_niobium_0>);
+removeOre(47, <gregtech:ore_osmium_0>);
+removeOre(49, <gregtech:ore_palladium_0>);
+removeOre(51, <gregtech:ore_platinum_0>);
+removeOre(79, <gregtech:ore_zinc_0>);
+removeOre(307, <gregtech:ore_naquadah_0>);
