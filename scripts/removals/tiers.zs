@@ -80,7 +80,7 @@ removeCable(312 as int, false, 1, false, false);
 removeCable(307 as int, false, 4, false, false);
 //LuV Wires
 removeCable(135 as int, true, 4, false, true);
-removeCable(195 as int, false, 4, false, true);
+removeCable(195 as int, true, 4, false, true);
 removeCable(200 as int, true, 4, false, true);
 
 /**

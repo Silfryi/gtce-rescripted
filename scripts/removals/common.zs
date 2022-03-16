@@ -213,9 +213,9 @@ function removeBasicIngot(id as int, protons as int, neutrons as int, blast as b
 /**
 * Function that removes a gem and its constituent parts from the game - this does the whole shebang
 */
-function removeGem(id as int, size as int, protons as int, neutrons as int, electrolyze as bool, tool as bool, ore as IItemStack, liquids as int[], lens as bool = true) {
+function removeGem(id as int, size as int, protons as int, neutrons as int, electrolyze as bool, tool as bool, ore as IItemStack, liquids as int[], lens as bool = true, rod as bool = true) {
     print("Removing gem material for " + id);
-    removeDust(id, size, protons, neutrons, true, false, false, electrolyze, ore);
+    removeDust(id, size, protons, neutrons, true, false, false, electrolyze, ore, false, true);
     //Hide components from JEI
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 8000));
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 12000));
@@ -242,7 +242,7 @@ function removeGem(id as int, size as int, protons as int, neutrons as int, elec
     RecipeMap.getByName("implosion_compressor").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(id + 2000) * 4, <minecraft:tnt> * 2], null).remove();
     //Remove forge hammer recipes for gems
     RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
-    RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 14000) * 2], null).remove();
+    if (rod) RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 14000) * 2], null).remove();
     RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_2>.definition.makeStack(id + 23000)], null).remove();
     RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_2>.definition.makeStack(id + 24000)], null).remove();
     RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_2>.definition.makeStack(id + 25000)], null).remove();
@@ -250,26 +250,28 @@ function removeGem(id as int, size as int, protons as int, neutrons as int, elec
     //Remove macerator recipes
     RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
     RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], null).remove();
-    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], null).remove();
+    if (rod)RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], null).remove();
     if (lens) RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 15000)], null).remove();
-    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 16000)], null).remove();
-    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], null).remove();
+    if (rod) RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 16000)], null).remove();
+    if (rod) RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], null).remove();
     RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 22000)], null).remove();
     RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 23000)], null).remove();
     RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 24000)], null).remove();
     RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 25000)], null).remove();
     //Remove lathe and other recipes for gems
-    RecipeMap.getByName("lathe").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
+    if (rod)RecipeMap.getByName("lathe").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
     if (lens) RecipeMap.getByName("lathe").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], null).remove();
     //Cutting saw
-    //Long rod
-    RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:water> * 4]).remove();
-    RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:distilled_water> * 3]).remove();
-    RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:lubricant> * 1]).remove();
-    //Bolt
-    RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:water> * 4]).remove();
-    RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:distilled_water> * 3]).remove();
-    RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:lubricant> * 1]).remove();
+    if (rod) {
+        //Long rod
+        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:water> * 4]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:distilled_water> * 3]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:lubricant> * 1]).remove();
+        //Bolt
+        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:water> * 4]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:distilled_water> * 3]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:lubricant> * 1]).remove();
+    }
     //Plate
     RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:water> * liquids[0]]).remove();
     RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:distilled_water> * liquids[1]]).remove();
@@ -279,9 +281,9 @@ function removeGem(id as int, size as int, protons as int, neutrons as int, elec
 /**
 * Function that removes a dust and its constituent parts from the game - this does nothing about _ingot_ parts, just dust. Does no special recipes
 */
-function removeDust(id as int, size as int, protons as int, neutrons as int, ingot as bool, blast as bool, vacuum as bool, electrolyze as bool, ore as IItemStack, superheat as bool = false) {
+function removeDust(id as int, size as int, protons as int, neutrons as int, ingot as bool, blast as bool, vacuum as bool, electrolyze as bool, ore as IItemStack, superheat as bool = false, gem as bool = false) {
     if (!ingot) print("Removing dust material for " + id);
-    if (!isNull(ore)) removeOre(id, ore);
+    if (!isNull(ore)) removeOre(id, ore, gem, ingot);
     //Hide the requisite items from JEI
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id));
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 1000));
@@ -310,7 +312,7 @@ function removeDust(id as int, size as int, protons as int, neutrons as int, ing
 /**
 * Function that removes an ore from the game - nothing but an ore, but an ore
 */
-function removeOre(id as int, ore as IItemStack) {
+function removeOre(id as int, ore as IItemStack, gem as bool = false, ingot as bool = false, item as IItemStack = null) {
     //Hide ore & crushed vairants in JEI
     removeAndHide(ore.anyDamage());
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 3000));
@@ -322,6 +324,8 @@ function removeOre(id as int, ore as IItemStack) {
         if (q != 5 && q != 9) {
             RecipeMap.getByName("macerator").findRecipe(12, [ore.definition.makeStack(q)], null).remove();
             RecipeMap.getByName("forge_hammer").findRecipe(6, [ore.definition.makeStack(q)], null).remove();
+            furnace.remove(!isNull(item) ? item : <gregtech:meta_item_1>.definition.makeStack(id + (gem ? 8000 : ingot ? 10000 : 2000)));
+            if (ingot) furnace.addRecipe(<gregtech:meta_item_1>.definition.makeStack(id + 10000), <gregtech:meta_item_1>.definition.makeStack(id + 2000));
         }
     }
     RecipeMap.getByName("macerator").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id + 5000)], null).remove();
@@ -439,7 +443,7 @@ function removeAllCentrifugedOres() as void {
 * Retools all sifter recipes to not have or use flawed or chipped gems, instead producing small and tiny dusts and removing flawed/chips from JEI
 */
 function recalibrateAllSifterRecipes() as void {
-    var ids = [85, 103, 106, 111, 113, 117, 122, 128, 154, 157, 161, 201, 202, 203, 209, 211, 212, 216, 226, 243, 244, 281, 357] as int[];
+    var ids = [85, 103, 106, 111, 113, 122, 128, 154, 161, 201, 202, 203, 209, 211, 212, 216, 226, 243, 244, 281, 357] as int[];
     print("Removing all chipped and flawed gems from JEI as well as their recipes");
     //Remove default recipes
     for recipe in RecipeMap.getByName("sifter").recipes {

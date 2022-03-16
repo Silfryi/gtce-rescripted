@@ -1,6 +1,7 @@
 #loader gregtech
 import mods.gregtech.material.MaterialRegistry;
 import mods.gregtech.material.IngotMaterial;
+import mods.gregtech.material.FluidMaterial;
 import mods.gregtech.material.MaterialCasting;
 
 
@@ -29,6 +30,7 @@ MaterialCasting.toIngot(MaterialRegistry.get("titanium")).setFluidPipeProperties
 MaterialCasting.toIngot(MaterialRegistry.get("tungsten_steel")).setFluidPipeProperties(900, 7500, true);
 
 /**
-* Edit magnalium to give it a frame recipe
+* Add needed parts to some materials - magnalium frames, vanadium-gallium fine wire
 */
 MaterialRegistry.get("magnalium").addFlags(["GENERATE_FRAME"]);
+MaterialRegistry.get("vanadium_gallium").addFlags(["GENERATE_FINE_WIRE"]);
