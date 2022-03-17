@@ -6,6 +6,8 @@ import mods.gregtech.recipe.RecipeMap;
 
 
 
+print("Removing unused generic items from GT and other mods");
+
 //Remove useless rounds, they do absolutely nothing
 removeAndHide(<gtadditions:ga_meta_item:2001>);
 removeAndHide(<gtadditions:ga_meta_item:2043>);

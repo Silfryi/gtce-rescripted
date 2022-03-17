@@ -49,7 +49,7 @@ removeDust(291, 0, 1442, 1386, false, false, false, false, null);
 removeDust(292, 8, 80, 80, false, false, false, true, null);
 removeDust(293, 17, 130, 126, false, false, false, true, null);
 
-//Remove basic metals - ingot/plate/etc but not much else
+//Remove useless metals of varying complexities
 removeBasicIngot(2, 95, 150, false, false, false, [], null);
 removeBasicIngot(10, 55, 77, false, false, false, [], null);
 removeBasicIngot(14, 58, 82, true, false, false, [], null);
@@ -67,9 +67,11 @@ removeBasicIngot(64, 38, 49, false, false, true, [65, 49, 16], null);
 removeBasicIngot(67, 52, 75, false, false, true, [95, 71, 28], null);
 removeBasicIngot(68, 65, 93, true, false, true, [118, 89, 29], null);
 removeBasicIngot(70, 69, 99, true, true, true, [126, 94, 31], null);
+removeRodIngot(134, 48, 60, true, true, [40, 30, 10], null, [4, 3, 1, 4, 3, 1], true);
+RecipeMap.getByName("electrolyzer").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(134 + 2000) * 2], null).remove();
 removeBasicIngot(353, 70, 103, true, false, true, [129, 97, 32], null);
 
-//Remove basic gems
+//Remove useless, nonfindable gems
 recipes.removeByRegex(".*(blue_topaz).*");
 removeGem(92, 13, 108, 106, true, true, <gregtech:ore_blue_topaz_0>, [12, 9, 3]);
 recipes.removeByRegex(".*(green_sapphire).*");
@@ -147,6 +149,7 @@ removeDust(99, 3, 66, 84, false, false, false, true, <gregtech:ore_cassiterite_s
 
 //Fissile materials - Uranium (All types), Plutonium (All types), Thorium, Miscelanous Ores
 //Thorium
+recipes.removeByRegex(".*(thorium).*");
 removeTool(69, 90, 140, false, false, [172, 129, 43], <gregtech:ore_thorium_0>, null, [false, false, false, false, false, true, false], false, null);
 //Uranium & accessories
 removeDust(193, 0, 108, 162, false, false, false, false, <gregtech:ore_uraninite_0>);
@@ -155,9 +158,11 @@ RecipeMap.getByName("chemical_reactor").findRecipe(120, [<ore:dustAluminium>.fir
 RecipeMap.getByName("chemical_reactor").findRecipe(120, [<ore:dustMagnesium>.firstItem, <ore:dustUraninite>.firstItem * 3], null).remove();
 removeDust(280, 5, 496, 751, false, false, false, true, <gregtech:ore_pitchblende_0>);
 furnace.remove(<gregtech:meta_item_1:2280>);
+recipes.removeByRegex(".*(uranium).*");
 removeTool(75, 92, 146, false, false, [178, 138, 44], <gregtech:ore_uranium_0>, null, [false, false, false, false, false, true, false], false, null);
 removeTool(76, 92, 143, false, false, [176, 132, 44], <gregtech:ore_uranium235_0>, null, [false, false, false, false, false, true, false], false, null);
 //Plutonium 241 & Plutonium 244
+RecipeMap.getByName("chemical_reactor").findRecipe(8, [<gregtech:meta_item_1:10052> * 3], null).remove();
 removeRodIngot(52, 94, 152, false, false, [184, 138, 46], null, [6, 4, 1, 4, 3, 1]);
 removeRodIngot(53, 94, 149, false, false, [182, 136, 45], null, [6, 4, 1, 4, 3, 1]);
 
@@ -222,9 +227,15 @@ RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:1026> * 4, <gr
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2026> * 4, <gregtech:meta_item_1:2018>], null).remove();
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(228 + 2000) * 5], null).remove();
 
-//Magnetic iron
+//Miscelanous materials that need removing
+removeGem(203, 0, 0, 0, false, false, <gregtech:ore_quartzite_0>, null, false, false);
 removeAdvancedIngot(297, 26, 30, false, false, [42, 31, 10], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(297 + 2000)], null).remove();
+removeRodIngot(22, 63, 88, true, false, [113, 85, 28], null, null);
+recipes.removeByRegex(".*(darmstadtium).*");
+removeTool(43, 110, 171, false, false, [210, 158, 52], null, [125, 93, 31, 4, 3, 1], [true, true, true, true, true, true, false], false, <gregtech:frame_darmstadtium>);
+
+
 
 /**
 * Remove ores for metals it makes no sense to have them - pure aluminium ore, pure beryllium, etc
@@ -248,7 +259,6 @@ removeOre(79, <gregtech:ore_zinc_0>, false, true);
 removeOre(122, <gregtech:ore_rutile_0>, true);
 removeOre(130, <gregtech:ore_magnesite_0>, false, true, <gregtech:meta_item_1:10038>);
 removeOre(139, <gregtech:ore_phosphate_0>);
-removeOre(203, <gregtech:ore_quartzite_0>, true);
 removeOre(243, <gregtech:ore_garnet_red_0>, true);
 removeOre(244, <gregtech:ore_garnet_yellow_0>, true);
 removeOre(307, <gregtech:ore_naquadah_0>);

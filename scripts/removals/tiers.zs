@@ -5,10 +5,14 @@ import mods.gregtech.recipe.RecipeMap;
 import scripts.removals.common.removeCable;
 
 
+
+print("Removing unused high-tier components and items now that IV+ tiers are basically removed");
+
 /**
 * Remove higher-tier compoents from JEI - we don't need them and they clog it up with promises of higher tiers 
 */
 //UV & MAX Components
+removeAndHide(<gregtech:meta_item_2:32707>);
 removeAndHide(<gregtech:meta_item_2:32605>);
 removeAndHide(<gregtech:meta_item_1:32707>);
 removeAndHide(<gregtech:meta_item_1:32697>);

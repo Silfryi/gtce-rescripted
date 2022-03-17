@@ -8,6 +8,8 @@ import scripts.removals.common.recalibrateAllSifterRecipes;
 
 
 
+print("Removing useless machines, steam and otherwise");
+
 //Plasma Arc Furnace
 hideCategory("gregtech:plasma_arc_furnace");
 removeAndHide(<gregtech:machine:410>);
@@ -30,8 +32,9 @@ removeAndHide(<gregtech:machine:2173>);
 removeAndHide(<gregtech:machine:2174>);
 removeAndHide(<gregtech:machine:2191>);
 
-//Sifter
+//Sifter & ore processing page
 recalibrateAllSifterRecipes();
+hideCategory("gregtech:ore_by_product");
 
 //All low-tier steam BS
 removeAndHide(<gregtech:machine:1>);

@@ -16,31 +16,31 @@ global gtBlockID  as IItemStack[] = [<gregtech:meta_block_compressed_0>, <gregte
 /**
 * Function that removes an advanced ingot tool material from the game - all tool parts and their recipes, the required stuff below it, etc
 */
-function removeTool(id as int, protons as int, neutrons as int, blast as bool, vacuum as bool, liquids as int[], ore as IItemStack, liquids2 as int[], products as bool[], superheat as bool = false, frame as IItemStack = null) {
+function removeTool(id as int, protons as int, neutrons as int, blast as bool, cool as bool, cut as int[], ore as IItemStack, bolt as int[], products as bool[], super as bool = false, frame as IItemStack = null) {
     print("Removing tool parts for material " + id);
-    var fluid = RecipeMap.getByName("fluid_extractor").findRecipe(superheat ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).fluidOutputs[0].definition;
-    removeAdvancedIngot(id, protons, neutrons, blast, vacuum, liquids, ore, liquids2, products, superheat, frame);
+    var fluid = RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).fluidOutputs[0].definition;
+    removeAdvancedIngot(id, protons, neutrons, blast, cool, cut, ore, bolt, products, super, frame);
     //Remove some decomposition recipes for tool parts
     var oxygen = [120, 180, 60, 180, 120, 360, 120, 120, 240, 120, 240, 60, 180, 0, 240, 300] as int[];
     for z in 0 to 16 {
         if (z != 13) {
             removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + (z * 1000)));
-            RecipeMap.getByName("macerator").findRecipe(superheat ? 128 : blast ? 32 : 8, [<gregtech:meta_item_2>.definition.makeStack(id + (z * 1000))], null).remove();
-            RecipeMap.getByName("arc_furnace").findRecipe(superheat ? 480 : blast ? 120 : 30, [<gregtech:meta_item_2>.definition.makeStack(id + (z * 1000))], [<liquid:oxygen> * oxygen[z]]).remove();
-            RecipeMap.getByName("fluid_extractor").findRecipe(superheat ? 512 : blast ? 128 : 32, [<gregtech:meta_item_2>.definition.makeStack(id + (z * 1000))], null).remove();
+            RecipeMap.getByName("macerator").findRecipe(super ? 128 : blast ? 32 : 8, [<gregtech:meta_item_2>.definition.makeStack(id + (z * 1000))], null).remove();
+            RecipeMap.getByName("arc_furnace").findRecipe(super ? 480 : blast ? 120 : 30, [<gregtech:meta_item_2>.definition.makeStack(id + (z * 1000))], [<liquid:oxygen> * oxygen[z]]).remove();
+            RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_2>.definition.makeStack(id + (z * 1000))], null).remove();
         }
     }
     //Remove crafting for tool and turbine parts
-    RecipeMap.getByName("extruder").findRecipe(superheat ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 2, <gregtech:meta_item_1:32364>], null).remove();
-    RecipeMap.getByName("extruder").findRecipe(superheat ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 3, <gregtech:meta_item_1:32365>], null).remove();
-    RecipeMap.getByName("extruder").findRecipe(superheat ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 1, <gregtech:meta_item_1:32366>], null).remove();
-    RecipeMap.getByName("extruder").findRecipe(superheat ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 3, <gregtech:meta_item_1:32367>], null).remove();
-    RecipeMap.getByName("extruder").findRecipe(superheat ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 3, <gregtech:meta_item_1:32368>], null).remove();
-    RecipeMap.getByName("extruder").findRecipe(superheat ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 6, <gregtech:meta_item_1:32369>], null).remove();
-    RecipeMap.getByName("extruder").findRecipe(superheat ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 2, <gregtech:meta_item_1:32370>], null).remove();
-    RecipeMap.getByName("extruder").findRecipe(superheat ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 2, <gregtech:meta_item_1:32371>], null).remove();
-    RecipeMap.getByName("lathe").findRecipe(superheat ? 240 : 56, [<gregtech:meta_item_2>.definition.makeStack(id + 26000)], null).remove();
-    if (!isNull(liquids2)) RecipeMap.getByName("assembler").findRecipe(256, [<gregtech:meta_item_1>.definition.makeStack(id + 12000) * 5,
+    RecipeMap.getByName("extruder").findRecipe(super ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 2, <gregtech:meta_item_1:32364>], null).remove();
+    RecipeMap.getByName("extruder").findRecipe(super ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 3, <gregtech:meta_item_1:32365>], null).remove();
+    RecipeMap.getByName("extruder").findRecipe(super ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 1, <gregtech:meta_item_1:32366>], null).remove();
+    RecipeMap.getByName("extruder").findRecipe(super ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 3, <gregtech:meta_item_1:32367>], null).remove();
+    RecipeMap.getByName("extruder").findRecipe(super ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 3, <gregtech:meta_item_1:32368>], null).remove();
+    RecipeMap.getByName("extruder").findRecipe(super ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 6, <gregtech:meta_item_1:32369>], null).remove();
+    RecipeMap.getByName("extruder").findRecipe(super ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 2, <gregtech:meta_item_1:32370>], null).remove();
+    RecipeMap.getByName("extruder").findRecipe(super ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 2, <gregtech:meta_item_1:32371>], null).remove();
+    RecipeMap.getByName("lathe").findRecipe(super ? 240 : 56, [<gregtech:meta_item_2>.definition.makeStack(id + 26000)], null).remove();
+    if (!isNull(bolt)) RecipeMap.getByName("assembler").findRecipe(256, [<gregtech:meta_item_1>.definition.makeStack(id + 12000) * 5,
                                                                              <gregtech:meta_item_1>.definition.makeStack(id + 17000) * 2,
                                                                              <gregtech:meta_item_1:32766>.withTag({Configuration: 10})], null).remove();
     RecipeMap.getByName("assembler").findRecipe(400, [<gregtech:meta_item_2>.definition.makeStack(id + 15000) * 8, <gregtech:meta_item_2:19072>], null).remove();
@@ -49,9 +49,9 @@ function removeTool(id as int, protons as int, neutrons as int, blast as bool, v
 /**
 * Function that removes a metal of any variety that is not a tool material - fine wire, foil, you name it
 */
-function removeAdvancedIngot(id as int, protons as int, neutrons as int, blast as bool, vacuum as bool, liquids as int[], ore as IItemStack, liquids2 as int[], products as bool[], superheat as bool = false, frame as IItemStack = null) {
-    var fluid = RecipeMap.getByName("fluid_extractor").findRecipe(superheat ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).fluidOutputs[0].definition;
-    removeRodIngot(id, protons, neutrons, blast, vacuum, liquids, ore, liquids2, superheat);
+function removeAdvancedIngot(id as int, protons as int, neutrons as int, blast as bool, cool as bool, cut as int[], ore as IItemStack, bolt as int[], products as bool[], super as bool = false, frame as IItemStack = null, poly as bool = false) {
+    var fluid = RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).fluidOutputs[0].definition;
+    removeRodIngot(id, protons, neutrons, blast, cool, cut, ore, bolt, super, poly);
     //Hide special products from JEI
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 18000));
     removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 18000));
@@ -61,9 +61,9 @@ function removeAdvancedIngot(id as int, protons as int, neutrons as int, blast a
     removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 26000));
     if (!isNull(frame))removeAndHide(frame.anyDamage());
     //Remove special product recipes
-    var mult = superheat ? 16 : blast ? 4 : 1;
+    var mult = super ? 16 : blast ? 4 : 1;
     if (products[0]) {
-        RecipeMap.getByName("extruder").findRecipe(superheat ? 192 : 48, [<gregtech:meta_item_1>.definition.makeStack(id + 10000), <gregtech:meta_item_1:32353>], null).remove();
+        RecipeMap.getByName("extruder").findRecipe(super ? 192 : 48, [<gregtech:meta_item_1>.definition.makeStack(id + 10000), <gregtech:meta_item_1:32353>], null).remove();
         RecipeMap.getByName("macerator").findRecipe(8 * mult, [<gregtech:meta_item_1>.definition.makeStack(id + 18000)], null).remove();
         RecipeMap.getByName("arc_furnace").findRecipe(30 * mult, [<gregtech:meta_item_1>.definition.makeStack(id + 18000)], [<liquid:oxygen> * 15]).remove();
         RecipeMap.getByName("fluid_extractor").findRecipe(32 * mult, [<gregtech:meta_item_1>.definition.makeStack(id + 18000)], null).remove();
@@ -82,7 +82,7 @@ function removeAdvancedIngot(id as int, protons as int, neutrons as int, blast a
     }
     if (products[3]) {
         RecipeMap.getByName("wiremill").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 10000)], null).remove();
-        if(products[6]) RecipeMap.getByName("extruder").findRecipe(superheat ? 192 : 48, [<gregtech:meta_item_1>.definition.makeStack(id + 10000), <gregtech:meta_item_1:32356>], null).remove();
+        if(products[6]) RecipeMap.getByName("extruder").findRecipe(super ? 192 : 48, [<gregtech:meta_item_1>.definition.makeStack(id + 10000), <gregtech:meta_item_1:32356>], null).remove();
         RecipeMap.getByName("macerator").findRecipe(8 * mult, [<gregtech:meta_item_2>.definition.makeStack(id + 16000)], null).remove();
         RecipeMap.getByName("arc_furnace").findRecipe(30 * mult, [<gregtech:meta_item_2>.definition.makeStack(id + 16000)], [<liquid:oxygen> * 7]).remove();
         RecipeMap.getByName("fluid_extractor").findRecipe(32 * mult, [<gregtech:meta_item_2>.definition.makeStack(id + 16000)], null).remove();
@@ -95,8 +95,8 @@ function removeAdvancedIngot(id as int, protons as int, neutrons as int, blast a
         RecipeMap.getByName("fluid_extractor").findRecipe(32 * mult, [<gregtech:meta_item_2>.definition.makeStack(id + 17000)], null).remove();
     }
     if (products[5]) {
-        RecipeMap.getByName("extruder").findRecipe(superheat ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 4, <gregtech:meta_item_1:32372>], null).remove();
-        RecipeMap.getByName("alloy_smelter").findRecipe(superheat ? 64 : 16, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 8, <gregtech:meta_item_1:32303>], null).remove();
+        RecipeMap.getByName("extruder").findRecipe(super ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 4, <gregtech:meta_item_1:32372>], null).remove();
+        RecipeMap.getByName("alloy_smelter").findRecipe(super ? 64 : 16, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 8, <gregtech:meta_item_1:32303>], null).remove();
         RecipeMap.getByName("fluid_solidifier").findRecipe(8, [<gregtech:meta_item_1:32303>], [fluid * 576]).remove();
         RecipeMap.getByName("macerator").findRecipe(8 * mult, [<gregtech:meta_item_2>.definition.makeStack(id + 26000)], null).remove();
         RecipeMap.getByName("arc_furnace").findRecipe(30 * mult, [<gregtech:meta_item_2>.definition.makeStack(id + 26000)], [<liquid:oxygen> * 240]).remove();
@@ -113,8 +113,8 @@ function removeAdvancedIngot(id as int, protons as int, neutrons as int, blast a
 /**
 * Function that removes a rod + ingot combo and consitutent parts from the game
 */
-function removeRodIngot(id as int, protons as int, neutrons as int, blast as bool, vacuum as bool, liquids as int[], ore as IItemStack, liquids2 as int[], superheat as bool = false) {
-    removeBasicIngot(id, protons, neutrons, blast, vacuum, true, liquids, ore, superheat);
+function removeRodIngot(id as int, protons as int, neutrons as int, blast as bool, cool as bool, cut as int[], ore as IItemStack, bolt as int[], super as bool = false, poly as bool = false) {
+    removeBasicIngot(id, protons, neutrons, blast, cool, true, cut, ore, super, poly);
     //Hide rod products from JEI
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 14000));
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 16000));
@@ -122,49 +122,49 @@ function removeRodIngot(id as int, protons as int, neutrons as int, blast as boo
     removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 19000));
     //Remove rod product recipes
     RecipeMap.getByName("lathe").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 10000)], null).remove();
-    RecipeMap.getByName("extruder").findRecipe(superheat ? 192 : 48, [<gregtech:meta_item_1>.definition.makeStack(id + 10000), <gregtech:meta_item_1:32351>], null).remove();
-    RecipeMap.getByName("macerator").findRecipe(superheat ? 128 : blast ? 32 : 8, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], null).remove();
-    RecipeMap.getByName("arc_furnace").findRecipe(superheat ? 480 : blast ? 120 : 30, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:oxygen> * 30]).remove();
-    RecipeMap.getByName("fluid_extractor").findRecipe(superheat ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], null).remove();
-    if (!isNull(liquids2)) {
+    if (!poly) RecipeMap.getByName("extruder").findRecipe(super ? 192 : 48, [<gregtech:meta_item_1>.definition.makeStack(id + 10000), <gregtech:meta_item_1:32351>], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(super ? 128 : blast ? 32 : 8, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], null).remove();
+    RecipeMap.getByName("arc_furnace").findRecipe(super ? 480 : blast ? 120 : 30, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:oxygen> * 30]).remove();
+    RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], null).remove();
+    if (!isNull(bolt)) {
         //Long rod
         RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 14000) * 2], null).remove();
-        RecipeMap.getByName("macerator").findRecipe(superheat ? 128 : blast ? 32 : 8, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], null).remove();
-        RecipeMap.getByName("arc_furnace").findRecipe(superheat ? 480 : blast ? 120 : 30, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:oxygen> * 60]).remove();
-        RecipeMap.getByName("fluid_extractor").findRecipe(superheat ? 512 : blast ? 128 : 32, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], null).remove();
-        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:water> * liquids2[3]]).remove();
-        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:distilled_water> * liquids2[4]]).remove();
-        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:lubricant> * liquids2[5]]).remove();
+        RecipeMap.getByName("macerator").findRecipe(super ? 128 : blast ? 32 : 8, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], null).remove();
+        RecipeMap.getByName("arc_furnace").findRecipe(super ? 480 : blast ? 120 : 30, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:oxygen> * 60]).remove();
+        RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], null).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:water> * bolt[3]]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:distilled_water> * bolt[4]]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], [<liquid:lubricant> * bolt[5]]).remove();
         //Bolt
         RecipeMap.getByName("extruder").findRecipe(120, [<gregtech:meta_item_1>.definition.makeStack(id + 10000), <gregtech:meta_item_1:32352>], null).remove();
-        RecipeMap.getByName("macerator").findRecipe(superheat ? 128 : blast ? 32 : 8, [<gregtech:meta_item_1>.definition.makeStack(id + 16000)], null).remove();
-        RecipeMap.getByName("arc_furnace").findRecipe(superheat ? 480 : blast ? 120 : 30, [<gregtech:meta_item_1>.definition.makeStack(id + 16000)], [<liquid:oxygen> * 7]).remove();
-        RecipeMap.getByName("fluid_extractor").findRecipe(superheat ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 16000)], null).remove();
-        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:water> * liquids2[0]]).remove();
-        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:distilled_water> * liquids2[1]]).remove();
-        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:lubricant> * liquids2[2]]).remove();
-        RecipeMap.getByName("cutting_saw").findRecipe(24, [<gregtech:meta_item_1>.definition.makeStack(id + 17000)], [<liquid:water> * liquids2[3]]).remove();
-        RecipeMap.getByName("cutting_saw").findRecipe(24, [<gregtech:meta_item_1>.definition.makeStack(id + 17000)], [<liquid:distilled_water> * liquids2[4]]).remove();
-        RecipeMap.getByName("cutting_saw").findRecipe(24, [<gregtech:meta_item_1>.definition.makeStack(id + 17000)], [<liquid:lubricant> * liquids2[5]]).remove();
+        RecipeMap.getByName("macerator").findRecipe(super ? 128 : blast ? 32 : 8, [<gregtech:meta_item_1>.definition.makeStack(id + 16000)], null).remove();
+        RecipeMap.getByName("arc_furnace").findRecipe(super ? 480 : blast ? 120 : 30, [<gregtech:meta_item_1>.definition.makeStack(id + 16000)], [<liquid:oxygen> * 7]).remove();
+        RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 16000)], null).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:water> * bolt[0]]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:distilled_water> * bolt[1]]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:lubricant> * bolt[2]]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(24, [<gregtech:meta_item_1>.definition.makeStack(id + 17000)], [<liquid:water> * bolt[3]]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(24, [<gregtech:meta_item_1>.definition.makeStack(id + 17000)], [<liquid:distilled_water> * bolt[4]]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(24, [<gregtech:meta_item_1>.definition.makeStack(id + 17000)], [<liquid:lubricant> * bolt[5]]).remove();
         //Screw
         RecipeMap.getByName("lathe").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 16000)], null).remove();
-        RecipeMap.getByName("macerator").findRecipe(superheat ? 128 : blast ? 32 : 8, [<gregtech:meta_item_1>.definition.makeStack(id + 17000)], null).remove();
-        RecipeMap.getByName("arc_furnace").findRecipe(superheat ? 480 : blast ? 120 : 30, [<gregtech:meta_item_1>.definition.makeStack(id + 17000)], [<liquid:oxygen> * 7]).remove();
-        RecipeMap.getByName("fluid_extractor").findRecipe(superheat ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 17000)], null).remove();
+        RecipeMap.getByName("macerator").findRecipe(super ? 128 : blast ? 32 : 8, [<gregtech:meta_item_1>.definition.makeStack(id + 17000)], null).remove();
+        RecipeMap.getByName("arc_furnace").findRecipe(super ? 480 : blast ? 120 : 30, [<gregtech:meta_item_1>.definition.makeStack(id + 17000)], [<liquid:oxygen> * 7]).remove();
+        RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 17000)], null).remove();
     }
 }
                                      
 /**
 * Function that removes a basic ingot and its constituent parts from the game - doesn't do cable/pipe/rotor/etc, just basic ingot parts. Does no special recipes
 */
-function removeBasicIngot(id as int, protons as int, neutrons as int, blast as bool, vacuum as bool, plate as bool, liquids as int[], ore as IItemStack, superheat as bool = false) {
-    print("Removing ingot material for "  + id + " with" + (vacuum ? " superheated" : blast ? " high-temperature" : "") + " smelting");
-    removeDust(id, 0, protons, neutrons, true, blast, vacuum, false, ore, superheat);
-    var fluid = RecipeMap.getByName("fluid_extractor").findRecipe(superheat ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).fluidOutputs[0].definition;
+function removeBasicIngot(id as int, protons as int, neutrons as int, blast as bool, cool as bool, plate as bool, cut as int[], ore as IItemStack, super as bool = false, poly as bool = false) {
+    print("Removing ingot material for "  + id + " with" + (cool ? " supered" : blast ? " high-temperature" : "") + " smelting");
+    removeDust(id, 0, protons, neutrons, true, blast, cool, false, ore, super);
+    var fluid = RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).fluidOutputs[0].definition;
     //Hide ingot/etc in JEI
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 9000));
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 10000));
-    if (vacuum) removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 11000));
+    if (cool) removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 11000));
     if (plate) removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 12000));
     //Remove smelting recipes for ingots & nuggets
     if (!blast) { 
@@ -172,21 +172,21 @@ function removeBasicIngot(id as int, protons as int, neutrons as int, blast as b
         furnace.remove(<gregtech:meta_item_1>.definition.makeStack(id + 9000));
     } else { 
         RecipeMap.getByName("blast_furnace").findRecipe(120, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], [null]).remove();
-        if (!vacuum) RecipeMap.getByName("blast_furnace").findRecipe(120, [<gregtech:meta_item_1>.definition.makeStack(id)], [null]).remove();
+        if (!cool) RecipeMap.getByName("blast_furnace").findRecipe(120, [<gregtech:meta_item_1>.definition.makeStack(id)], [null]).remove();
     }
-    if (vacuum) RecipeMap.getByName("vacuum_freezer").findRecipe(120, [<gregtech:meta_item_1>.definition.makeStack(id + 11000)], [null]).remove();
+    if (cool) RecipeMap.getByName("vacuum_freezer").findRecipe(120, [<gregtech:meta_item_1>.definition.makeStack(id + 11000)], [null]).remove();
     //Remove maceration recipes for ingot-type components\
-    RecipeMap.getByName("macerator").findRecipe(superheat ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).remove();
-    RecipeMap.getByName("macerator").findRecipe(superheat ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 10000)], null).remove();
-    if (plate) RecipeMap.getByName("macerator").findRecipe(superheat ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(super ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(super ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 10000)], null).remove();
+    if (plate) RecipeMap.getByName("macerator").findRecipe(super ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], null).remove();
     //Remove block recipes
-    RecipeMap.getByName("alloy_smelter").findRecipe(superheat ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 9, <gregtech:meta_item_1:32308>], null).remove();
-    RecipeMap.getByName("extruder").findRecipe(superheat ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 9, <gregtech:meta_item_1:32363>], null).remove();
+    RecipeMap.getByName("alloy_smelter").findRecipe(super ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 9, <gregtech:meta_item_1:32308>], null).remove();
+    RecipeMap.getByName("extruder").findRecipe(super ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 9, <gregtech:meta_item_1:32363>], null).remove();
     //Remove melting & forming recipes
-    RecipeMap.getByName("fluid_extractor").findRecipe(superheat ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).remove();
-    RecipeMap.getByName("fluid_extractor").findRecipe(superheat ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 10000)], null).remove();
-    RecipeMap.getByName("fluid_extractor").findRecipe(superheat ? 512 : blast ? 128 : 32, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], null).remove();
-    if (plate) RecipeMap.getByName("fluid_extractor").findRecipe(superheat ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], null).remove();
+    RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).remove();
+    RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 10000)], null).remove();
+    RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], null).remove();
+    if (plate) RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], null).remove();
     RecipeMap.getByName("fluid_solidifier").findRecipe(8, [<gregtech:meta_item_1:32309>], [fluid * 144]).remove();
     RecipeMap.getByName("fluid_solidifier").findRecipe(8, [<gregtech:meta_item_1:32306>], [fluid * 144]).remove();
     RecipeMap.getByName("fluid_solidifier").findRecipe(8, [<gregtech:meta_item_1:32308>], [fluid * 1296]).remove();
@@ -197,23 +197,25 @@ function removeBasicIngot(id as int, protons as int, neutrons as int, blast as b
     RecipeMap.getByName("packer").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id + 9000) * 9, <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], null).remove();
     RecipeMap.getByName("packer").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 9000) * 9, <gtadditions:ga_meta_item:32133>], null).remove();
     //Arc furnacing of plates
-    if (plate) RecipeMap.getByName("arc_furnace").findRecipe(superheat ? 480 : blast ? 120 : 30, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], [<liquid:oxygen> * 60]).remove();
+    if (plate) RecipeMap.getByName("arc_furnace").findRecipe(super ? 480 : blast ? 120 : 30, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], [<liquid:oxygen> * 60]).remove();
     //Remove platemaking recipes
     if (plate) {
-        RecipeMap.getByName("alloy_smelter").findRecipe(superheat ? 64 : 16, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 2, <gregtech:meta_item_1:32301>], null).remove();
-        RecipeMap.getByName("extruder").findRecipe(superheat ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000), <gregtech:meta_item_1:32350>], null).remove();
-        RecipeMap.getByName("metal_bender").findRecipe(24, [<gregtech:meta_item_1>.definition.makeStack(id + 10000), <gregtech:meta_item_1:32766>.withTag({Configuration: 0})], null).remove();
-        RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 3], null).remove();
-        RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:water> * liquids[0]]).remove();
-        RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:distilled_water> * liquids[1]]).remove();
-        RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:lubricant> * liquids[2]]).remove();
+        if (!poly) {
+            RecipeMap.getByName("alloy_smelter").findRecipe(super ? 64 : 16, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 2, <gregtech:meta_item_1:32301>], null).remove();
+            RecipeMap.getByName("extruder").findRecipe(super ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000), <gregtech:meta_item_1:32350>], null).remove();
+            RecipeMap.getByName("metal_bender").findRecipe(24, [<gregtech:meta_item_1>.definition.makeStack(id + 10000), <gregtech:meta_item_1:32766>.withTag({Configuration: 0})], null).remove();
+            RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 3], null).remove();
+        }
+        RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:water> * cut[0]]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:distilled_water> * cut[1]]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:lubricant> * cut[2]]).remove();
     }
 }
 
 /**
 * Function that removes a gem and its constituent parts from the game - this does the whole shebang
 */
-function removeGem(id as int, size as int, protons as int, neutrons as int, electrolyze as bool, tool as bool, ore as IItemStack, liquids as int[], lens as bool = true, rod as bool = true) {
+function removeGem(id as int, size as int, protons as int, neutrons as int, electrolyze as bool, tool as bool, ore as IItemStack, cut as int[], lens as bool = true, rod as bool = true) {
     print("Removing gem material for " + id);
     removeDust(id, size, protons, neutrons, true, false, false, electrolyze, ore, false, true);
     //Hide components from JEI
@@ -239,7 +241,7 @@ function removeGem(id as int, size as int, protons as int, neutrons as int, elec
     }
     //Gem production recipes
     furnace.remove(<gregtech:meta_item_1>.definition.makeStack(id + 8000));
-    RecipeMap.getByName("implosion_compressor").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(id + 2000) * 4, <minecraft:tnt> * 2], null).remove();
+    if (id != 203) RecipeMap.getByName("implosion_compressor").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(id + 2000) * 4, <minecraft:tnt> * 2], null).remove();
     //Remove forge hammer recipes for gems
     RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
     if (rod) RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 14000) * 2], null).remove();
@@ -249,8 +251,8 @@ function removeGem(id as int, size as int, protons as int, neutrons as int, elec
     RecipeMap.getByName("forge_hammer").findRecipe(24, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], null).remove();
     //Remove macerator recipes
     RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
-    RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], null).remove();
-    if (rod)RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], null).remove();
+    if (id != 203) RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], null).remove();
+    if (rod) RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], null).remove();
     if (lens) RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 15000)], null).remove();
     if (rod) RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(id + 16000)], null).remove();
     if (rod) RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 19000)], null).remove();
@@ -259,7 +261,7 @@ function removeGem(id as int, size as int, protons as int, neutrons as int, elec
     RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 24000)], null).remove();
     RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 25000)], null).remove();
     //Remove lathe and other recipes for gems
-    if (rod)RecipeMap.getByName("lathe").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
+    if (rod) RecipeMap.getByName("lathe").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
     if (lens) RecipeMap.getByName("lathe").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], null).remove();
     //Cutting saw
     if (rod) {
@@ -273,15 +275,17 @@ function removeGem(id as int, size as int, protons as int, neutrons as int, elec
         RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:lubricant> * 1]).remove();
     }
     //Plate
-    RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:water> * liquids[0]]).remove();
-    RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:distilled_water> * liquids[1]]).remove();
-    RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:lubricant> * liquids[2]]).remove();
+    if (id != 203) {
+        RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:water> * cut[0]]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:distilled_water> * cut[1]]).remove();
+        RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:lubricant> * cut[2]]).remove();
+    }
 }
 
 /**
 * Function that removes a dust and its constituent parts from the game - this does nothing about _ingot_ parts, just dust. Does no special recipes
 */
-function removeDust(id as int, size as int, protons as int, neutrons as int, ingot as bool, blast as bool, vacuum as bool, electrolyze as bool, ore as IItemStack, superheat as bool = false, gem as bool = false) {
+function removeDust(id as int, size as int, protons as int, neutrons as int, ingot as bool, blast as bool, cool as bool, electrolyze as bool, ore as IItemStack, super as bool = false, gem as bool = false) {
     if (!ingot) print("Removing dust material for " + id);
     if (!isNull(ore)) removeOre(id, ore, gem, ingot);
     //Hide the requisite items from JEI
@@ -291,7 +295,7 @@ function removeDust(id as int, size as int, protons as int, neutrons as int, ing
     removeAndHide(gtBlockID[(id/16) as int].definition.makeStack(id % 16));
     //Remove recipes for the block and for block decomposition
     RecipeMap.getByName("unpacker").findRecipe(8, [gtBlockID[(id/16) as int].definition.makeStack(id % 16), <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], null).remove();
-    RecipeMap.getByName("macerator").findRecipe(superheat ? 128 : ingot ? 32 : 8, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], null).remove();
+    RecipeMap.getByName("macerator").findRecipe(super ? 128 : ingot ? 32 : 8, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], null).remove();
     if (!ingot) RecipeMap.getByName("forge_hammer").findRecipe(24, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], null).remove();
     //Remove recipes for tiny and small dusts
     RecipeMap.getByName("unpacker").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id + 2000), <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], null).remove();
@@ -443,7 +447,7 @@ function removeAllCentrifugedOres() as void {
 * Retools all sifter recipes to not have or use flawed or chipped gems, instead producing small and tiny dusts and removing flawed/chips from JEI
 */
 function recalibrateAllSifterRecipes() as void {
-    var ids = [85, 103, 106, 111, 113, 122, 128, 154, 161, 201, 202, 203, 209, 211, 212, 216, 226, 243, 244, 281, 357] as int[];
+    var ids = [85, 103, 106, 111, 113, 128, 154, 161, 201, 202, 209, 211, 212, 216, 226, 281, 357] as int[];
     print("Removing all chipped and flawed gems from JEI as well as their recipes");
     //Remove default recipes
     for recipe in RecipeMap.getByName("sifter").recipes {
