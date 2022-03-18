@@ -6,6 +6,8 @@ import mods.gregtech.material.MaterialCasting;
 
 
 
+print("Editing the properties of some materials to make them better suited for their roles");
+
 /**
 * Edit brass, vanadiumsteel, and cobalt brass! We want them to have as much as bronze has in terms of parts
 */
@@ -34,3 +36,5 @@ MaterialCasting.toIngot(MaterialRegistry.get("tungsten_steel")).setFluidPipeProp
 */
 MaterialRegistry.get("magnalium").addFlags(["GENERATE_FRAME"]);
 MaterialRegistry.get("vanadium_gallium").addFlags(["GENERATE_FINE_WIRE"]);
+//Nitrobenzene, for the proper production of oil-derivate epoxids
+MaterialRegistry.createFluidMaterial(982, "nitrobenzene", 0xFFFBBE, "fluid");

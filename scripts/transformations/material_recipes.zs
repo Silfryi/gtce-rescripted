@@ -6,6 +6,8 @@ import mods.gregtech.recipe.RecipeMap;
 
 
 
+print("Changing recipes using disabled materials to using their enabled substituions");
+
 //Add table brass recipes for bronze (disabled) items
 recipes.remove(<gregtech:machine:2208>);
 recipes.remove(<gregtech:machine:2196>);
