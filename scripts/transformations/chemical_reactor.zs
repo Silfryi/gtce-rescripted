@@ -54,37 +54,6 @@ RecipeMap.getByName("distillery").recipeBuilder()
 
 
 /**
-* Make sure electrolyzer recipes follow the same schema throughout - 1 mol of something is # of atoms in it * (buckets|dust|ingots) - and that's how it separates out by #
-*/
-
-//Apatite
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2226> * 9], null).remove();
-RecipeMap.getByName("electrolyzer").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2226> * 21])
-    .outputs([<gregtech:meta_item_1:2011> * 5, <gregtech:meta_item_1:2139> * 15])
-    .fluidOutputs([<liquid:chlorine> * 1000])
-    .duration(2304).EUt(60).buildAndRegister();
-
-//Saltwater
-RecipeMap.getByName("electrolyzer").findRecipe(30, null, [<liquid:salt_water> * 1000]).remove();
-RecipeMap.getByName("electrolyzer").recipeBuilder()
-    .fluidInputs([<liquid:salt_water> * 5000])
-    .outputs([<gregtech:meta_item_1:2373> * 3])
-    .fluidOutputs([<liquid:chlorine> * 1000, <liquid:hydrogen> * 1000])
-    .duration(720).EUt(30).buildAndRegister();
-
-//Phosphoric Acid
-RecipeMap.getByName("electrolyzer").findRecipe(60, null, [<liquid:phosphoric_acid> * 1000]).remove();
-RecipeMap.getByName("electrolyzer").recipeBuilder()
-    .fluidInputs([<liquid:phosphoric_acid> * 8000])
-    .outputs([<gregtech:meta_item_1:2050>])
-    .fluidOutputs([<liquid:hydrogen> * 3000, <liquid:oxygen> * 4000])
-    .duration(384).EUt(60).buildAndRegister();
-
-
-
-
-/**
 * Fix the relatively few errors in mixer mixing that later cause issues with the electrolyzer and chemical reactor when their products intersect
 */
 
@@ -97,7 +66,6 @@ RecipeMap.getByName("mixer").findRecipe(2, null, [<liquid:nitric_acid> * 1000, <
 RecipeMap.getByName("mixer").recipeBuilder().fluidInputs([<liquid:nitric_acid> * 5000, <liquid:sulfuric_acid> * 7000]).fluidOutputs([<liquid:nitration_mixture> * 12000]).duration(500).EUt(2).buildAndRegister();
 
 
- 
 
 /**
 * Fix the massive number of errors in the chemical reactor compared to how significant portions of the electrolyzer do their recipes
