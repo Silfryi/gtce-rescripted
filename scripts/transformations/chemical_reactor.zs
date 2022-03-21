@@ -24,33 +24,27 @@ RecipeMap.getByName("distillation_tower").recipeBuilder()
     .fluidInputs([<liquid:diluted_sulfuric_acid> * 1000])
     .fluidOutputs([<liquid:sulfuric_acid> * 630, <liquid:water> * 370])
     .duration(100).EUt(120).buildAndRegister();
-RecipeMap.getByName("distillery").recipeBuilder()
-    .notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 0}))
-    .fluidInputs([<liquid:diluted_sulfuric_acid> * 1000])
-    .fluidOutputs([<liquid:sulfuric_acid> * 630])
-    .duration(200).EUt(30).buildAndRegister();
-RecipeMap.getByName("distillery").recipeBuilder()
-    .notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 1}))
-    .fluidInputs([<liquid:diluted_sulfuric_acid> * 1000])
-    .fluidOutputs([<liquid:water> * 370])
-    .duration(200).EUt(30).buildAndRegister();
 
 // Dilute Hydrochloric Acid
 RecipeMap.getByName("distillation_tower").findRecipe(64, [], [<liquid:diluted_hydrochloric_acid> * 2000]).remove();
 RecipeMap.getByName("distillery").findRecipe(16, [<gregtech:meta_item_1:32766>.withTag({Configuration: 0})], [<liquid:diluted_hydrochloric_acid> * 2000]).remove();
 RecipeMap.getByName("distillery").findRecipe(16, [<gregtech:meta_item_1:32766>.withTag({Configuration: 1})], [<liquid:diluted_hydrochloric_acid> * 2000]).remove();
-RecipeMap.getByName("distillation_tower").recipeBuilder().fluidInputs([<liquid:diluted_hydrochloric_acid> * 1000]).fluidOutputs([<liquid:hydrochloric_acid> * 360, <liquid:water> * 640]).duration(100).EUt(64).buildAndRegister();
-RecipeMap.getByName("distillery").recipeBuilder()
-    .notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 0}))
+RecipeMap.getByName("distillation_tower").recipeBuilder()
     .fluidInputs([<liquid:diluted_hydrochloric_acid> * 1000])
-    .fluidOutputs([<liquid:hydrochloric_acid> * 360])
-    .duration(200).EUt(16).buildAndRegister();
-RecipeMap.getByName("distillery").recipeBuilder()
-    .notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 1}))
-    .fluidInputs([<liquid:diluted_hydrochloric_acid> * 1000])
-    .fluidOutputs([<liquid:water> * 640])
-    .duration(200).EUt(16).buildAndRegister();
+    .fluidOutputs([<liquid:hydrochloric_acid> * 360, <liquid:water> * 640])
+    .duration(100).EUt(64).buildAndRegister();
 
+//Dissolved Calcium Acetate
+RecipeMap.getByName("distillation_tower").findRecipe(120, [], [<liquid:calcium_acetate> * 1000]).remove();
+RecipeMap.getByName("distillery").findRecipe(30, [<gregtech:meta_item_1:32766>.withTag({Configuration: 0})], [<liquid:calcium_acetate> * 1000]).remove();
+RecipeMap.getByName("distillery").findRecipe(30, [<gregtech:meta_item_1:32766>.withTag({Configuration: 1})], [<liquid:calcium_acetate> * 1000]).remove();
+RecipeMap.getByName("distillery").findRecipe(30, [<gregtech:meta_item_1:32766>.withTag({Configuration: 2})], [<liquid:calcium_acetate> * 1000]).remove();
+RecipeMap.getByName("distillation_tower").recipeBuilder()
+    .fluidInputs([<liquid:calcium_acetate> * 18000])
+    .outputs([<gregtech:meta_item_1:2374> * 2])
+    .fluidOutputs([<liquid:acetone> * 10000, <liquid:carbon_dioxide> * 3000, <liquid:water> * 3000])
+    .duration(80).EUt(120).buildAndRegister();
+    
 
 
 /**
@@ -426,7 +420,7 @@ RecipeMap.getByName("chemical_reactor").recipeBuilder()
 
 //Cumene
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [], [<liquid:benzene> * 8000, <liquid:propene> * 8000, <liquid:phosphoric_acid> * 1000]).remove();
-RecipeMap.getByName("chemical_reactor").recipeBuilder().fluidInputs([<liquid:benzene> * 12000, <liquid:propene> * 9000]).fluidOutputs([<liquid:cumene> * 21000, <liquid:phosphoric_acid> * 100]).duration(1920).EUt(30).buildAndRegister();
+RecipeMap.getByName("chemical_reactor").recipeBuilder().fluidInputs([<liquid:benzene> * 12000, <liquid:propene> * 9000, <liquid:phosphoric_acid> * 100]).fluidOutputs([<liquid:cumene> * 21000]).duration(1920).EUt(30).buildAndRegister();
 
 //Tetrafluoroethylene
 RecipeMap.getByName("chemical_reactor").findRecipe(256, [null], [<liquid:chloroform> * 2000, <liquid:hydrofluoric_acid> * 4000]).remove();

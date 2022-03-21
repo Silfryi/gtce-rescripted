@@ -38,3 +38,10 @@ MaterialRegistry.get("magnalium").addFlags(["GENERATE_FRAME"]);
 MaterialRegistry.get("vanadium_gallium").addFlags(["GENERATE_FINE_WIRE"]);
 //Nitrobenzene, for the proper production of oil-derivate epoxids
 MaterialRegistry.createFluidMaterial(982, "nitrobenzene", 0xFFFBBE, "fluid");
+//Dusts needed for ore production
+MaterialRegistry.createDustMaterial(983, "sperrylite", 0xB6C199, "sand", 0, [<material:platinum> * 1, <material:sulfur> * 2]);
+MaterialRegistry.createDustMaterial(984, "sperrylite_omeiite", 0xD5D5C2, "sand", 0, [<material:sperrylite> * 5, <material:osmiridium> * 1, <material:sulfur> * 4]);
+MaterialRegistry.createDustMaterial(985, "barium_peroxide", 0xF0F0F0, "dull", 0, [<material:barium> * 1, <material:oxygen> * 2]);
+MaterialRegistry.get("sperrylite").addFlags(["DISABLE_DECOMPOSITION"]);
+MaterialRegistry.get("sperrylite_omeiite").addFlags(["DISABLE_DECOMPOSITION"]);
+MaterialRegistry.get("barium_peroxide").addFlags(["DISABLE_DECOMPOSITION"]);

@@ -40,6 +40,7 @@ removeDust(275, 21, 193, 192, false, false, false, true, <gregtech:ore_glauconit
 removeDust(276, 21, 193, 192, false, false, false, true, null);
 removeDust(277, 29, 324, 326, false, false, false, true, null);
 removeDust(279, 21, 197, 188, false, false, false, true, null);
+removeDust(282, 10, 106, 114, false, false, false, true, <gregtech:ore_malachite_0>);
 removeDust(283, 17, 170, 150, false, false, false, true, null);
 removeDust(284, 19, 198, 199, false, false, false, true, null);
 removeDust(285, 14, 114, 109, false, false, false, true, null);
@@ -179,6 +180,9 @@ RecipeMap.getByName("blast_furnace").findRecipe(120, [<gregtech:meta_item_1>.def
 //Ultimet and High Speed Steels, because they're BS and I don't care
 recipes.removeByRegex(".*(ultimet).*");
 removePipe(192, 4);
+RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:17> * 5, <gregtech:meta_item_1:44>, <gregtech:meta_item_1:41>, <gregtech:meta_item_1:16> * 2], null).remove();
+RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:1017> * 5, <gregtech:meta_item_1:1044>, <gregtech:meta_item_1:1041>, <gregtech:meta_item_1:1016> * 2], null).remove();
+RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:2017> * 5, <gregtech:meta_item_1:2044>, <gregtech:meta_item_1:2041>, <gregtech:meta_item_1:2016> * 2], null).remove();
 removeTool(192, 253, 299, true, true, [45, 34, 11], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false], true);
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(192 + 2000) * 9], null).remove();
 recipes.removeByRegex(".*(hssg).*");
@@ -228,6 +232,7 @@ RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2026> * 4, <gr
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(228 + 2000) * 5], null).remove();
 
 //Miscelanous materials that need removing
+removeBasicIngot(6, 56, 81, false, false, false, null, null);
 removeGem(203, 0, 0, 0, false, false, <gregtech:ore_quartzite_0>, null, false, false);
 removeAdvancedIngot(297, 26, 30, false, false, [42, 31, 10], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(297 + 2000)], null).remove();
