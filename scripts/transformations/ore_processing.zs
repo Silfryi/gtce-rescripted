@@ -2,6 +2,10 @@ import mods.gregtech.recipe.RecipeMap;
 import mods.gregtech.recipe.RecipeMaps;
 import mods.gregtech.material.MaterialRegistry;
 
+
+
+print("Transforming most electrorefining ore processing recipes into blast furnace pyroprocessing recipes");
+
 /**
 * Remove now-unnecessary and frankly ridiculous recipes for electrorefining of metal ores that should be using pyroprocessing
 *//*
@@ -20,7 +24,6 @@ RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2148> 
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2286> * 6], []).remove();
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2114> * 8], []).remove();
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2103> * 2], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2132> * 3], []).remove();
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2146> * 6], []).remove();
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2198> * 6], []).remove();
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2149> * 3], []).remove();
@@ -132,12 +135,6 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .outputs([<gregtech:meta_item_1:10039>, <gregtech:meta_item_1:10066> * 2])
     .fluidOutputs([<liquid:carbon_dioxide> * 9000])
     .property("temperature", 1800).duration(864).EUt(120).buildAndRegister();
-//Barium
-RecipeMap.getByName("blast_furnace").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2286> * 12, <gregtech:meta_item_1:2012>])
-    .outputs([<gregtech:meta_item_1:2985> * 4])
-    .fluidOutputs([<liquid:carbon_dioxide> * 3000, <liquid:sulfur_dioxide> * 6000])
-    .property("temperature", 1800).duration(408).EUt(120).buildAndRegister();
     
 
 
@@ -235,13 +232,6 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .outputs([<gregtech:meta_item_1:10039>, <gregtech:meta_item_1:10066> * 2])
     .fluidOutputs([<liquid:water> * 18000])
     .property("temperature", 1800).duration(864).EUt(120).buildAndRegister();
-//Barium
-RecipeMap.getByName("blast_furnace").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2286> * 6])
-    .fluidInputs([<liquid:hydrogen> * 4000])
-    .outputs([<gregtech:meta_item_1:10006>])
-    .fluidOutputs([<liquid:water> * 6000, <liquid:sulfur_dioxide> * 3000])
-    .property("temperature", 1800).duration(408).EUt(120).buildAndRegister();
 
 
 
@@ -271,8 +261,14 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2188> * 8])
     .fluidInputs([<liquid:oxygen> * 6000])
-    .outputs([<gregtech:meta_item_1:10018> * 3, <gregtech:meta_item_1:10003>]) // <gregtech:meta_item_1:10140>, -- we can't use this because of RM restrictions >:(
+    .outputs([<gregtech:meta_item_1:10018> * 3, <gregtech:meta_item_1:10003>]) // <gregtech:meta_item_1:10140>, -- we can't use this because of RM restrictions, so we have a less lossy one below >:(
     .fluidOutputs([<liquid:sulfur_dioxide> * 9000])
+    .property("temperature", 1800).duration(832).EUt(120).buildAndRegister();
+RecipeMap.getByName("blast_furnace").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2188> * 8, <gregtech:meta_item_1:2148> * 6])
+    .fluidInputs([<liquid:oxygen> * 2000])
+    .outputs([<gregtech:meta_item_1:2100> * 12, <gregtech:meta_item_1:2003>])
+    .fluidOutputs([<liquid:sulfur_dioxide> * 3000])
     .property("temperature", 1800).duration(832).EUt(120).buildAndRegister();
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2361> * 3])
@@ -288,6 +284,12 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .fluidOutputs([<liquid:sulfur_dioxide> * 24000])
     .property("temperature", 1800).duration(1496).EUt(120).buildAndRegister();
 //Platinum-group metals
+RecipeMap.getByName("blast_furnace").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2108> * 6])
+    .fluidInputs([<liquid:oxygen> * 2000])
+    .outputs([<gregtech:meta_item_1:10051> * 3, <gregtech:meta_item_1:10049>])
+    .fluidOutputs([<liquid:sulfur_dioxide> * 3000])
+    .property("temperature", 1800).duration(624).EUt(120).buildAndRegister();
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2983> * 3])
     .fluidInputs([<liquid:oxygen> * 2000])
@@ -321,18 +323,6 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .outputs([<gregtech:meta_item_1:10003> * 2])
     .fluidOutputs([<liquid:sulfur_dioxide> * 9000])
     .property("temperature", 1800).duration(300).EUt(120).buildAndRegister();
-//Barium Oxide
-RecipeMap.getByName("blast_furnace").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2286> * 6])
-    .outputs([<gregtech:meta_item_1:2985> * 3])
-    .fluidOutputs([<liquid:sulfur_dioxide> * 3000])
-    .property("temperature", 1800).duration(408).EUt(120).buildAndRegister();
-//Mercury
-RecipeMap.getByName("blast_furnace").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2103> * 2])
-    .outputs([<gregtech:meta_item_1:2065>])
-    .fluidOutputs([<liquid:mercury> * 1000])
-    .property("temperature", 1800).duration(192).EUt(120).buildAndRegister();
 
     
     
@@ -362,8 +352,14 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2188> * 8])
     .fluidInputs([<liquid:air> * 30000])
-    .outputs([<gregtech:meta_item_1:10018> * 3, <gregtech:meta_item_1:10003>]) // <gregtech:meta_item_1:10140>, -- we can't use this because of RM restrictions >:(
+    .outputs([<gregtech:meta_item_1:10018> * 3, <gregtech:meta_item_1:10003>]) // <gregtech:meta_item_1:10140>, so we have a less lossy one below -- we can't use this because of RM restrictions >:(
     .fluidOutputs([<liquid:sulfur_dioxide> * 9000])
+    .property("temperature", 1800).duration(832).EUt(120).buildAndRegister();
+RecipeMap.getByName("blast_furnace").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2188> * 8, <gregtech:meta_item_1:2148> * 6])
+    .fluidInputs([<liquid:air> * 10000])
+    .outputs([<gregtech:meta_item_1:2100> * 12, <gregtech:meta_item_1:2003>])
+    .fluidOutputs([<liquid:sulfur_dioxide> * 3000])
     .property("temperature", 1800).duration(832).EUt(120).buildAndRegister();
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2361> * 3])
@@ -379,6 +375,12 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .fluidOutputs([<liquid:sulfur_dioxide> * 24000])
     .property("temperature", 1800).duration(1496).EUt(120).buildAndRegister();
 //Platinum-group metals
+RecipeMap.getByName("blast_furnace").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2108> * 6])
+    .fluidInputs([<liquid:air> * 10000])
+    .outputs([<gregtech:meta_item_1:10051> * 3, <gregtech:meta_item_1:10049>])
+    .fluidOutputs([<liquid:sulfur_dioxide> * 3000])
+    .property("temperature", 1800).duration(624).EUt(120).buildAndRegister();
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2983> * 3])
     .fluidInputs([<liquid:air> * 10000])
@@ -413,6 +415,24 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .fluidOutputs([<liquid:sulfur_dioxide> * 9000])
     .property("temperature", 1800).duration(300).EUt(120).buildAndRegister();
 
+    
+    
+/**
+* Specialty blast furnace recipes - pyroprocessing recipes with no reagents, combination recipes, etc
+*/
+//Barium Oxide
+RecipeMap.getByName("blast_furnace").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2286> * 6])
+    .outputs([<gregtech:meta_item_1:2985> * 3])
+    .fluidOutputs([<liquid:sulfur_dioxide> * 3000])
+    .property("temperature", 1800).duration(408).EUt(120).buildAndRegister();
+//Mercury
+RecipeMap.getByName("blast_furnace").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2103> * 2])
+    .outputs([<gregtech:meta_item_1:2065>])
+    .fluidOutputs([<liquid:mercury> * 1000])
+    .property("temperature", 1800).duration(192).EUt(120).buildAndRegister();
+
 
 
 /**
@@ -424,10 +444,25 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
 /**
 * Blast Furnace - Chemical Reactor ore processing combinations for sulfate ores
 */
-//This recipe is mostly fucking bunk, but what can I say - it's better than losing material to the blast furnace recipe map stupidity
+//Remove previous ones
+RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:6100>], [<liquid:nitric_acid> * 1000]).remove();
+RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:6271>], [<liquid:nitric_acid> * 1000]).remove();
+//Add new (correct) ones
+RecipeMap.getByName("chemical_reactor").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:4271> * 2])
+    .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:water> * 9000])
+    .outputs([<gregtech:meta_item_1:2422>])
+    .fluidOutputs([<liquid:cyan_vitriol_solution> * 25000, <liquid:nitrogen_dioxide> * 24000])
+    .duration(106).EUt(120).buildAndRegister();
+RecipeMap.getByName("chemical_reactor").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:4100> * 4])
+    .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:nitric_acid> * 40000, <liquid:water> * 18000])
+    .outputs([<gregtech:meta_item_1:2422> * 2])
+    .fluidOutputs([<liquid:mixed_vitriols> * 54000, <liquid:nitrogen_dioxide> * 48000])
+    .duration(106).EUt(120).buildAndRegister();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2108> * 6])
-    .fluidInputs([<liquid:sulfuric_acid> * 42000])
-    .outputs([<gregtech:meta_item_1:2983> * 9, <gregtech:meta_item_1:2049>])
-    .fluidOutputs([<liquid:nickel_sulfate_water_solution> * 24000, <liquid:oxygen> * 14000])
-    .duration(648).EUt(120).buildAndRegister();
+    .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:water> * 9000])
+    .outputs([<gregtech:meta_item_1:2982> * 4])
+    .fluidOutputs([<liquid:cyan_vitriol_solution> * 25000, <liquid:nitrogen_dioxide> * 24000])
+    .duration(318).EUt(120).buildAndRegister();

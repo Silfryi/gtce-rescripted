@@ -306,7 +306,8 @@ function removeDust(id as int, size as int, protons as int, neutrons as int, ing
     RecipeMap.getByName("packer").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id) * 9, <gtadditions:ga_meta_item:32134>], null).remove();
     RecipeMap.getByName("packer").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id + 1000) * 4, <gtadditions:ga_meta_item:32134>], null).remove();
     //Remove production/destruction recipes [electrolyser, replication]
-    if(electrolyze) RecipeMap.getByName("electrolyzer").findRecipe((size < 4 || (ingot && size < 6)) ? 30 : 60, [<gregtech:meta_item_1>.definition.makeStack(id + 2000) * size], null).remove();
+    if(electrolyze && id != 191) RecipeMap.getByName("electrolyzer").findRecipe(((size < 4 && id != 107) || (ingot && size < 6)) ? 30 : 60, [<gregtech:meta_item_1>.definition.makeStack(id + 2000) * size], null).remove();
+    else if (id == 191) RecipeMap.getByName("electrolyzer").findRecipe(1920, [<gregtech:meta_item_1>.definition.makeStack(id + 2000) * size], [<liquid:hydrogen> * 7000]).remove();
     if (protons != 0 && neutrons != 0) {
         RecipeMap.getByName("mass_fab").findRecipe(32, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], null).remove();
         RecipeMap.getByName("replicator").findRecipe(32, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], [<liquid:neutral_matter> * neutrons, <liquid:positive_matter> * protons]).remove();
