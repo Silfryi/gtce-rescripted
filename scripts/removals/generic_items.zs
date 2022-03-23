@@ -33,6 +33,18 @@ RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.ma
 RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9972)], null).remove();
 
 //Remove gem turbine blades from JEI, as they're completely nonproducible and wouldn't be good in a turbine anyway
+removeAndHide(<gregtech:meta_item_2:15154>);
+removeAndHide(<gregtech:meta_item_2:15243>);
+removeAndHide(<gregtech:meta_item_2:15244>);
+removeAndHide(<gregtech:meta_item_2:15212>);
+removeAndHide(<gregtech:meta_item_2:15113>);
+removeAndHide(<gregtech:meta_item_2:15111>);
+RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15154>], null).remove();
+RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15243>], null).remove();
+RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15244>], null).remove();
+RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15212>], null).remove();
+RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15113>], null).remove();
+RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15111>], null).remove();
 
 //Remove random items from SoG and GTCE that are uncraftable or useless
 removeAndHide(<gregtech:crusher_blade>);
@@ -50,6 +62,38 @@ removeAndHide(<gregtech:meta_item_1:32007>);
 removeAndHide(<gregtech:meta_item_1:32009>);
 RecipeMap.getByName("forming_press").findRecipe(16, [<gregtech:meta_item_1:12109>, <gregtech:meta_item_1:32304>], null).remove();
 RecipeMap.getByName("forming_press").findRecipe(16, [<gregtech:meta_item_1:12094>, <gregtech:meta_item_1:32304>], null).remove();
+
+//Remove high tier battery buffers, hatches, etc - we don't need them
+removeAndHide(<gregtech:machine:760>);
+removeAndHide(<gregtech:machine:761>);
+removeAndHide(<gregtech:machine:762>);
+removeAndHide(<gregtech:machine:763>);
+removeAndHide(<gregtech:machine:764>);
+removeAndHide(<gregtech:machine:765>);
+removeAndHide(<gregtech:machine:770>);
+removeAndHide(<gregtech:machine:771>);
+removeAndHide(<gregtech:machine:772>);
+removeAndHide(<gregtech:machine:773>);
+removeAndHide(<gregtech:machine:774>);
+removeAndHide(<gregtech:machine:775>);
+removeAndHide(<gregtech:machine:780>);
+removeAndHide(<gregtech:machine:781>);
+removeAndHide(<gregtech:machine:782>);
+removeAndHide(<gregtech:machine:783>);
+removeAndHide(<gregtech:machine:784>);
+removeAndHide(<gregtech:machine:785>);
+removeAndHide(<gregtech:machine:790>);
+removeAndHide(<gregtech:machine:791>);
+removeAndHide(<gregtech:machine:792>);
+removeAndHide(<gregtech:machine:793>);
+removeAndHide(<gregtech:machine:794>);
+removeAndHide(<gregtech:machine:795>);
+
+//High-tier rotor holders & machines
+removeAndHide(<gregtech:machine:114>);
+removeAndHide(<gregtech:machine:434>);
+removeAndHide(<gregtech:machine:818>);
+removeAndHide(<gregtech:machine:819>);
 
 //Any removals from other mods
 removeAndHide(<theoneprobe:probenote>);
