@@ -54,6 +54,7 @@ MaterialRegistry.createFluidMaterial(986, "blue_vitriol_solution", 0x074FFE, "fl
 MaterialRegistry.createFluidMaterial(987, "green_vitriol_solution", 0x3EB640, "fluid", [<material:green_vitriol> * 1, <material:water> * 1]);
 MaterialRegistry.createFluidMaterial(988, "cyan_vitriol_solution", 0x1B9398, "fluid", [<material:nickel_sulfate_water_solution> * 1, <material:water> * 1]);
 MaterialRegistry.createFluidMaterial(989, "mixed_vitriols", 0x2C8FBF, "fluid", [<material:blue_vitriol_solution> * 1, <material:green_vitriol_solution> * 1]);
+MaterialRegistry.createFluidMaterial(990, "copper_rich_mixed_vitriols", 0x1969EC, "fluid", [<material:blue_vitriol_solution> * 5, <material:green_vitriol_solution> * 1]);
 //Disable decomposition where needed
 MaterialRegistry.get("green_vitriol").addFlags(["DISABLE_DECOMPOSITION"]);
 MaterialRegistry.get("blue_vitriol_water_solution").addFlags(["DISABLE_DECOMPOSITION"]);
@@ -62,6 +63,7 @@ MaterialRegistry.get("blue_vitriol_solution").addFlags(["DISABLE_DECOMPOSITION"]
 MaterialRegistry.get("green_vitriol_solution").addFlags(["DISABLE_DECOMPOSITION"]);
 MaterialRegistry.get("cyan_vitriol_solution").addFlags(["DISABLE_DECOMPOSITION"]);
 MaterialRegistry.get("mixed_vitriols").addFlags(["DISABLE_DECOMPOSITION"]);
+MaterialRegistry.get("copper_rich_mixed_vitriols").addFlags(["DISABLE_DECOMPOSITION"]);
 
 
 

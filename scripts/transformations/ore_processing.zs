@@ -448,21 +448,72 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:6100>], [<liquid:nitric_acid> * 1000]).remove();
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:6271>], [<liquid:nitric_acid> * 1000]).remove();
 //Add new (correct) ones
+//Copper ores
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:4271> * 2])
+    .inputs([<gregtech:meta_item_1:6358> * 2])
+    .fluidInputs([<liquid:sulfuric_acid> * 7000, <liquid:water> * 15000])
+    .outputs([<gregtech:meta_item_1:2026> * 2])
+    .fluidOutputs([<liquid:blue_vitriol_solution> * 24000])
+    .duration(106).EUt(120).buildAndRegister();
+RecipeMap.getByName("chemical_reactor").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:6359> * 3])
+    .fluidInputs([<liquid:sulfuric_acid> * 14000, <liquid:nitric_acid> * 10000, <liquid:water> * 27000])
+    .outputs([<gregtech:meta_item_1:2026> * 3])
+    .fluidOutputs([<liquid:blue_vitriol_solution> * 48000, <liquid:nitrogen_dioxide> * 6000])
+    .duration(159).EUt(120).buildAndRegister();
+RecipeMap.getByName("chemical_reactor").recipeBuilder() // this one HAD to be reduced by 10x or the recipe was just too damned large for the reactor - 180B >>> 64B, whoopsie
+    .inputs([<gregtech:meta_item_1:6360> ])
+    .fluidInputs([<liquid:sulfuric_acid> * 1400, <liquid:nitric_acid> * 18000, <liquid:water> * 5400])
+    .outputs([<gregtech:meta_item_1:2112>])
+    .fluidOutputs([<liquid:copper_rich_mixed_vitriols> * 15000, <liquid:nitrogen_dioxide> * 10800])
+    .duration(53).EUt(120).buildAndRegister();
+RecipeMap.getByName("chemical_reactor").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:6361> * 3])
+    .fluidInputs([<liquid:sulfuric_acid> * 7000, <liquid:nitric_acid> * 50000, <liquid:water> * 18000])
+    .outputs([<gregtech:meta_item_1:2112> * 3])
+    .fluidOutputs([<liquid:blue_vitriol_solution> * 48000, <liquid:nitrogen_dioxide> * 30000])
+    .duration(159).EUt(120).buildAndRegister();
+//Nickel ores
+RecipeMap.getByName("chemical_reactor").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:6115> * 2])
+    .fluidInputs([<liquid:sulfuric_acid> * 7000, <liquid:water> * 15000])
+    .outputs([<gregtech:meta_item_1:2112> * 2])
+    .fluidOutputs([<liquid:cyan_vitriol_solution> * 25000])
+    .duration(106).EUt(120).buildAndRegister();
+//Platinum-based ones
+RecipeMap.getByName("chemical_reactor").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:6271> * 2])
     .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:water> * 9000])
-    .outputs([<gregtech:meta_item_1:2422>])
+    .outputs([<gregtech:meta_item_1:2422> * 2])
     .fluidOutputs([<liquid:cyan_vitriol_solution> * 25000, <liquid:nitrogen_dioxide> * 24000])
     .duration(106).EUt(120).buildAndRegister();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:4100> * 4])
+    .inputs([<gregtech:meta_item_1:6100> * 4])
     .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:nitric_acid> * 40000, <liquid:water> * 18000])
-    .outputs([<gregtech:meta_item_1:2422> * 2])
+    .outputs([<gregtech:meta_item_1:2422> * 1])
     .fluidOutputs([<liquid:mixed_vitriols> * 54000, <liquid:nitrogen_dioxide> * 48000])
-    .duration(106).EUt(120).buildAndRegister();
+    .duration(212).EUt(120).buildAndRegister();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2108> * 6])
     .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:water> * 9000])
     .outputs([<gregtech:meta_item_1:2982> * 4])
     .fluidOutputs([<liquid:cyan_vitriol_solution> * 25000, <liquid:nitrogen_dioxide> * 24000])
     .duration(318).EUt(120).buildAndRegister();
+//Add vitrol separation
+RecipeMap.getByName("centrifuge").recipeBuilder()
+    .fluidInputs([<liquid:mixed_vitriols> * 54000])
+    .fluidOutputs([<liquid:blue_vitriol_solution> * 24000, <liquid:green_vitriol_solution> * 30000])
+    .duration(100).EUt(30).buildAndRegister();
+RecipeMap.getByName("centrifuge").recipeBuilder()
+    .fluidInputs([<liquid:copper_rich_mixed_vitriols> * 15000])
+    .fluidOutputs([<liquid:blue_vitriol_solution> * 12000, <liquid:green_vitriol_solution> * 3000])
+    .duration(600).EUt(30).buildAndRegister();
+//Platinum group sludge separation
+RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1:2422>], null).remove();
+RecipeMap.getByName("centrifuge").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2422> * 5])
+    .outputs([<gregtech:meta_item_1:2026> * 2, <gregtech:meta_item_1:2051> * 2])
+    .chancedOutput(<gregtech:meta_item_1:2049>, 8000, 1200)
+    .chancedOutput(<gregtech:meta_item_1:2032>, 6000, 800)
+    .chancedOutput(<gregtech:meta_item_1:2047>, 6000, 800)
+    .duration(900).EUt(30).buildAndRegister();

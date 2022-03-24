@@ -2587,7 +2587,7 @@ gregtech.multiblock.large_boiler.message_throttle_change=Throttle changed to: %d
 gregtech.multiblock.large_boiler.message_throttle_too_hot=Boiler is running too hot to throttle!
 gregtech.multiblock.large_boiler.heat_efficiency=Heat Efficiency: %d%%
 gregtech.multiblock.large_boiler.heat_efficiency.tooltip=The higher boiler temperature is, the higher it's fuel efficiency
-gregtech.multiblock.large_boiler.throttle.tooltip=Boiler can output less steam and consume less fuel, but it comes with price: the fuel efficiency is lower at higher throttle rates.
+gregtech.multiblock.large_boiler.throttle.tooltip=Boiler can output less steam and consume less fuel, but will run at lower fuel efficiency proportional to the throttle rate
 gregtech.multiblock.large_boiler.throttle_modify=Modify Throttle:
 
 gregtech.command.usage=Usage: /gregtech <worldgen/util>
@@ -2618,3 +2618,4 @@ material.blue_vitriol_solution=Blue Vitriol
 material.green_vitriol_solution=Green Vitriol
 material.cyan_vitriol_solution=Cyan Vitriol
 material.mixed_vitriols=Mixed Vitriols
+material.copper_rich_mixed_vitriols=Copper-Rich Mixed Vitriols
