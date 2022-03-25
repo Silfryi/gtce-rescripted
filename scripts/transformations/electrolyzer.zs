@@ -136,3 +136,30 @@ RecipeMap.getByName("electrolyzer").recipeBuilder()
     .outputs([<gregtech:meta_item_1:2065>])
     .fluidOutputs([<liquid:hydrogen> * 2000])
     .duration(144).EUt(30).buildAndRegister();
+    
+
+    
+/**
+* Remove electrolysis for dusts that definitely should not have it - things better off in the centrifuge, things inseparable, etc
+*/
+RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2278> * 64], null).remove();
+RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2123> * 39], null).remove();
+RecipeMap.getByName("electrolyzer").findRecipe(26, [<minecraft:dye:0> * 3], null).remove();
+RecipeMap.getByName("electrolyzer").findRecipe(25, [<minecraft:sand> * 8], null).remove();
+RecipeMap.getByName("electrolyzer").findRecipe(1920, [<gregtech:meta_item_1:2158> * 7], [<liquid:hydrogen> * 7000]).remove();
+RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2200> * 13], null).remove();
+RecipeMap.getByName("electrolyzer").findRecipe(30, [<gregtech:meta_item_1:2237> * 2], null).remove();
+RecipeMap.getByName("electrolyzer").findRecipe(60, [<minecraft:sugar> * 32], null).remove();
+RecipeMap.getByName("electrolyzer").findRecipe(30, [<gregtech:meta_item_1:2324> * 1], null).remove();
+//Things better off in the centrifuge
+RecipeMap.getByName("electrolyzer").findRecipe(30, [<gregtech:meta_item_1:2267> * 2], null).remove();
+RecipeMap.getByName("electrolyzer").findRecipe(30, [<gregtech:meta_item_1:2269> * 2], null).remove();
+//Add centrifuge recipes for those dusts
+RecipeMap.getByName("centrifuge").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2267> * 2])
+    .outputs([<gregtech:meta_item_1:2131>, <gregtech:meta_item_1:2251>])
+    .duration(192).EUt(30).buildAndRegister();
+RecipeMap.getByName("centrifuge").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2269> * 2])
+    .outputs([<gregtech:meta_item_1:2201>, <gregtech:meta_item_1:2202>])
+    .duration(688).EUt(30).buildAndRegister();
