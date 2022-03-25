@@ -45,8 +45,8 @@ MaterialRegistry.createDustMaterial(983, "sperrylite", 0xB6C199, "sand", 0, [<ma
 MaterialRegistry.createDustMaterial(984, "sperrylite_omeiite", 0xD5D5C2, "sand", 0, [<material:sperrylite> * 5, <material:osmiridium> * 1, <material:sulfur> * 4]);
 MaterialRegistry.createDustMaterial(985, "barium_peroxide", 0xF0F0F0, "dull", 0, [<material:barium> * 1, <material:oxygen> * 2]);
 MaterialRegistry.get("platpalladium").addFlags(["DECOMPOSITION_BY_CENTRIFUGING"]);
-MaterialRegistry.get("sperrylite").addFlags(["DISABLE_DECOMPOSITION"]);
-MaterialRegistry.get("sperrylite_omeiite").addFlags(["DISABLE_DECOMPOSITION"]);
+MaterialRegistry.get("sperrylite").addFlags(["DISABLE_DECOMPOSITION", "GENERATE_ORE"]);
+MaterialRegistry.get("sperrylite_omeiite").addFlags(["DISABLE_DECOMPOSITION", "GENERATE_ORE"]);
 MaterialRegistry.get("barium_peroxide").addFlags(["DISABLE_DECOMPOSITION"]);
 //Fluid materials (some hidden, some not) for platinum sludge production
 MaterialRegistry.createFluidMaterial(700, "green_vitriol", 0xFFFBBE, "fluid", [<material:iron> * 1, <material:sulfur> * 1, <material:oxygen> * 4, <material:water> * 7]);
@@ -64,8 +64,5 @@ MaterialRegistry.get("green_vitriol_solution").addFlags(["DISABLE_DECOMPOSITION"
 MaterialRegistry.get("cyan_vitriol_solution").addFlags(["DISABLE_DECOMPOSITION"]);
 MaterialRegistry.get("mixed_vitriols").addFlags(["DISABLE_DECOMPOSITION"]);
 MaterialRegistry.get("copper_rich_mixed_vitriols").addFlags(["DISABLE_DECOMPOSITION"]);
-
-
-
 
 

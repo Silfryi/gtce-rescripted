@@ -8,7 +8,7 @@ print("Transforming most electrorefining ore processing recipes into blast furna
 
 /**
 * Remove now-unnecessary and frankly ridiculous recipes for electrorefining of metal ores that should be using pyroprocessing
-*//*
+*/
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2100> * 4], []).remove();
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2358> * 4], []).remove();
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2359> * 6], []).remove();
@@ -31,10 +31,9 @@ RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2224> 
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2115> * 2], []).remove();
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2271> * 17], []).remove();
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2108> * 6], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2107> * 3], []).remove();
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2102> * 7], []).remove();
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2185> * 5], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2270> * 6], []).remove();*/
+RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2270> * 6], []).remove();
 
 
 
@@ -478,14 +477,14 @@ RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:6115> * 2])
     .fluidInputs([<liquid:sulfuric_acid> * 7000, <liquid:water> * 15000])
     .outputs([<gregtech:meta_item_1:2112> * 2])
-    .fluidOutputs([<liquid:cyan_vitriol_solution> * 25000])
+    .fluidOutputs([<liquid:cyan_vitriol_solution> * 27000])
     .duration(106).EUt(120).buildAndRegister();
 //Platinum-based ones
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:6271> * 2])
     .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:water> * 9000])
     .outputs([<gregtech:meta_item_1:2422> * 2])
-    .fluidOutputs([<liquid:cyan_vitriol_solution> * 25000, <liquid:nitrogen_dioxide> * 24000])
+    .fluidOutputs([<liquid:cyan_vitriol_solution> * 27000, <liquid:nitrogen_dioxide> * 24000])
     .duration(106).EUt(120).buildAndRegister();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:6100> * 4])
@@ -497,7 +496,7 @@ RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2108> * 6])
     .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:water> * 9000])
     .outputs([<gregtech:meta_item_1:2982> * 4])
-    .fluidOutputs([<liquid:cyan_vitriol_solution> * 25000, <liquid:nitrogen_dioxide> * 24000])
+    .fluidOutputs([<liquid:cyan_vitriol_solution> * 27000, <liquid:nitrogen_dioxide> * 24000])
     .duration(318).EUt(120).buildAndRegister();
 //Add vitrol separation
 RecipeMap.getByName("centrifuge").recipeBuilder()
@@ -507,7 +506,7 @@ RecipeMap.getByName("centrifuge").recipeBuilder()
 RecipeMap.getByName("centrifuge").recipeBuilder()
     .fluidInputs([<liquid:copper_rich_mixed_vitriols> * 15000])
     .fluidOutputs([<liquid:blue_vitriol_solution> * 12000, <liquid:green_vitriol_solution> * 3000])
-    .duration(600).EUt(30).buildAndRegister();
+    .duration(60).EUt(30).buildAndRegister();
 //Platinum group sludge separation
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1:2422>], null).remove();
 RecipeMap.getByName("centrifuge").recipeBuilder()
@@ -517,3 +516,124 @@ RecipeMap.getByName("centrifuge").recipeBuilder()
     .chancedOutput(<gregtech:meta_item_1:2032>, 6000, 800)
     .chancedOutput(<gregtech:meta_item_1:2047>, 6000, 800)
     .duration(900).EUt(30).buildAndRegister();
+
+    
+    
+/**
+* Chemical Bath ore processing recipes - mercury and sodium persulfate washing
+*/
+//Remove the bad ones the mod came with
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5017>], [<liquid:sodium_persulfate> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5018>], [<liquid:sodium_persulfate> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5026>], [<liquid:mercury> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5044>], [<liquid:sodium_persulfate> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5047>], [<liquid:mercury> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5051>], [<liquid:mercury> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5062>], [<liquid:mercury> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5079>], [<liquid:sodium_persulfate> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5100>], [<liquid:mercury> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5107>], [<liquid:sodium_persulfate> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5108>], [<liquid:mercury> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5182>], [<liquid:sodium_persulfate> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5188>], [<liquid:sodium_persulfate> * 1000]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(8, [<gregtech:meta_item_1:5360>], [<liquid:mercury> * 1000]).remove();
+//Sodium Persulfate Recipes
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:5123>])
+    .fluidInputs([<liquid:sodium_persulfate> * 1000])
+    .outputs([<gregtech:meta_item_1:6123>])
+    .chancedOutput(<gregtech:meta_item_1:2025>, 7000, 580)
+    .chancedOutput(<gregtech:meta_item_1:2328>, 4000, 650)
+    .duration(800).EUt(8).buildAndRegister();
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:5182>])
+    .fluidInputs([<liquid:sodium_persulfate> * 1000])
+    .outputs([<gregtech:meta_item_1:6182>])
+    .chancedOutput(<gregtech:meta_item_1:2025>, 7000, 580)
+    .chancedOutput(<gregtech:meta_item_1:2328>, 4000, 650)
+    .duration(800).EUt(8).buildAndRegister();
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:5188>])
+    .fluidInputs([<liquid:sodium_persulfate> * 1000])
+    .outputs([<gregtech:meta_item_1:6188>])
+    .chancedOutput(<gregtech:meta_item_1:2062>, 7000, 580)
+    .chancedOutput(<gregtech:meta_item_1:2328>, 4000, 650)
+    .duration(800).EUt(8).buildAndRegister();
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:5100>])
+    .fluidInputs([<liquid:sodium_persulfate> * 1000])
+    .outputs([<gregtech:meta_item_1:6100>])
+    .chancedOutput(<gregtech:meta_item_1:2013>, 7000, 580)
+    .chancedOutput(<gregtech:meta_item_1:2328>, 4000, 650)
+    .duration(800).EUt(8).buildAndRegister();
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:5114>])
+    .fluidInputs([<liquid:sodium_persulfate> * 1000])
+    .outputs([<gregtech:meta_item_1:6114>])
+    .chancedOutput(<gregtech:meta_item_1:2013>, 7000, 580)
+    .chancedOutput(<gregtech:meta_item_1:2328>, 4000, 650)
+    .duration(800).EUt(8).buildAndRegister();
+//Mercury Recipes
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:5360>])
+    .fluidInputs([<liquid:mercury> * 1000])
+    .outputs([<gregtech:meta_item_1:6360>])
+    .chancedOutput(<gregtech:meta_item_1:2026>, 7000, 580)
+    .chancedOutput(<gregtech:meta_item_1:2328>, 4000, 650)
+    .duration(800).EUt(8).buildAndRegister();
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:5271>])
+    .fluidInputs([<liquid:mercury> * 1000])
+    .outputs([<gregtech:meta_item_1:6271>])
+    .chancedOutput(<gregtech:meta_item_1:2982>, 7000, 580)
+    .chancedOutput(<gregtech:meta_item_1:2328>, 4000, 650)
+    .duration(800).EUt(8).buildAndRegister();
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:5108>])
+    .fluidInputs([<liquid:mercury> * 1000])
+    .outputs([<gregtech:meta_item_1:6108>])
+    .chancedOutput(<gregtech:meta_item_1:2207>, 7000, 580)
+    .chancedOutput(<gregtech:meta_item_1:2328>, 4000, 650)
+    .duration(800).EUt(8).buildAndRegister();
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:5983>])
+    .fluidInputs([<liquid:mercury> * 1000])
+    .outputs([<gregtech:meta_item_1:6983>])
+    .chancedOutput(<gregtech:meta_item_1:2207>, 7000, 580)
+    .chancedOutput(<gregtech:meta_item_1:2328>, 4000, 650)
+    .duration(800).EUt(8).buildAndRegister();
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:5984>])
+    .fluidInputs([<liquid:mercury> * 1000])
+    .outputs([<gregtech:meta_item_1:6984>])
+    .chancedOutput(<gregtech:meta_item_1:2049>, 7000, 580)
+    .chancedOutput(<gregtech:meta_item_1:2328>, 4000, 650)
+    .duration(800).EUt(8).buildAndRegister();
+
+
+
+/**
+* Electrolysis recipes for ore liquids - vitriols
+*/
+RecipeMap.getByName("electrolyzer").recipeBuilder()
+    .fluidInputs([<liquid:blue_vitriol_solution> * 24000])
+    .outputs([<gregtech:meta_item_1:2018>])
+    .fluidOutputs([<liquid:oxygen> * 1000, <liquid:diluted_sulfuric_acid> * 10000, <liquid:water> * 12000])
+    .duration(720).EUt(30).buildAndRegister();
+RecipeMap.getByName("electrolyzer").recipeBuilder()
+    .fluidInputs([<liquid:cyan_vitriol_solution> * 27000])
+    .outputs([<gregtech:meta_item_1:2044>])
+    .fluidOutputs([<liquid:oxygen> * 1000, <liquid:diluted_sulfuric_acid> * 10000, <liquid:water> * 15000])
+    .duration(720).EUt(30).buildAndRegister();
+RecipeMap.getByName("electrolyzer").recipeBuilder()
+    .fluidInputs([<liquid:green_vitriol_solution> * 30000])
+    .outputs([<gregtech:meta_item_1:2033>])
+    .fluidOutputs([<liquid:oxygen> * 1000, <liquid:diluted_sulfuric_acid> * 10000, <liquid:water> * 18000])
+    .duration(672).EUt(30).buildAndRegister();
+
+
+
+
+
+
+

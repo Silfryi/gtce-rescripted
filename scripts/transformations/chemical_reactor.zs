@@ -534,6 +534,11 @@ RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:24
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:2097> * 5, <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], []).remove();
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:2130> * 5], []).remove();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2011>])
+    .fluidInputs([<liquid:oxygen> * 1000])
+    .outputs([<gregtech:meta_item_1:2374> * 2])
+    .duration(80).EUt(30).buildAndRegister();
+RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2374> * 2])
     .fluidInputs([<liquid:carbon_dioxide> * 3000])
     .outputs([<gregtech:meta_item_1:2097> * 5])
