@@ -13,8 +13,7 @@ print("Editing the properties of some materials to make them better suited for t
 */
 MaterialRegistry.get("brass").addFlags(["GENERATE_FRAME", "GENERATE_SMALL_GEAR", "GENERATE_ROTOR"]);
 MaterialCasting.toIngot(MaterialRegistry.get("brass")).setFluidPipeProperties(200, 2000, true);
-MaterialRegistry.get("cobalt_brass").addFlags(["GENERATE_RING", "GENERATE_ROTOR"]);
-MaterialCasting.toIngot(MaterialRegistry.get("cobalt_brass")).setFluidPipeProperties(400, 2400, true);
+//Reserved for new material
 MaterialRegistry.get("vanadium_steel").addFlags(["GENERATE_RING", "GENERATE_ROTOR"]);
 MaterialCasting.toIngot(MaterialRegistry.get("vanadium_steel")).setFluidPipeProperties(2100, 3200, true);
 

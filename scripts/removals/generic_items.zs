@@ -32,21 +32,17 @@ RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.ma
 RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9303)], null).remove();
 RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9972)], null).remove();
 
-//Remove gem turbine blades from JEI, as they're completely nonproducible and wouldn't be good in a turbine anyway
+//Remove leftover gem turbine blades from JEI, as they're completely nonproducible and wouldn't be good in a turbine anyway
 removeAndHide(<gregtech:meta_item_2:15154>);
-removeAndHide(<gregtech:meta_item_2:15243>);
-removeAndHide(<gregtech:meta_item_2:15244>);
 removeAndHide(<gregtech:meta_item_2:15212>);
 removeAndHide(<gregtech:meta_item_2:15113>);
 removeAndHide(<gregtech:meta_item_2:15111>);
 RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15154>], null).remove();
-RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15243>], null).remove();
-RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15244>], null).remove();
 RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15212>], null).remove();
 RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15113>], null).remove();
 RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15111>], null).remove();
 
-//Remove random items from SoG and GTCE that are uncraftable or useless
+//Remove random items from SoG and GTCE that are uncraftable or useless to us
 removeAndHide(<gregtech:crusher_blade>);
 removeAndHide(<gregtech:machine:826>);
 removeAndHide(<gtadditions:ga_meta_tool>.anyDamage());
@@ -62,6 +58,21 @@ removeAndHide(<gregtech:meta_item_1:32007>);
 removeAndHide(<gregtech:meta_item_1:32009>);
 RecipeMap.getByName("forming_press").findRecipe(16, [<gregtech:meta_item_1:12109>, <gregtech:meta_item_1:32304>], null).remove();
 RecipeMap.getByName("forming_press").findRecipe(16, [<gregtech:meta_item_1:12094>, <gregtech:meta_item_1:32304>], null).remove();
+RecipeMap.getByName("autoclave").findRecipe(7680, [<minecraft:nether_star>], [<liquid:neutronium> * 288]).remove();
+removeAndHide(<gregtech:meta_item_1:32726>);
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12071> * 6, <gregtech:meta_item_1:32402>, <minecraft:glass_pane>], null).remove();
+removeAndHide(<gregtech:meta_item_1:32746>);
+RecipeMap.getByName("assembler").findRecipe(64, [<gregtech:meta_item_1:18184> * 8, <gregtech:meta_item_1:13184> * 2, <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], null).remove();
+removeAndHide(<gregtech:meta_item_1:32405>);
+RecipeMap.getByName("assembler").findRecipe(256, [<gregtech:meta_item_1:18235> * 8, <gregtech:meta_item_1:13235> * 2, <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], null).remove();
+removeAndHide(<gregtech:meta_item_1:32406>);
+RecipeMap.getByName("assembler").findRecipe(120, [<gregtech:meta_item_1:12007> * 32, <gregtech:meta_item_1:12300> * 4, <gregtech:meta_item_2:32435>], [<liquid:tin_alloy> * 4608]).remove();
+removeAndHide(<gregtech:meta_item_1:32436>);
+RecipeMap.getByName("assembler").findRecipe(480, [<gregtech:meta_item_2:32446>, <gregtech:meta_item_2:32489>], [<liquid:polystyrene> * 144]).remove();
+removeAndHide(<gregtech:meta_item_2:32499>);
+removeAndHide(<gtadditions:ga_meta_item:32015>);
+RecipeMap.getByName("extractor").findRecipe(512, [<minecraft:egg>], null).remove();
+removeAndHide(<gtadditions:ga_meta_item:32018>);
 
 //Remove high tier battery buffers, hatches, etc - we don't need them
 removeAndHide(<gregtech:machine:760>);
@@ -94,6 +105,14 @@ removeAndHide(<gregtech:machine:114>);
 removeAndHide(<gregtech:machine:434>);
 removeAndHide(<gregtech:machine:818>);
 removeAndHide(<gregtech:machine:819>);
+
+//IV hatches but not battery stuff - still want at least a little lapotron stuff
+removeAndHide(<gregtech:machine:750>);
+removeAndHide(<gregtech:machine:751>);
+removeAndHide(<gregtech:machine:752>);
+removeAndHide(<gregtech:machine:753>);
+removeAndHide(<gregtech:machine:754>);
+removeAndHide(<gregtech:machine:755>);
 
 //Any removals from other mods
 removeAndHide(<theoneprobe:probenote>);

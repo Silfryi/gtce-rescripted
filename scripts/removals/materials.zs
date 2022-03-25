@@ -16,16 +16,21 @@ import scripts.removals.common.removeTool;
 
 
 
+print("Fixing the parts shown in JEI from the material registry to adequately portray the new meta");
+
 /**
 * Remove utterly useless materials, or nonsensical materials - none of these have ANY use whether it is one we want or not, or they're impossible to find/make
 */
 //Remove useless dusts
 removeDust(5, 0, 33, 42, false, false, false, false, null);
+removeDust(86, 20, 250, 258, false, false, false, true, null);
 removeDust(88, 18, 140, 136, false, false, false, true, null);
 removeDust(107, 3, 76, 90, false, false, false, true, <gregtech:ore_cobaltite_0>);
+removeDust(118, 20, 224, 224, false, false, false, true, <gregtech:ore_grossular_0>);
 removeDust(132, 3, 74, 85, false, false, false, true, <gregtech:ore_molybdenite_0>);
 removeDust(163, 3, 38, 38, false, false, false, true, null);
 removeDust(191, 7, 112, 149, false, false, false, true, <gregtech:ore_tungstate_0>);
+removeDust(194, 20, 246, 254, false, false, false, true, null);
 RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:2063> * 2, <gregtech:meta_item_1:2065>], null).remove();
 removeDust(210, 3, 270, 276, false, false, false, true, null);
 removeDust(221, 10, 366, 374, false, false, false, true, null);
@@ -98,6 +103,9 @@ recipes.removeByRegex(".*(opal).*");
 removeGem(213, 1, 30, 30, true, true, <gregtech:ore_opal_0>, [15, 11, 3]);
 recipes.removeByRegex(".*(amethyst).*");
 removeGem(214, 5, 146, 150, true, true, <gregtech:ore_amethyst_0>, [20, 15, 5]);
+recipes.removeByRegex(".*(garnet).*");
+removeGem(243, 16, 3722, 3902, true, true, <gregtech:ore_garnet_red_0>, [17, 12, 4]);
+removeGem(244, 16, 3780, 3844, true, true, <gregtech:ore_garnet_yellow_0>, [17, 12, 4]);
 recipes.removeByRegex(".*(vinteum).*");
 removeGem(247, 0, 0, 0, false, true, <gregtech:ore_vinteum_0>, [73, 55, 18]);
 
@@ -123,6 +131,16 @@ RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:18> * 3, <greg
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:1018> * 3, <gregtech:meta_item_1:1112> * 2], null).remove();
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2018> * 3, <gregtech:meta_item_1:2112> * 2], null).remove();
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(229 + 2000) * 5], null).remove();
+
+//Cobalt & Cobalt Brass, because cobalt is used for so damn little
+recipes.removeByRegex(".*(cobalt).*");
+removeCable(17, false, 1, true, true);
+removeTool(17, 27, 32, false, false, [44, 33, 11], <gregtech:ore_cobalt_0>, null, [false, false, false, false, false, true, false]);
+recipes.removeByRegex(".*(cobalt_brass).*");
+RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:94> * 7, <gregtech:meta_item_1:17>, <gregtech:meta_item_1:1>], null).remove();
+RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:1094> * 7, <gregtech:meta_item_1:1017>, <gregtech:meta_item_1:1001>], null).remove();
+RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2094> * 7, <gregtech:meta_item_1:2017>, <gregtech:meta_item_1:2001>], null).remove();
+removeTool(238, 859, 1004, false, false, [43, 32, 10], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
 
 //Tin, Tin Alloys, Cassierite, Cassiterite Sand
 //Bronze
@@ -256,7 +274,6 @@ removeTool(43, 110, 171, false, false, [210, 158, 52], null, [125, 93, 31, 4, 3,
 */
 removeOre(1, <gregtech:ore_aluminium_0>, false, true);
 removeOre(7, <gregtech:ore_beryllium_0>, false, true);
-removeOre(17, <gregtech:ore_cobalt_0>, false, true);
 removeOre(18, <gregtech:ore_copper_0>, false, true);
 removeOre(26, <gregtech:ore_gold_0>);
 removeOre(32, <gregtech:ore_iridium_0>);
@@ -275,6 +292,4 @@ removeOre(79, <gregtech:ore_zinc_0>, false, true);
 removeOre(122, <gregtech:ore_rutile_0>, true);
 removeOre(130, <gregtech:ore_magnesite_0>, false, true, <gregtech:meta_item_1:10038>);
 removeOre(139, <gregtech:ore_phosphate_0>);
-removeOre(243, <gregtech:ore_garnet_red_0>, true);
-removeOre(244, <gregtech:ore_garnet_yellow_0>, true);
 removeOre(307, <gregtech:ore_naquadah_0>);

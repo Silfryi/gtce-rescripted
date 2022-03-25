@@ -89,7 +89,6 @@ RecipeMap.getByName("replicator").findRecipe(32, [<gregtech:meta_item_1:32762>.w
 */
 //The ids of everything that has a cable
 removeInsulation(1, true, [72, 144, 288, 576, 1152], [48, 96, 192, 384, 768]);
-removeInsulation(17, false, [48, 96, 192, 384, 768], [36, 72, 144, 288, 576]);
 removeInsulation(18, false, [48, 96, 192, 384, 768], [36, 72, 144, 288, 576]);
 removeInsulation(26, false, [72, 144, 288, 576, 1152], [36, 72, 144, 288, 576]);
 removeInsulation(33, false, [48, 96, 192, 384, 768], [36, 72, 144, 288, 576]);

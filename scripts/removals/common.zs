@@ -448,9 +448,11 @@ function removeAllCentrifugedOres() as void {
 * Retools all sifter recipes to not have or use flawed or chipped gems, instead producing small and tiny dusts and removing flawed/chips from JEI
 */
 function recalibrateAllSifterRecipes() as void {
-    var ids = [85, 103, 106, 111, 113, 128, 154, 161, 201, 202, 209, 211, 212, 216, 226, 281, 357] as int[];
+    var ids = [85, 103, 106, 111, 113, 122, 128, 154, 161, 201, 202, 209, 211, 212, 216, 226, 281, 357] as int[];
     print("Removing all chipped and flawed gems from JEI as well as their recipes");
     //Remove default recipes
+    recipes.removeByRegex(".*(exquisite).*");
+    recipes.removeByRegex(".*(flawless).*");
     for recipe in RecipeMap.getByName("sifter").recipes {
        recipe.remove();
     }
@@ -458,19 +460,25 @@ function recalibrateAllSifterRecipes() as void {
         //Hide from JEI
         removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 22000));
         removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 23000));
+        removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 24000));
+        removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 25000));
         //Remove recipes with only gregtech components
         RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_2>.definition.makeStack(id + 23000)], null).remove();
+        RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_2>.definition.makeStack(id + 24000)], null).remove();
+        RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_2>.definition.makeStack(id + 25000)], null).remove();
         RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 22000)], null).remove();
         RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 23000)], null).remove();
+        RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 24000)], null).remove();
+        RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2>.definition.makeStack(id + 25000)], null).remove();
         //Retool the actual sifter recipes
-        if (id != 209 && id != 357) {
+        if (id != 209 && id != 357 && id != 122) {
         //Sifter recipes for both washed and unwashed ore - washed is better for gems, unwashed is better for total yield
             if (id != 111 && id != 113 && id != 216 && id != 106 && id != 201) {
                 RecipeMap.getByName("forge_hammer").findRecipe(16, [<gregtech:meta_item_1>.definition.makeStack(id + 8000)], null).remove();
                 RecipeMap.getByName("sifter").recipeBuilder()
                     .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 5000)])
-                    .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 300, 60)
-                    .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 24000), 600, 120)
+                    .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 8000) * 4, 300, 60)
+                    .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 8000) * 2, 600, 120)
                     .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 8000), 1200, 240)
                     .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 3000), 2700, 350)
                     .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 1000), 5400, 770)
@@ -478,8 +486,8 @@ function recalibrateAllSifterRecipes() as void {
                     .duration(800).EUt(16).buildAndRegister();
                 RecipeMap.getByName("sifter").recipeBuilder()
                     .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 6000)])
-                    .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 400, 80)
-                    .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 24000), 800, 160)
+                    .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 8000) * 4, 400, 80)
+                    .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 8000) * 2, 800, 160)
                     .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 8000), 1600, 320)
                     .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 4000), 2500, 320)
                     .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 1000), 3500, 500)
@@ -490,8 +498,8 @@ function recalibrateAllSifterRecipes() as void {
                     RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:diamond>], null).remove();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 5000)])
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 300, 60)
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 24000), 600, 120)
+                        .chancedOutput(<minecraft:diamond>.definition.makeStack(id + 8000) * 4, 300, 60)
+                        .chancedOutput(<minecraft:diamond>.definition.makeStack(id + 8000) * 2, 600, 120)
                         .chancedOutput(<minecraft:diamond>, 1200, 240)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 3000), 2700, 350)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 1000), 5400, 770)
@@ -499,8 +507,8 @@ function recalibrateAllSifterRecipes() as void {
                         .duration(800).EUt(16).buildAndRegister();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 6000)])
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 400, 80)
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 24000), 800, 160)
+                        .chancedOutput(<minecraft:diamond>.definition.makeStack(id + 8000) * 4, 400, 80)
+                        .chancedOutput(<minecraft:diamond>.definition.makeStack(id + 8000) * 2, 800, 160)
                         .chancedOutput(<minecraft:diamond>, 1600, 320)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 4000), 2500, 320)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 1000), 3500, 500)
@@ -510,8 +518,8 @@ function recalibrateAllSifterRecipes() as void {
                     RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:emerald>], null).remove();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 5000)])
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 300, 60)
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 24000), 600, 120)
+                        .chancedOutput(<minecraft:emerald>.definition.makeStack(id + 8000) * 4, 300, 60)
+                        .chancedOutput(<minecraft:emerald>.definition.makeStack(id + 8000) * 2, 600, 120)
                         .chancedOutput(<minecraft:emerald>, 1200, 240)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 3000), 2700, 350)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 1000), 5400, 770)
@@ -519,8 +527,8 @@ function recalibrateAllSifterRecipes() as void {
                         .duration(800).EUt(16).buildAndRegister();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 6000)])
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 400, 80)
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 24000), 800, 160)
+                        .chancedOutput(<minecraft:emerald>.definition.makeStack(id + 8000) * 4, 400, 80)
+                        .chancedOutput(<minecraft:emerald>.definition.makeStack(id + 8000) * 2, 800, 160)
                         .chancedOutput(<minecraft:emerald>, 1600, 320)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 4000), 2500, 320)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 1000), 3500, 500)
@@ -530,8 +538,8 @@ function recalibrateAllSifterRecipes() as void {
                     RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:dye:4>], null).remove();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 5000)])
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 300, 60)
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 24000), 600, 120)
+                        .chancedOutput(<minecraft:dye:4>.definition.makeStack(id + 8000) * 4, 300, 60)
+                        .chancedOutput(<minecraft:dye:4>.definition.makeStack(id + 8000) * 2, 600, 120)
                         .chancedOutput(<minecraft:dye:4>, 1200, 240)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 3000), 2700, 350)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 1000), 5400, 770)
@@ -539,8 +547,8 @@ function recalibrateAllSifterRecipes() as void {
                         .duration(800).EUt(16).buildAndRegister();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 6000)])
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 400, 80)
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 24000), 800, 160)
+                        .chancedOutput(<minecraft:dye:4>.definition.makeStack(id + 8000) * 4, 400, 80)
+                        .chancedOutput(<minecraft:dye:4>.definition.makeStack(id + 8000) * 2, 800, 160)
                         .chancedOutput(<minecraft:dye:4>, 1600, 320)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 4000), 2500, 320)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 1000), 3500, 500)
@@ -550,8 +558,8 @@ function recalibrateAllSifterRecipes() as void {
                     RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:coal>], null).remove();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 5000)])
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 300, 60)
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 24000), 600, 120)
+                        .chancedOutput(<minecraft:coal>.definition.makeStack(id + 8000) * 4, 300, 60)
+                        .chancedOutput(<minecraft:coal>.definition.makeStack(id + 8000) * 2, 600, 120)
                         .chancedOutput(<minecraft:coal>, 1200, 240)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 3000), 2700, 350)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 1000), 5400, 770)
@@ -559,8 +567,8 @@ function recalibrateAllSifterRecipes() as void {
                         .duration(800).EUt(16).buildAndRegister();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 6000)])
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 400, 80)
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 24000), 800, 160)
+                        .chancedOutput(<minecraft:coal>.definition.makeStack(id + 8000) * 4, 400, 80)
+                        .chancedOutput(<minecraft:coal>.definition.makeStack(id + 8000) * 2, 800, 160)
                         .chancedOutput(<minecraft:coal>, 1600, 320)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 4000), 2500, 320)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 1000), 3500, 500)
@@ -570,8 +578,8 @@ function recalibrateAllSifterRecipes() as void {
                     RecipeMap.getByName("forge_hammer").findRecipe(16, [<minecraft:quartz>], null).remove();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 5000)])
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 300, 60)
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 24000), 600, 120)
+                        .chancedOutput(<minecraft:quartz>.definition.makeStack(id + 8000) * 4, 300, 60)
+                        .chancedOutput(<minecraft:quartz>.definition.makeStack(id + 8000) * 2, 600, 120)
                         .chancedOutput(<minecraft:quartz>, 1200, 240)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 3000), 2700, 350)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 1000), 5400, 770)
@@ -579,8 +587,8 @@ function recalibrateAllSifterRecipes() as void {
                         .duration(800).EUt(16).buildAndRegister();
                     RecipeMap.getByName("sifter").recipeBuilder()
                         .inputs([<gregtech:meta_item_1>.definition.makeStack(id + 6000)])
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 25000), 400, 80)
-                        .chancedOutput(<gregtech:meta_item_2>.definition.makeStack(id + 24000), 800, 160)
+                        .chancedOutput(<minecraft:quartz>.definition.makeStack(id + 8000) * 4, 400, 80)
+                        .chancedOutput(<minecraft:quartz>.definition.makeStack(id + 8000) * 2, 800, 160)
                         .chancedOutput(<minecraft:quartz>, 1600, 320)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 4000), 2500, 320)
                         .chancedOutput(<gregtech:meta_item_1>.definition.makeStack(id + 1000), 3500, 500)
