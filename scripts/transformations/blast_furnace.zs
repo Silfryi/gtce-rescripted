@@ -73,6 +73,11 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2358> * 6, <gregtech:meta_item_1:2985> * 4, <gregtech:meta_item_1:2078>])
     .outputs([<gregtech:meta_item_1:11200> * 13, <gregtech:meta_item_1:2110>])
     .property("temperature", 3600).duration(18360).EUt(480).buildAndRegister();
+//Readd proper tungstensteel separation
+RecipeMap.getByName("centrifuge").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2235> * 11])
+    .outputs([<gregtech:meta_item_1:2301> * 11, <gregtech:meta_item_1:2074>, <gregtech:meta_item_1:2041>])
+    .duration(292).EUt(30).buildAndRegister();
 
 
 /**

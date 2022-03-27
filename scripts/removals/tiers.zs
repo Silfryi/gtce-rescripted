@@ -82,9 +82,10 @@ removeCable(312 as int, false, 1, false, false);
 //ZPM Wires
 removeCable(307 as int, false, 4, false, false);
 //LuV Wires
-removeCable(135 as int, true, 4, false, true);
 removeCable(195 as int, true, 4, false, true);
 removeCable(200 as int, true, 4, false, true);
+
+
 
 /**
 * Remove very low- or very high-tier items that make little sense and have no reason to exist now that they can't be used for their purpose
@@ -119,6 +120,8 @@ recipes.addShaped(<gtadditions:ga_meta_item:32032> * 4,
  [<minecraft:clay_ball>, <liquid:water> * 1000, <minecraft:clay_ball>],
  [<minecraft:clay_ball>, <ore:sand>, <minecraft:clay_ball>]]);
  
+ 
+ 
 /**
 * Remove the entirety of the recipes of some high-tier machines, so we can write their recipes anew
 */
@@ -132,12 +135,12 @@ for recipe in RecipeMap.getByName("blast_furnace").recipes {
 //Replicator & mass fabricator non-elements
 var n = 0;
 for recipe in RecipeMap.getByName("replicator").recipes {
-    if(n > 117 || (n > 10 && n < 79)) recipe.remove();
+    if(n > 116 || (n > 10 && n < 79)) recipe.remove();
     n += 1;
 }
 var m = 0;
 for recipe in RecipeMap.getByName("mass_fab").recipes {
-    if(m > 119 || (m > 10 && m < 79)) recipe.remove();
+    if(m > 118 || (m > 10 && m < 79)) recipe.remove();
     m += 1;
 }
 RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:mixed_vitriols> * 1000]).remove();

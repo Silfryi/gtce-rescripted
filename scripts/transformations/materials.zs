@@ -29,6 +29,7 @@ MaterialCasting.toIngot(MaterialRegistry.get("polyvinyl_chloride")).setFluidPipe
 MaterialCasting.toIngot(MaterialRegistry.get("polytetrafluoroethylene")).setFluidPipeProperties(625, 600, true);
 MaterialCasting.toIngot(MaterialRegistry.get("titanium")).setFluidPipeProperties(600, 5000, true);
 MaterialCasting.toIngot(MaterialRegistry.get("tungsten_steel")).setFluidPipeProperties(900, 7500, true);
+MaterialRegistry.get("tungsten_steel").addFlags(["DISABLE_DECOMPOSITION"]);
 
 /**
 * Add needed parts to some materials - magnalium frames, vanadium-gallium fine wire
@@ -67,5 +68,4 @@ MaterialRegistry.get("cyan_vitriol_solution").addFlags(["DISABLE_DECOMPOSITION"]
 MaterialRegistry.get("white_vitriol_solution").addFlags(["DISABLE_DECOMPOSITION"]);
 MaterialRegistry.get("mixed_vitriols").addFlags(["DISABLE_DECOMPOSITION"]);
 MaterialRegistry.get("copper_rich_mixed_vitriols").addFlags(["DISABLE_DECOMPOSITION"]);
-
 

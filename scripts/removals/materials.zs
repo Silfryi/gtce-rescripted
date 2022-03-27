@@ -58,6 +58,8 @@ removeDust(290, 5, 58, 58, false, false, false, true, null);
 removeDust(291, 0, 1442, 1386, false, false, false, false, null);
 removeDust(292, 8, 80, 80, false, false, false, true, null);
 removeDust(293, 17, 130, 126, false, false, false, true, null);
+removeDust(356, 0, 0, 0, false, false, false, false, null);
+RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(356 + 2000) * 2], null).remove();
 removeDust(362, 8, 184, 208, false, false, false, true, <gregtech:ore_enargite_0>);
 removeDust(363, 29, 688, 784, false, false, false, true, <gregtech:ore_tennantite_0>);
 
@@ -79,8 +81,6 @@ removeBasicIngot(64, 38, 49, false, false, true, [65, 49, 16], null);
 removeBasicIngot(67, 52, 75, false, false, true, [95, 71, 28], null);
 removeBasicIngot(68, 65, 93, true, false, true, [118, 89, 29], null);
 removeBasicIngot(70, 69, 99, true, true, true, [126, 94, 31], null);
-removeRodIngot(134, 48, 60, true, true, [40, 30, 10], null, [4, 3, 1, 4, 3, 1], true);
-RecipeMap.getByName("electrolyzer").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(134 + 2000) * 2], null).remove();
 removeBasicIngot(353, 70, 103, true, false, true, [129, 97, 32], null);
 RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:2005>, <gregtech:meta_item_1:2025>], null).remove();
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(410 + 2000) * 2], null).remove();
@@ -257,13 +257,30 @@ RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:1026> * 4, <gr
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2026> * 4, <gregtech:meta_item_1:2018>], null).remove();
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(228 + 2000) * 5], null).remove();
 
-//Naquadah Alloy, Naquadah (Ingot Only), Enriched Naquadah (Ingot Only)
-removeCable(308 as int, true, 4, false, false);
-removeTool(308, 428, 631, true, true, [181, 136, 45], null, [6, 4, 1, 4, 3, 1], [false, false, true, true, false, true, false], true);
-//removeTool(228, 345, 502, true, false, [126, 95, 31], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
-//removeTool(228, 345, 502, true, false, [126, 95, 31], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
+//Naquadah (Ingot Only), Enriched Naquadah (Ingot Only),Tungsten (Ingot Only), Silicon (Ingot Only)
+recipes.removeByRegex(".*(naquadah).*");
+removeTool(307, 0, 0, true, true, [219, 165, 54], null, [7, 5, 1, 4, 3, 1], [false, false, false, false, false, true, false], true, null, true);
+removeTool(309, 0, 0, true, true, [73, 55, 18], null, [4, 3, 1, 4, 3, 1], [false, false, false, false, false, true, false], true, null, true);
+recipes.removeByRegex(".*(tungsten).*");
+removeCable(74 as int, true, 4, false, true);
+removeTool(74, 0, 0, true, true, [137, 103, 34], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, true], true, null, true);
+removeBasicIngot(61, 0, 0, true, false, true, [21, 15, 5], null, false, false, true);
 
-//Miscelanous materials that need removing
+//Niobium & niobium derivates
+removeBasicIngot(45, 41, 53, true, true, true, [70, 52, 17], null, true);
+removeRodIngot(134, 48, 60, true, true, [40, 30, 10], null, [4, 3, 1, 4, 3, 1], true);
+RecipeMap.getByName("electrolyzer").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(134 + 2000) * 2], null).remove();
+removeCable(135 as int, true, 4, false, true);
+RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(135 + 2000) * 2], null).remove();
+removeAdvancedIngot(135, 0, 0, true, true, [53, 40, 13], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, true], true);
+
+//Magnetic materials minus the rods
+RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(298 + 2000)], null).remove();
+RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(299 + 2000)], null).remove();
+removeAdvancedIngot(298, 0, 0, true, false, [42, 31, 10], null, [4, 3, 1, 4, 3, 1], [true, true, true, true, true, true, false]);
+removeAdvancedIngot(299, 0, 0, true, false, [108, 81, 27], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
+
+//Miscelanous materials that need removing - quartzite, naquadah alloy, darmstadtium, barium, magnetic iron
 removeBasicIngot(6, 56, 81, false, false, false, null, null);
 removeGem(203, 0, 0, 0, false, false, <gregtech:ore_quartzite_0>, null, false, false);
 removeAdvancedIngot(297, 26, 30, false, false, [42, 31, 10], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
@@ -271,6 +288,8 @@ RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definit
 removeRodIngot(22, 63, 88, true, false, [113, 85, 28], null, null);
 recipes.removeByRegex(".*(darmstadtium).*");
 removeTool(43, 110, 171, false, false, [210, 158, 52], null, [125, 93, 31, 4, 3, 1], [true, true, true, true, true, true, false], false, <gregtech:frame_darmstadtium>);
+removeCable(308 as int, true, 4, false, false);
+removeTool(308, 428, 631, true, true, [181, 136, 45], null, [6, 4, 1, 4, 3, 1], [false, false, true, true, false, true, false], true);
 
 
 
@@ -298,3 +317,111 @@ removeOre(122, <gregtech:ore_rutile_0>, true);
 removeOre(130, <gregtech:ore_magnesite_0>, false, true, <gregtech:meta_item_1:10038>);
 removeOre(139, <gregtech:ore_phosphate_0>);
 removeOre(307, <gregtech:ore_naquadah_0>);
+
+
+
+/**
+* Change the recipes of some materials to make them more consistent
+*/
+//Solder
+RecipeMap.getByName("alloy_smelter").findRecipe(30, [<gregtech:meta_item_1:10071> * 9, <gregtech:meta_item_1:10003>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(30, [<gregtech:meta_item_1:10071> * 9, <gregtech:meta_item_1:2003>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(30, [<gregtech:meta_item_1:2071> * 9, <gregtech:meta_item_1:10003>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(30, [<gregtech:meta_item_1:2071> * 9, <gregtech:meta_item_1:2003>], null).remove();
+RecipeMap.getByName("alloy_smelter").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:10079> * 9 | <gregtech:meta_item_1:2079> * 9, <gregtech:meta_item_1:10003> | <gregtech:meta_item_1:2003>])
+    .outputs([<gregtech:meta_item_1:10180> * 10])
+    .duration(250).EUt(30).buildAndRegister();
+//Red Alloy
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<minecraft:redstone> * 4, <gregtech:meta_item_1:10018>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<minecraft:redstone> * 4, <gregtech:meta_item_1:2018>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<minecraft:redstone> * 4, <gregtech:meta_item_1:10087>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<minecraft:redstone> * 4, <gregtech:meta_item_1:2087>], null).remove();
+RecipeMap.getByName("alloy_smelter").recipeBuilder()
+    .inputs([<minecraft:redstone> * 4, <gregtech:meta_item_1:10018> | <gregtech:meta_item_1:2018> | <gregtech:meta_item_1:10087> | <gregtech:meta_item_1:2087>])
+    .outputs([<gregtech:meta_item_1:10237> * 1])
+    .duration(50).EUt(30).buildAndRegister();
+//Battery Alloy
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10035> * 4, <gregtech:meta_item_1:10003>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10035> * 4, <gregtech:meta_item_1:2003>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2035> * 4, <gregtech:meta_item_1:10003>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2035> * 4, <gregtech:meta_item_1:2003>], null).remove();
+RecipeMap.getByName("alloy_smelter").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:10035> * 4 | <gregtech:meta_item_1:2035> * 4, <gregtech:meta_item_1:10003> | <gregtech:meta_item_1:2003>])
+    .outputs([<gregtech:meta_item_1:10091> * 5])
+    .duration(250).EUt(30).buildAndRegister();
+//Brass
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10018> * 3, <gregtech:meta_item_1:10079>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10018> * 3, <gregtech:meta_item_1:2079>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2018> * 3, <gregtech:meta_item_1:10079>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2018> * 3, <gregtech:meta_item_1:2079>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10087> * 3, <gregtech:meta_item_1:10079>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10087> * 3, <gregtech:meta_item_1:2079>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2087> * 3, <gregtech:meta_item_1:10079>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2087> * 3, <gregtech:meta_item_1:2079>], null).remove();
+RecipeMap.getByName("alloy_smelter").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:10018> * 3 | <gregtech:meta_item_1:2018> * 3 | <gregtech:meta_item_1:10087> * 3 | <gregtech:meta_item_1:2087> * 3, <gregtech:meta_item_1:10079> | <gregtech:meta_item_1:2079>])
+    .outputs([<gregtech:meta_item_1:10094> * 4])
+    .duration(200).EUt(30).buildAndRegister();
+//Magnalium
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10001> * 2, <gregtech:meta_item_1:10038>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10001> * 2, <gregtech:meta_item_1:2038>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2001> * 2, <gregtech:meta_item_1:10038>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2001> * 2, <gregtech:meta_item_1:2038>], null).remove();
+RecipeMap.getByName("alloy_smelter").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:10001> * 2 | <gregtech:meta_item_1:2001> * 2, <gregtech:meta_item_1:10038> | <gregtech:meta_item_1:2038>])
+    .outputs([<gregtech:meta_item_1:10129> * 3])
+    .duration(150).EUt(30).buildAndRegister();
+//Cupronickel
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10018>, <gregtech:meta_item_1:10044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10018>, <gregtech:meta_item_1:2044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2018>, <gregtech:meta_item_1:10044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2018>, <gregtech:meta_item_1:2044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10087>, <gregtech:meta_item_1:10044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10087>, <gregtech:meta_item_1:2044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2087>, <gregtech:meta_item_1:10044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2087>, <gregtech:meta_item_1:2044>], null).remove();
+RecipeMap.getByName("alloy_smelter").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:10018> | <gregtech:meta_item_1:2018> | <gregtech:meta_item_1:10087> | <gregtech:meta_item_1:2087>, <gregtech:meta_item_1:10044> | <gregtech:meta_item_1:2044>])
+    .outputs([<gregtech:meta_item_1:10109> * 2])
+    .duration(200).EUt(30).buildAndRegister();
+//Electrum
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<minecraft:gold_ingot>, <gregtech:meta_item_1:10062>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<minecraft:gold_ingot>, <gregtech:meta_item_1:2062>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2026>, <gregtech:meta_item_1:10062>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2026>, <gregtech:meta_item_1:2062>], null).remove();
+RecipeMap.getByName("alloy_smelter").recipeBuilder()
+    .inputs([<minecraft:gold_ingot> | <gregtech:meta_item_1:2026>, <gregtech:meta_item_1:10062> | <gregtech:meta_item_1:2062>])
+    .outputs([<gregtech:meta_item_1:10112> * 2])
+    .duration(200).EUt(30).buildAndRegister();
+//Invar
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<minecraft:iron_ingot> * 2, <gregtech:meta_item_1:10044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<minecraft:iron_ingot> * 2, <gregtech:meta_item_1:2044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2033> * 2, <gregtech:meta_item_1:10044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2033> * 2, <gregtech:meta_item_1:2044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10197> * 2, <gregtech:meta_item_1:10044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:10197> * 2, <gregtech:meta_item_1:2044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2197> * 2, <gregtech:meta_item_1:10044>], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(16, [<gregtech:meta_item_1:2197> * 2, <gregtech:meta_item_1:2044>], null).remove();
+RecipeMap.getByName("alloy_smelter").recipeBuilder()
+    .inputs([<minecraft:iron_ingot> * 2 | <gregtech:meta_item_1:2033> * 2 | <gregtech:meta_item_1:10197> * 2 | <gregtech:meta_item_1:2197> * 2, <gregtech:meta_item_1:10044> | <gregtech:meta_item_1:2044>])
+    .outputs([<gregtech:meta_item_1:10126> * 3])
+    .duration(150).EUt(30).buildAndRegister();
+//Stainless steel
+recipes.replaceAllOccurences(<gregtech:meta_item_1:2033>, <gregtech:meta_item_1:2184>, <gregtech:meta_item_1:2183>);
+recipes.replaceAllOccurences(<gregtech:meta_item_1:33>, <gregtech:meta_item_1:184>, <gregtech:meta_item_1:2183>);
+RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:2033> * 4, <gregtech:meta_item_1:2126> * 3, <gregtech:meta_item_1:2039>, <gregtech:meta_item_1:2016>], null).remove();
+RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:1033> * 4, <gregtech:meta_item_1:1126> * 3, <gregtech:meta_item_1:1039>, <gregtech:meta_item_1:1016>], null).remove();
+RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:33> * 4, <gregtech:meta_item_1:126> * 3, <gregtech:meta_item_1:39>, <gregtech:meta_item_1:16>], null).remove();
+RecipeMap.getByName("mixer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2184> * 6, <gregtech:meta_item_1:2044>,  <gregtech:meta_item_1:2039>, <gregtech:meta_item_1:2016>])
+    .outputs([<gregtech:meta_item_1:2183> * 9])
+    .duration(900).EUt(30).buildAndRegister();
+RecipeMap.getByName("mixer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:1184> * 6, <gregtech:meta_item_1:1044>,  <gregtech:meta_item_1:1039>, <gregtech:meta_item_1:1016>])
+    .outputs([<gregtech:meta_item_1:1183> * 9])
+    .duration(226).EUt(30).buildAndRegister();
+RecipeMap.getByName("mixer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:184> * 6, <gregtech:meta_item_1:44>,  <gregtech:meta_item_1:39>, <gregtech:meta_item_1:16>])
+    .outputs([<gregtech:meta_item_1:2183>])
+    .duration(100).EUt(30).buildAndRegister();

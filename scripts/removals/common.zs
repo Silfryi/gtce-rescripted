@@ -16,10 +16,10 @@ global gtBlockID  as IItemStack[] = [<gregtech:meta_block_compressed_0>, <gregte
 /**
 * Function that removes an advanced ingot tool material from the game - all tool parts and their recipes, the required stuff below it, etc
 */
-function removeTool(id as int, protons as int, neutrons as int, blast as bool, cool as bool, cut as int[], ore as IItemStack, bolt as int[], products as bool[], super as bool = false, frame as IItemStack = null) {
+function removeTool(id as int, protons as int, neutrons as int, blast as bool, cool as bool, cut as int[], ore as IItemStack, bolt as int[], products as bool[], super as bool = false, frame as IItemStack = null, keep as bool = false) {
     print("Removing tool parts for material " + id);
     var fluid = RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).fluidOutputs[0].definition;
-    removeAdvancedIngot(id, protons, neutrons, blast, cool, cut, ore, bolt, products, super, frame);
+    removeAdvancedIngot(id, protons, neutrons, blast, cool, cut, ore, bolt, products, super, frame, false, keep);
     //Remove some decomposition recipes for tool parts
     var oxygen = [120, 180, 60, 180, 120, 360, 120, 120, 240, 120, 240, 60, 180, 0, 240, 300] as int[];
     for z in 0 to 16 {
@@ -49,9 +49,9 @@ function removeTool(id as int, protons as int, neutrons as int, blast as bool, c
 /**
 * Function that removes a metal of any variety that is not a tool material - fine wire, foil, you name it
 */
-function removeAdvancedIngot(id as int, protons as int, neutrons as int, blast as bool, cool as bool, cut as int[], ore as IItemStack, bolt as int[], products as bool[], super as bool = false, frame as IItemStack = null, poly as bool = false) {
+function removeAdvancedIngot(id as int, protons as int, neutrons as int, blast as bool, cool as bool, cut as int[], ore as IItemStack, bolt as int[], products as bool[], super as bool = false, frame as IItemStack = null, poly as bool = false, keep as bool = false) {
     var fluid = RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).fluidOutputs[0].definition;
-    removeRodIngot(id, protons, neutrons, blast, cool, cut, ore, bolt, super, poly);
+    removeRodIngot(id, protons, neutrons, blast, cool, cut, ore, bolt, super, poly, keep);
     //Hide special products from JEI
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 18000));
     removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 18000));
@@ -113,10 +113,13 @@ function removeAdvancedIngot(id as int, protons as int, neutrons as int, blast a
 /**
 * Function that removes a rod + ingot combo and consitutent parts from the game
 */
-function removeRodIngot(id as int, protons as int, neutrons as int, blast as bool, cool as bool, cut as int[], ore as IItemStack, bolt as int[], super as bool = false, poly as bool = false) {
-    removeBasicIngot(id, protons, neutrons, blast, cool, true, cut, ore, super, poly);
+function removeRodIngot(id as int, protons as int, neutrons as int, blast as bool, cool as bool, cut as int[], ore as IItemStack, bolt as int[], super as bool = false, poly as bool = false, keep as bool = false) {
+    removeBasicIngot(id, protons, neutrons, blast, cool, true, cut, ore, super, poly, keep);
     //Hide rod products from JEI
-    removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 14000));
+    if(id != 298 && id != 299)
+        removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 14000));
+    else
+        recipes.remove(<gregtech:meta_item_1>.definition.makeStack(id + 14000));
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 16000));
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 17000));
     removeAndHide(<gregtech:meta_item_2>.definition.makeStack(id + 19000));
@@ -157,9 +160,16 @@ function removeRodIngot(id as int, protons as int, neutrons as int, blast as boo
 /**
 * Function that removes a basic ingot and its constituent parts from the game - doesn't do cable/pipe/rotor/etc, just basic ingot parts. Does no special recipes
 */
-function removeBasicIngot(id as int, protons as int, neutrons as int, blast as bool, cool as bool, plate as bool, cut as int[], ore as IItemStack, super as bool = false, poly as bool = false) {
+function removeBasicIngot(id as int, protons as int, neutrons as int, blast as bool, cool as bool, plate as bool, cut as int[], ore as IItemStack, super as bool = false, poly as bool = false, keep as bool = false) {
     print("Removing ingot material for "  + id + " with" + (cool ? " supered" : blast ? " high-temperature" : "") + " smelting");
-    removeDust(id, 0, protons, neutrons, true, blast, cool, false, ore, super);
+    if (!keep)
+        removeDust(id, 0, protons, neutrons, true, blast, cool, false, ore, super);
+    else {
+        recipes.addShapeless(gtBlockID[(id/16) as int].definition.makeStack(id % 16),
+            [<gregtech:meta_item_1>.definition.makeStack(id + 2000), <gregtech:meta_item_1>.definition.makeStack(id + 2000), <gregtech:meta_item_1>.definition.makeStack(id + 2000),
+            <gregtech:meta_item_1>.definition.makeStack(id + 2000), <gregtech:meta_item_1>.definition.makeStack(id + 2000), <gregtech:meta_item_1>.definition.makeStack(id + 2000),
+            <gregtech:meta_item_1>.definition.makeStack(id + 2000), <gregtech:meta_item_1>.definition.makeStack(id + 2000), <gregtech:meta_item_1>.definition.makeStack(id + 2000)]);
+    }
     var fluid = RecipeMap.getByName("fluid_extractor").findRecipe(super ? 512 : blast ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 9000)], null).fluidOutputs[0].definition;
     //Hide ingot/etc in JEI
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 9000));
@@ -177,6 +187,7 @@ function removeBasicIngot(id as int, protons as int, neutrons as int, blast as b
     RecipeMap.getByName("macerator").findRecipe(super ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 10000)], null).remove();
     if (plate) RecipeMap.getByName("macerator").findRecipe(super ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 12000)], null).remove();
     //Remove block recipes
+    RecipeMap.getByName("unpacker").findRecipe(8, [gtBlockID[(id/16) as int].definition.makeStack(id % 16), <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], null).remove();
     RecipeMap.getByName("alloy_smelter").findRecipe(super ? 128 : 32, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 9, <gregtech:meta_item_1:32308>], null).remove();
     RecipeMap.getByName("extruder").findRecipe(super ? 256 : 64, [<gregtech:meta_item_1>.definition.makeStack(id + 10000) * 9, <gregtech:meta_item_1:32363>], null).remove();
     //Remove melting & forming recipes
@@ -291,7 +302,7 @@ function removeDust(id as int, size as int, protons as int, neutrons as int, ing
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 2000));
     removeAndHide(gtBlockID[(id/16) as int].definition.makeStack(id % 16));
     //Remove recipes for the block and for block decomposition
-    RecipeMap.getByName("unpacker").findRecipe(8, [gtBlockID[(id/16) as int].definition.makeStack(id % 16), <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], null).remove();
+    if (!ingot) RecipeMap.getByName("unpacker").findRecipe(8, [gtBlockID[(id/16) as int].definition.makeStack(id % 16), <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], null).remove();
     RecipeMap.getByName("macerator").findRecipe(super ? 128 : ingot ? 32 : 8, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], null).remove();
     if (!ingot) RecipeMap.getByName("forge_hammer").findRecipe(24, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], null).remove();
     //Remove recipes for tiny and small dusts

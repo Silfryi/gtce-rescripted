@@ -96,31 +96,8 @@ RecipeMap.getByName("chemical_reactor").findRecipe(8, [<gregtech:meta_item_1:327
 RecipeMap.getByName("chemical_reactor").findRecipe(8, [<gregtech:meta_item_1:32766>.withTag({Configuration: 2}), <gregtech:meta_item_1:2106>], [<liquid:oxygen> * 2000]).remove();
 RecipeMap.getByName("chemical_reactor").findRecipe(480, [<gregtech:meta_item_1:32766>.withTag({Configuration: 1})], [<liquid:methane> * 1000, <liquid:water> * 2000]).remove(); 
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2012>]).notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 2}))
-    .fluidInputs([<liquid:oxygen> * 2000])
-    .outputs([<gregtech:meta_item_1:89>])
-    .fluidOutputs([<liquid:carbon_dioxide> * 3000])
-    .duration(80).EUt(8).buildAndRegister();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<minecraft:coal:1>]).notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 2}))
-    .fluidInputs([<liquid:oxygen> * 2000])
-    .outputs([<gregtech:meta_item_1:89>])
-    .fluidOutputs([<liquid:carbon_dioxide> * 3000])
-    .duration(80).EUt(8).buildAndRegister();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2101>]).notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 2}))
-    .fluidInputs([<liquid:oxygen> * 2000])
-    .outputs([<gregtech:meta_item_1:89>])
-    .fluidOutputs([<liquid:carbon_dioxide> * 3000])
-    .duration(80).EUt(8).buildAndRegister();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<minecraft:coal>]).notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 2}))
-    .fluidInputs([<liquid:oxygen> * 2000])
-    .outputs([<gregtech:meta_item_1:89>])
-    .fluidOutputs([<liquid:carbon_dioxide> * 3000])
-    .duration(80).EUt(8).buildAndRegister();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2106>]).notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 2}))
+    .inputs([<gregtech:meta_item_1:2012> | <minecraft:coal> | <minecraft:coal:1> | <gregtech:meta_item_1:2106> | <gregtech:meta_item_1:2101>])
+    .notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 2}))
     .fluidInputs([<liquid:oxygen> * 2000])
     .outputs([<gregtech:meta_item_1:89>])
     .fluidOutputs([<liquid:carbon_dioxide> * 3000])
@@ -291,38 +268,17 @@ RecipeMap.getByName("chemical_reactor").findRecipe(8, [<gregtech:meta_item_1:327
 RecipeMap.getByName("chemical_reactor").findRecipe(8, [<gregtech:meta_item_1:32766>.withTag({Configuration: 1}), <minecraft:coal>], [<liquid:oxygen> * 1000]).remove();
 RecipeMap.getByName("chemical_reactor").findRecipe(8, [<gregtech:meta_item_1:32766>.withTag({Configuration: 1}), <gregtech:meta_item_1:2106>], [<liquid:oxygen> * 1000]).remove();
 RecipeMap.getByName("chemical_reactor").findRecipe(8, [<gregtech:meta_item_1:2012>], [<liquid:carbon_dioxide> * 1000]).remove();
-RecipeMap.getByName("chemical_reactor")
-    .recipeBuilder().inputs([<gregtech:meta_item_1:2012>]).notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 1}))
-    .fluidInputs([<liquid:oxygen> * 1000]).outputs([<gregtech:meta_item_1:89>])
-    .fluidOutputs([<liquid:carbon_monoxide> * 2000])
-    .duration(80).EUt(8).buildAndRegister();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<minecraft:coal:1>]).notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 1}))
+    .inputs([<gregtech:meta_item_1:2012> | <minecraft:coal> | <minecraft:coal:1> | <gregtech:meta_item_1:2106> | <gregtech:meta_item_1:2101>])
+    .notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 1}))
     .fluidInputs([<liquid:oxygen> * 1000])
     .outputs([<gregtech:meta_item_1:89>])
     .fluidOutputs([<liquid:carbon_monoxide> * 2000])
     .duration(80).EUt(8).buildAndRegister();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2101>]).notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 1}))
-    .fluidInputs([<liquid:oxygen> * 1000])
-    .outputs([<gregtech:meta_item_1:89>])
-    .fluidOutputs([<liquid:carbon_monoxide> * 2000])
-    .duration(80).EUt(8).buildAndRegister();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<minecraft:coal>]).notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 1}))
-    .fluidInputs([<liquid:oxygen> * 1000])
-    .outputs([<gregtech:meta_item_1:89>])
-    .fluidOutputs([<liquid:carbon_monoxide> * 2000])
-    .duration(80).EUt(8).buildAndRegister();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2106>]).notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 1}))
-    .fluidInputs([<liquid:oxygen> * 1000])
-    .outputs([<gregtech:meta_item_1:89>])
-    .fluidOutputs([<liquid:carbon_monoxide> * 2000])
-    .duration(80).EUt(8).buildAndRegister();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2012>])
+    .inputs([<gregtech:meta_item_1:2012> | <minecraft:coal> | <minecraft:coal:1> | <gregtech:meta_item_1:2106> | <gregtech:meta_item_1:2101>])
     .fluidInputs([<liquid:carbon_dioxide> * 3000])
+    .outputs([<gregtech:meta_item_1:89>])
     .fluidOutputs([<liquid:carbon_monoxide> * 4000])
     .duration(800).EUt(8).buildAndRegister();
 
