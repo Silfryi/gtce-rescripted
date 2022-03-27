@@ -122,9 +122,23 @@ recipes.addShaped(<gtadditions:ga_meta_item:32032> * 4,
 /**
 * Remove the entirety of the recipes of some high-tier machines, so we can write their recipes anew
 */
+//Assembly line and blast furnace, to be readded later
 for recipe in RecipeMap.getByName("assembly_line").recipes {
     recipe.remove();
 }
 for recipe in RecipeMap.getByName("blast_furnace").recipes {
     recipe.remove();
 }
+//Replicator & mass fabricator non-elements
+var n = 0;
+for recipe in RecipeMap.getByName("replicator").recipes {
+    if(n > 117 || (n > 10 && n < 79)) recipe.remove();
+    n += 1;
+}
+var m = 0;
+for recipe in RecipeMap.getByName("mass_fab").recipes {
+    if(m > 119 || (m > 10 && m < 79)) recipe.remove();
+    m += 1;
+}
+RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:mixed_vitriols> * 1000]).remove();
+RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:copper_rich_mixed_vitriols> * 1000]).remove();
