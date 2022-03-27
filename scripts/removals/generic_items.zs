@@ -123,3 +123,13 @@ removeAndHide(<theoneprobe:probe>);
 removeAndHide(<theoneprobe:creativeprobe>);
 removeAndHide(<flourishingfoliage:leaves_repairing>);
 removeAndHide(<wumpleutil:repairing_block>);
+
+//Remove Minecraft things from JEI that don't need to be there, technical blocks
+removeAndHide(<minecraft:command_block>);
+removeAndHide(<minecraft:barrier>);
+removeAndHide(<minecraft:repeating_command_block>);
+removeAndHide(<minecraft:chain_command_block>);
+removeAndHide(<minecraft:structure_void>);
+removeAndHide(<minecraft:structure_block>);
+removeAndHide(<minecraft:command_block_minecart>);
+removeAndHide(<minecraft:knowledge_book>);

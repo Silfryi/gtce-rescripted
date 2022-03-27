@@ -64,7 +64,7 @@ removeDust(362, 8, 184, 208, false, false, false, true, <gregtech:ore_enargite_0
 removeDust(363, 29, 688, 784, false, false, false, true, <gregtech:ore_tennantite_0>);
 
 //Remove useless metals of varying complexities
-removeBasicIngot(2, 95, 150, false, false, false, [], null);
+removeRodIngot(2, 95, 150, false, false, [183, 138, 45], null, null);
 removeBasicIngot(10, 55, 77, false, false, false, [], null);
 removeBasicIngot(14, 58, 82, true, false, false, [], null);
 removeBasicIngot(20, 66, 96, true, false, false, [], null);
