@@ -202,7 +202,6 @@ RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:1033> * 4, <g
 RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:2033> * 4, <gregtech:meta_item_1:2044>, <gregtech:meta_item_1:2079>, <gregtech:meta_item_1:32766>.withTag({Configuration: 2})], null).remove();
 removeRodIngot(424, 226, 249, true, false, [24, 18, 6], null, [4, 3, 1, 4, 3, 1]);
 RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1>.definition.makeStack(424 + 2000) * 14], null).remove();
-RecipeMap.getByName("blast_furnace").findRecipe(120, [<gregtech:meta_item_1>.definition.makeStack(423 + 2000) * 6], [<liquid:oxygen> * 8000]).remove();
 
 //Ultimet and High Speed Steels, because they're BS and I don't care
 recipes.removeByRegex(".*(ultimet).*");
@@ -257,6 +256,12 @@ RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:26> * 4, <greg
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:1026> * 4, <gregtech:meta_item_1:1018>], null).remove();
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2026> * 4, <gregtech:meta_item_1:2018>], null).remove();
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(228 + 2000) * 5], null).remove();
+
+//Naquadah Alloy, Naquadah (Ingot Only), Enriched Naquadah (Ingot Only)
+removeCable(308 as int, true, 4, false, false);
+removeTool(308, 428, 631, true, true, [181, 136, 45], null, [6, 4, 1, 4, 3, 1], [false, false, true, true, false, true, false], true);
+//removeTool(228, 345, 502, true, false, [126, 95, 31], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
+//removeTool(228, 345, 502, true, false, [126, 95, 31], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, false]);
 
 //Miscelanous materials that need removing
 removeBasicIngot(6, 56, 81, false, false, false, null, null);

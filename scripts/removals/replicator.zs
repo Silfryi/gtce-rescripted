@@ -78,10 +78,12 @@ RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:phenol> * 1000]).rem
 RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:bisphenol_a> * 1000]).remove();
 RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:polyvinyl_acetate> * 1000]).remove();
 RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:green_vitriol> * 1000]).remove();
+RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:white_vitriol> * 1000]).remove();
 RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:nitrobenzene> * 1000]).remove();
 RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:blue_vitriol_solution> * 1000]).remove();
 RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:green_vitriol_solution> * 1000]).remove();
 RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:cyan_vitriol_solution> * 1000]).remove();
+RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:white_vitriol_solution> * 1000]).remove();
 RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:mixed_vitriols> * 1000]).remove();
 RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:copper_rich_mixed_vitriols> * 1000]).remove();
 //Dusts, many more

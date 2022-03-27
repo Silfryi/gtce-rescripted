@@ -170,9 +170,6 @@ function removeBasicIngot(id as int, protons as int, neutrons as int, blast as b
     if (!blast) { 
         furnace.remove(<gregtech:meta_item_1>.definition.makeStack(id + 10000));
         furnace.remove(<gregtech:meta_item_1>.definition.makeStack(id + 9000));
-    } else { 
-        RecipeMap.getByName("blast_furnace").findRecipe(120, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], [null]).remove();
-        if (!cool) RecipeMap.getByName("blast_furnace").findRecipe(120, [<gregtech:meta_item_1>.definition.makeStack(id)], [null]).remove();
     }
     if (cool) RecipeMap.getByName("vacuum_freezer").findRecipe(120, [<gregtech:meta_item_1>.definition.makeStack(id + 11000)], [null]).remove();
     //Remove maceration recipes for ingot-type components\

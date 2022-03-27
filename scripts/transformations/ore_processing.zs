@@ -38,23 +38,6 @@ RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2270> 
 
 
 /**
-* Remove blatantly wrong pyroprocessing recipes already existent in the blast furnace
-*/
-RecipeMap.getByName("blast_furnace").findRecipe(500, [<gregtech:meta_item_1:2121>, <gregtech:meta_item_1:2012>], []).remove();
-RecipeMap.getByName("blast_furnace").findRecipe(500, [<gregtech:meta_item_1:2114>], [<liquid:oxygen> * 2000]).remove();
-RecipeMap.getByName("blast_furnace").findRecipe(500, [<gregtech:meta_item_1:2131>], [<liquid:oxygen> * 2000]).remove();
-RecipeMap.getByName("blast_furnace").findRecipe(120, [<gregtech:meta_item_1:2271>], [<liquid:oxygen> * 3000]).remove();
-RecipeMap.getByName("blast_furnace").findRecipe(120, [<gregtech:meta_item_1:2148>], [<liquid:oxygen> * 3000]).remove();
-RecipeMap.getByName("blast_furnace").findRecipe(100, [<gregtech:meta_item_1:2154>], []).remove();
-RecipeMap.getByName("blast_furnace").findRecipe(100, [<gregtech:meta_item_1:8154>], []).remove();
-RecipeMap.getByName("blast_furnace").findRecipe(100, [<gregtech:meta_item_1:2117>], []).remove();
-RecipeMap.getByName("blast_furnace").findRecipe(100, [<gregtech:meta_item_1:8117>], []).remove();
-RecipeMap.getByName("blast_furnace").findRecipe(100, [<gregtech:meta_item_1:2157>], []).remove();
-RecipeMap.getByName("blast_furnace").findRecipe(100, [<gregtech:meta_item_1:8157>], []).remove();
-
-
-
-/**
 * Readd pyroprocessing recipes for carbon-requisite (oxide) ores
 */
 //Iron
@@ -419,6 +402,11 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
 /**
 * Specialty blast furnace recipes - pyroprocessing recipes with no reagents, combination recipes, etc
 */
+//Iron-Calcite processing
+RecipeMap.getByName("blast_furnace").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:10140> * 9, <gregtech:meta_item_1:2097>])
+    .outputs([<minecraft:iron_ingot> * 10])
+    .property("temperature", 1000).duration(120).EUt(120).buildAndRegister();
 //Barium Oxide
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2286> * 6])
@@ -431,6 +419,12 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .outputs([<gregtech:meta_item_1:2065>])
     .fluidOutputs([<liquid:mercury> * 1000])
     .property("temperature", 1800).duration(192).EUt(120).buildAndRegister();
+//Titanium Tetrachloride
+RecipeMap.getByName("blast_furnace").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2038> * 2])
+    .fluidInputs([<liquid:titanium_tetrachloride> * 5000])
+    .outputs([<gregtech:meta_item_1:11072>, <gregtech:meta_item_1:2125> * 6])
+    .property("temperature", 2141).duration(800).EUt(480).buildAndRegister();
 
 
 
@@ -485,19 +479,27 @@ RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:water> * 9000])
     .outputs([<gregtech:meta_item_1:2422> * 2])
     .fluidOutputs([<liquid:cyan_vitriol_solution> * 27000, <liquid:nitrogen_dioxide> * 24000])
-    .duration(106).EUt(120).buildAndRegister();
+    .duration(106).EUt(480).buildAndRegister();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:6100> * 4])
     .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:nitric_acid> * 40000, <liquid:water> * 18000])
     .outputs([<gregtech:meta_item_1:2422> * 1])
     .fluidOutputs([<liquid:mixed_vitriols> * 54000, <liquid:nitrogen_dioxide> * 48000])
-    .duration(212).EUt(120).buildAndRegister();
+    .duration(212).EUt(480).buildAndRegister();
+//Indium ones
+RecipeMap.getByName("chemical_reactor").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:6182> * 2])
+    .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:water> * 12000])
+    .outputs([<gregtech:meta_item_1:1031>])
+    .fluidOutputs([<liquid:white_vitriol_solution> * 30000, <liquid:nitrogen_dioxide> * 24000])
+    .duration(106).EUt(480).buildAndRegister();
+//Sheldonite dust
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2108> * 6])
     .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:water> * 9000])
     .outputs([<gregtech:meta_item_1:2982> * 4])
     .fluidOutputs([<liquid:cyan_vitriol_solution> * 27000, <liquid:nitrogen_dioxide> * 24000])
-    .duration(318).EUt(120).buildAndRegister();
+    .duration(318).EUt(480).buildAndRegister();
 //Add vitrol separation
 RecipeMap.getByName("centrifuge").recipeBuilder()
     .fluidInputs([<liquid:mixed_vitriols> * 54000])
@@ -630,10 +632,23 @@ RecipeMap.getByName("electrolyzer").recipeBuilder()
     .outputs([<gregtech:meta_item_1:2033>])
     .fluidOutputs([<liquid:oxygen> * 1000, <liquid:diluted_sulfuric_acid> * 10000, <liquid:water> * 18000])
     .duration(672).EUt(30).buildAndRegister();
+RecipeMap.getByName("electrolyzer").recipeBuilder()
+    .fluidInputs([<liquid:white_vitriol_solution> * 30000])
+    .outputs([<gregtech:meta_item_1:2079>])
+    .fluidOutputs([<liquid:oxygen> * 1000, <liquid:diluted_sulfuric_acid> * 10000, <liquid:water> * 18000])
+    .duration(672).EUt(30).buildAndRegister();
 
 
 
-
-
-
-
+/**
+* Rebalance any chemical reactor ore processing recipes not covered yet - indium & titanium
+*/
+RecipeMap.getByName("chemical_reactor").findRecipe(150, [<gregtech:meta_item_1:6182>, <gregtech:meta_item_1:6114>], [<liquid:sulfuric_acid> * 4000]).remove();
+RecipeMap.getByName("chemical_reactor").findRecipe(600, [<gregtech:meta_item_1:2001> * 4], [<liquid:indium_concentrate> * 1000]).remove();
+RecipeMap.getByName("centrifuge").findRecipe(30, null, [<liquid:lead_zinc_solution> * 1000]).remove();
+RecipeMap.getByName("chemical_reactor").findRecipe(480, [<gregtech:meta_item_1:2122> * 3, <gregtech:meta_item_1:2012> * 2], [<liquid:chlorine> * 4000]).remove();
+RecipeMap.getByName("chemical_reactor").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2122> * 3, <gregtech:meta_item_1:2012> * 2])
+    .fluidInputs([<liquid:chlorine> * 4000])
+    .fluidOutputs([<liquid:titanium_tetrachloride> * 5000, <liquid:carbon_monoxide> * 4000])
+    .duration(500).EUt(480).buildAndRegister();

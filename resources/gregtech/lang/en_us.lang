@@ -1381,7 +1381,7 @@ material.concrete=Concrete
 material.iron_magnetic=Magnetic Iron
 material.steel_magnetic=Magnetic Steel
 material.neodymium_magnetic=Magnetic Neodymium
-material.tungsten_carbide=Tungstencarbide
+material.tungsten_carbide=Tungsten Carbide
 material.vanadium_steel=Vanadiumsteel
 material.hssg=HSS-G
 material.hsse=HSS-E
@@ -1602,8 +1602,8 @@ recipemap.brewer.name=Brewing Machine
 recipemap.fluid_heater.name=Fluid Heater
 recipemap.distillery.name=Distillery
 recipemap.fermenter.name=Fermenter
-recipemap.fluid_solidifier.name=Fluid Solidifier
-recipemap.fluid_extractor.name=Fluid Extractor
+recipemap.fluid_solidifier.name=Casting Machine
+recipemap.fluid_extractor.name=Melter
 recipemap.packager.name=Packager
 recipemap.fusion_reactor.name=Fusion Reactor
 recipemap.fusion_reactor.value=Start: %s EU
@@ -2064,10 +2064,10 @@ gregtech.machine.fluid_canner.ev.name=Advanced Fluid Canner III
 
 gregtech.machine.fluid_extractor.tooltip=Extracting Fluids from Items
 
-gregtech.machine.fluid_extractor.lv.name=Basic Fluid Extractor
-gregtech.machine.fluid_extractor.mv.name=Advanced Fluid Extractor
-gregtech.machine.fluid_extractor.hv.name=Advanced Fluid Extractor II
-gregtech.machine.fluid_extractor.ev.name=Advanced Fluid Extractor III
+gregtech.machine.fluid_extractor.lv.name=Basic Melter
+gregtech.machine.fluid_extractor.mv.name=Advanced Melter
+gregtech.machine.fluid_extractor.hv.name=Advanced Melter II
+gregtech.machine.fluid_extractor.ev.name=Advanced Melter III
 
 gregtech.machine.fluid_heater.lv.name=Basic Fluid Heater
 gregtech.machine.fluid_heater.mv.name=Advanced Fluid Heater
@@ -2076,10 +2076,10 @@ gregtech.machine.fluid_heater.ev.name=Advanced Fluid Heater III
 
 gregtech.machine.fluid_solidifier.tooltip=Cools Fluids down to form Solids
 
-gregtech.machine.fluid_solidifier.lv.name=Basic Fluid Solidifier
-gregtech.machine.fluid_solidifier.mv.name=Advanced Fluid Solidifier
-gregtech.machine.fluid_solidifier.hv.name=Advanced Fluid Solidifier II
-gregtech.machine.fluid_solidifier.ev.name=Advanced Fluid Solidifier III
+gregtech.machine.fluid_solidifier.lv.name=Basic Casting Machine
+gregtech.machine.fluid_solidifier.mv.name=Advanced Casting Machine
+gregtech.machine.fluid_solidifier.hv.name=Advanced Casting Machine II
+gregtech.machine.fluid_solidifier.ev.name=Advanced Casting Machine III
 
 gregtech.machine.forge_hammer.lv.name=Basic Forge Hammer
 gregtech.machine.forge_hammer.mv.name=Advanced Forge Hammer
@@ -2609,7 +2609,7 @@ gregtech.command.util.hand.no_item=You must hold something in mainhand before ex
 gregtech.universal.clear_nbt_recipe.tooltip=§cThis will destroy all contents!
 
 #Materials added by the pack
-material.nitrobenzne=Nitrobenzene
+material.nitrobenzene=Nitrobenzene
 material.platpalladium=Platpalladium
 material.sperrylite=Sperrylite
 material.sperrylite_omeiite=Sperrylite-Omeiite
@@ -2617,5 +2617,6 @@ material.barium_peroxide=Barium Peroxide
 material.blue_vitriol_solution=Blue Vitriol
 material.green_vitriol_solution=Green Vitriol
 material.cyan_vitriol_solution=Cyan Vitriol
+material.white_vitriol_solution=White Vitriol
 material.mixed_vitriols=Mixed Vitriols
 material.copper_rich_mixed_vitriols=Copper-Rich Mixed Vitriols

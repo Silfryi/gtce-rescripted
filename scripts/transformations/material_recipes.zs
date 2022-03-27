@@ -96,10 +96,3 @@ RecipeMap.getByName("assembler").recipeBuilder()
             .inputs([<ore:plateTungstenSteel>.firstItem * 6, <gregtech:fluid_pipe:235> * 2, <ore:frameGtTungstenSteel>.firstItem])
             .outputs([<gregtech:turbine_casing:6> * 3])
             .duration(50).EUt(16).buildAndRegister();
-/*
-//Change some ceramics to have proper production processes
-RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2018> * 3, <gregtech:meta_item_1:2006> * 2, <gregtech:meta_item_1:2078>], [<liquid:oxygen> * 7000]]);
-RecipeMap.getByName("blast_furnace").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2358> * 6, <gregtech:meta_item_1:2985> * 4, <gregtech:meta_item_1:2078>])
-    .outputs([<gregtech:meta_item_1:11200> * 13])
-    .property("temperature", 3600).duration(18360).EUt(120).buildAndRegister();*/

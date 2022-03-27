@@ -78,7 +78,6 @@ removeAndHide(<gregtech:machine:634>);
 * Remove higher-tier wires & cables from JEI - past IV you should just be using superconductors, the voltage is too great otherwise
 */
 //UV & MAX Wires
-removeCable(308 as int, true, 4, false, false);
 removeCable(312 as int, false, 1, false, false);
 //ZPM Wires
 removeCable(307 as int, false, 4, false, false);
@@ -124,5 +123,8 @@ recipes.addShaped(<gtadditions:ga_meta_item:32032> * 4,
 * Remove the entirety of the recipes of some high-tier machines, so we can write their recipes anew
 */
 for recipe in RecipeMap.getByName("assembly_line").recipes {
+    recipe.remove();
+}
+for recipe in RecipeMap.getByName("blast_furnace").recipes {
     recipe.remove();
 }
