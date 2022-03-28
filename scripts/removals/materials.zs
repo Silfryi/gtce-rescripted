@@ -261,7 +261,7 @@ RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definit
 recipes.removeByRegex(".*(naquadah).*");
 removeTool(307, 0, 0, true, true, [219, 165, 54], null, [7, 5, 1, 4, 3, 1], [false, false, false, false, false, true, false], true, null, true);
 removeTool(309, 0, 0, true, true, [73, 55, 18], null, [4, 3, 1, 4, 3, 1], [false, false, false, false, false, true, false], true, null, true);
-recipes.removeByRegex(".*(tungsten).*");
+recipes.removeByRegex(".*(tungsten)(?!steel).*");
 removeCable(74 as int, true, 4, false, true);
 removeTool(74, 0, 0, true, true, [137, 103, 34], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, true], true, null, true);
 removeBasicIngot(61, 0, 0, true, false, true, [21, 15, 5], null, false, false, true);

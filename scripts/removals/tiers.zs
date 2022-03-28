@@ -14,7 +14,6 @@ print("Removing unused high-tier components and items now that IV+ tiers are bas
 //UV & MAX Components
 removeAndHide(<gregtech:meta_item_2:32707>);
 removeAndHide(<gregtech:meta_item_2:32605>);
-removeAndHide(<gregtech:meta_item_1:32707>);
 removeAndHide(<gregtech:meta_item_1:32697>);
 removeAndHide(<gregtech:meta_item_1:32687>);
 removeAndHide(<gregtech:meta_item_1:32677>);
@@ -88,9 +87,8 @@ removeCable(200 as int, true, 4, false, true);
 
 
 /**
-* Remove very low- or very high-tier items that make little sense and have no reason to exist now that they can't be used for their purpose
+* Remove very high-tier items that make little sense and have no reason to exist now that they can't be used for their purpose
 */
-//Low-tier complexity BS
 removeAndHide(<gregtech:meta_item_2:32456>);
 removeAndHide(<gregtech:meta_item_2:32012>);
 removeAndHide(<gregtech:meta_item_2:32011>);
@@ -98,8 +96,31 @@ RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_2:16018>, <g
 RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_2:16018>, <gregtech:meta_item_1:16184>], null).remove();
 RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_2:16087>, <gregtech:meta_item_1:16424>], null).remove();
 RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_2:16087>, <gregtech:meta_item_1:16184>], null).remove();
-//High-tier complexity BS
 removeAndHide(<gregtech:meta_item_2:32432>);
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12033>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12071>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12033>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12079>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12033>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12001>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12044>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12071>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12044>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12079>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12044>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12001>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12126>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12071>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12126>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12079>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12126>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12001>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12184>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12071>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12184>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12079>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12184>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12001>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12183>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12071>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12183>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12079>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12183>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12001>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12072>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12071>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12072>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12079>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12072>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12001>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12074>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12071>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12074>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12079>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12074>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12001>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12235>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12071>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12235>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12079>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<gregtech:meta_item_1:12235>, <gregtech:meta_item_1:12094>, <gregtech:meta_item_1:12001>], null).remove();
 removeAndHide(<gregtech:meta_item_2:32434>);
 removeAndHide(<gregtech:meta_item_2:32435>);
 removeAndHide(<gregtech:meta_item_2:32505>);
@@ -109,7 +130,20 @@ RecipeMap.getByName("compressor").findRecipe(2, [<gregtech:meta_item_2:32432>], 
 RecipeMap.getByName("compressor").findRecipe(2, [<gregtech:meta_item_2:32505>], null).remove();
 RecipeMap.getByName("packer").findRecipe(4, [<gregtech:meta_item_2:32504> * 4, <gtadditions:ga_meta_item:32132>], null).remove();
 RecipeMap.getByName("implosion_compressor").findRecipe(30, [<minecraft:tnt> * 4, <gregtech:meta_item_2:32434>], null).remove();
-//Redo clay stuff done by SoG
+removeAndHide(<gregtech:wire_coil:3>);
+removeAndHide(<gregtech:wire_coil:4>);
+removeAndHide(<gregtech:wire_coil:5>);
+removeAndHide(<gregtech:wire_coil:6>);
+RecipeMap.getByName("assembler").findRecipe(16, [<gregtech:cable:1235> * 8, <gregtech:meta_item_1:32766>.withTag({Configuration: 8})], null).remove();
+RecipeMap.getByName("assembler").findRecipe(16, [<gregtech:cable:1302> * 8, <gregtech:meta_item_1:32766>.withTag({Configuration: 8})], null).remove();
+RecipeMap.getByName("assembler").findRecipe(16, [<gregtech:cable:1307> * 8, <gregtech:meta_item_1:32766>.withTag({Configuration: 8})], null).remove();
+RecipeMap.getByName("assembler").findRecipe(16, [<gregtech:cable:1308> * 8, <gregtech:meta_item_1:32766>.withTag({Configuration: 8})], null).remove();
+
+
+
+/**
+* Remove and redo low-tier brick recipes being insanely complicated from SoG and GT5u
+*/
 removeAndHide(<gregtech:meta_item_2:32013>);
 recipes.remove(<gtadditions:ga_meta_item:32032>);
 furnace.remove(<minecraft:brick>);
@@ -119,6 +153,39 @@ recipes.addShaped(<gtadditions:ga_meta_item:32032> * 4,
  [[<minecraft:clay_ball>, <ore:sand>, <minecraft:clay_ball>],
  [<minecraft:clay_ball>, <liquid:water> * 1000, <minecraft:clay_ball>],
  [<minecraft:clay_ball>, <ore:sand>, <minecraft:clay_ball>]]);
+//Fireclay
+recipes.addShaped(<gregtech:meta_item_2:32014> * 2,
+ [[<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>],
+ [<ore:dustBrick>, <ore:dustFlint>, <ore:dustBrick>],
+ [<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>]]);
+recipes.addShaped(<gregtech:meta_item_2:32014> * 4,
+ [[<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>],
+ [<ore:dustTalc>, <ore:dustFlint>, <ore:dustTalc>],
+ [<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>]]);
+recipes.addShaped(<gregtech:meta_item_2:32014> * 4,
+ [[<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>],
+ [<ore:dustSoapstone>, <ore:dustFlint>, <ore:dustSoapstone>],
+ [<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>]]);
+recipes.addShaped(<gregtech:meta_item_2:32014> * 6,
+ [[<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>],
+ [<ore:dustObsidian>, <ore:dustFlint>, <ore:dustObsidian>],
+ [<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>]]);
+recipes.addShaped(<gregtech:meta_item_2:32014> * 4,
+ [[<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>],
+ [<ore:dustBrick>, <ore:dustFlint>, <ore:dustBrick>],
+ [<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>]]);
+recipes.addShaped(<gregtech:meta_item_2:32014> * 6,
+ [[<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>],
+ [<ore:dustTalc>, <ore:dustFlint>, <ore:dustTalc>],
+ [<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>]]);
+recipes.addShaped(<gregtech:meta_item_2:32014> * 6,
+ [[<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>],
+ [<ore:dustSoapstone>, <ore:dustFlint>, <ore:dustSoapstone>],
+ [<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>]]);
+recipes.addShaped(<gregtech:meta_item_2:32014> * 8,
+ [[<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>],
+ [<ore:dustObsidian>, <ore:dustFlint>, <ore:dustObsidian>],
+ [<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>]]);
  
  
  

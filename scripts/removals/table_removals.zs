@@ -42,6 +42,11 @@ RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15212>], n
 RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15113>], null).remove();
 RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15111>], null).remove();
 
+//Remove solar panels, you should be using solar boilers or the possible parabolic trough multiblock
+removeAndHide(<gregtech:meta_item_1:32750>);
+removeAndHide(<gregtech:meta_item_1:32751>);
+removeAndHide(<gregtech:meta_item_1:32752>);
+
 //Remove random items from SoG and GTCE that are uncraftable or useless to us
 removeAndHide(<gregtech:crusher_blade>);
 removeAndHide(<gregtech:machine:826>);
@@ -67,7 +72,7 @@ removeAndHide(<gregtech:meta_item_1:32405>);
 RecipeMap.getByName("assembler").findRecipe(256, [<gregtech:meta_item_1:18235> * 8, <gregtech:meta_item_1:13235> * 2, <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], null).remove();
 removeAndHide(<gregtech:meta_item_1:32406>);
 RecipeMap.getByName("assembler").findRecipe(120, [<gregtech:meta_item_1:12007> * 32, <gregtech:meta_item_1:12300> * 4, <gregtech:meta_item_2:32435>], [<liquid:tin_alloy> * 4608]).remove();
-removeAndHide(<gregtech:meta_item_1:32436>);
+removeAndHide(<gregtech:meta_item_2:32436>);
 RecipeMap.getByName("assembler").findRecipe(480, [<gregtech:meta_item_2:32446>, <gregtech:meta_item_2:32489>], [<liquid:polystyrene> * 144]).remove();
 removeAndHide(<gregtech:meta_item_2:32499>);
 removeAndHide(<gtadditions:ga_meta_item:32015>);

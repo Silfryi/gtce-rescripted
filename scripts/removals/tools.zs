@@ -45,8 +45,25 @@ removeAndHide(<minecraft:diamond_hoe>);
 /**
 * Hide the rather ridiculous number of GregTech tool heads from JEI because no one needs to SEE those, you can just search 'pickaxe' and find the recipes
 */
+removeAndHide(<gregtech:meta_tool:14>);
 for p in 0 to 999 {
     for u in 0 to 16 {
         hide(<gregtech:meta_item_2>.definition.makeStack(p + (u * 1000)));
     }
 }
+
+
+
+/**
+* Fix GregTech power tool (specialty) recipes, most of them using iridum alloy (which no longer exists)
+*/
+recipes.remove(<gregtech:meta_item_2:32577>);
+recipes.remove(<gregtech:meta_item_2:32578>);
+recipes.addShaped(<gregtech:meta_item_2:32577>,
+    [[null, null, <ore:stickLongPlatinum>],
+    [null, <ore:stickLongPlatinum>, <ore:circuitExtreme>],
+    [<ore:stickPolyvinylChloride>, <gregtech:meta_item_2:32212>, <gregtech:meta_item_1:32707>]]);
+recipes.addShaped(<gregtech:meta_item_2:32578>,
+    [[<gregtech:meta_item_2:32213>, <gregtech:meta_item_1:32683>, <gregtech:meta_item_2:32213>],
+    [<gregtech:meta_item_1:32683>, <gregtech:meta_item_1:32673>, <gregtech:meta_item_1:32683>],
+    [<ore:circuitExtreme>, <gregtech:meta_item_1:32707>, <ore:circuitExtreme>]]);

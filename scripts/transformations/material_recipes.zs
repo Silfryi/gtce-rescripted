@@ -53,6 +53,50 @@ recipes.addShaped(<gregtech:machine:3>,
     [<ore:plateSilver>, <gregtech:fluid_pipe:1094>, <ore:plateSilver>],
     [<gregtech:fluid_pipe:1094>, <gregtech:machine_casing:13>, <gregtech:fluid_pipe:1094>]]);
     
+//Lava makes nuggets correctly
+RecipeMap.getByName("centrifuge").findRecipe(80, null, [<liquid:lava> * 100]).remove();
+RecipeMap.getByName("centrifuge").recipeBuilder()
+    .fluidInputs([<liquid:lava> * 1000])
+    .chancedOutput(<gregtech:meta_item_1:9066>, 2500, 900)
+    .chancedOutput(<minecraft:gold_nugget>, 2500, 800)
+    .chancedOutput(<gregtech:meta_item_1:74>, 2500, 700)
+    .chancedOutput(<gregtech:meta_item_1:9062>, 2500, 800)
+    .chancedOutput(<gregtech:meta_item_1:9079> * 2, 5000, 2700)
+    .chancedOutput(<gregtech:meta_item_1:9018> * 4, 5000, 3200)
+    .duration(600).EUt(120).buildAndRegister();
+    
+//Spray cans don't use tin, but instead brass
+RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_1:32402>], null).remove();
+RecipeMap.getByName("arc_furnace").findRecipe(30, [<gregtech:meta_item_1:32402>], [<liquid:oxygen> * 120]).remove();
+RecipeMap.getByName("fluid_extractor").findRecipe(32, [<gregtech:meta_item_1:32402>], null).remove();
+RecipeMap.getByName("assembler").findRecipe(8, [<ore:plateTin>.firstItem * 2, <minecraft:redstone>], null).remove();
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<ore:plateBrass>.firstItem * 2, <ore:ringBrass>.firstItem])
+    .outputs([<gregtech:meta_item_1:32402>])
+    .duration(50).EUt(16).buildAndRegister();
+    
+//Reinforced glass no longer uses advanced alloy
+RecipeMap.getByName("alloy_smelter").findRecipe(4, [<gregtech:meta_item_2:32433>, <ore:dustGlass>.firstItem * 3], null).remove();
+RecipeMap.getByName("alloy_smelter").findRecipe(4, [<gregtech:meta_item_2:32433>, <minecraft:glass> * 3], null).remove();
+RecipeMap.getByName("alloy_smelter").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2364> * 12, <gregtech:meta_item_1:2154> * 4])
+    .outputs([<gtadditions:ga_transparent_casing> * 4])
+    .duration(400).EUt(480).buildAndRegister();
+
+//Quantum <X> now use UU-Matter instead of plutonium like they did before
+RecipeMap.getByName("chemical_bath").findRecipe(384, [<minecraft:ender_eye>], [<liquid:plutonium> * 288]).remove();
+RecipeMap.getByName("chemical_bath").findRecipe(384, [<minecraft:nether_star>], [<liquid:plutonium> * 1152]).remove();
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<minecraft:ender_eye>])
+    .fluidInputs([<liquid:uumatter> * 1000])
+    .outputs([<gregtech:meta_item_1:32724>])
+    .duration(480).EUt(480).buildAndRegister();
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<minecraft:nether_star>])
+    .fluidInputs([<liquid:uumatter> * 4000])
+    .outputs([<gregtech:meta_item_1:32725>])
+    .duration(1920).EUt(1920).buildAndRegister();
+            
 //Change turbine casing recipes to be neither sequential nor wrong material (steel != magnalium, looking at YOU)
 //Crafting table
 recipes.remove(<gregtech:turbine_casing:3>);
