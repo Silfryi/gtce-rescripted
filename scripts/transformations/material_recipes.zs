@@ -140,3 +140,59 @@ RecipeMap.getByName("assembler").recipeBuilder()
             .inputs([<ore:plateTungstenSteel>.firstItem * 6, <gregtech:fluid_pipe:235> * 2, <ore:frameGtTungstenSteel>.firstItem])
             .outputs([<gregtech:turbine_casing:6> * 3])
             .duration(50).EUt(16).buildAndRegister();
+
+//Brewery no longer uses fruit juice, plantballs, OR honey, none of which are obtainable
+for recipe in RecipeMap.getByName("brewer").recipes {
+    recipe.remove();
+}
+RecipeMap.getByName("brewer").recipeBuilder()
+    .inputs([<minecraft:sugar> * 10])
+    .fluidInputs([<liquid:water> * 200])
+    .fluidOutputs(<liquid:biomass> * 400)
+    .duration(1600).EUt(3).buildAndRegister();
+RecipeMap.getByName("brewer").recipeBuilder()
+    .inputs([<minecraft:beetroot> * 10])
+    .fluidInputs([<liquid:water> * 200])
+    .fluidOutputs(<liquid:biomass> * 350)
+    .duration(1600).EUt(3).buildAndRegister();
+RecipeMap.getByName("brewer").recipeBuilder()
+    .inputs([<minecraft:reeds> * 10])
+    .fluidInputs([<liquid:water> * 200])
+    .fluidOutputs(<liquid:biomass> * 300)
+    .duration(1600).EUt(3).buildAndRegister();
+RecipeMap.getByName("brewer").recipeBuilder()
+    .inputs([<minecraft:melon> * 10])
+    .fluidInputs([<liquid:water> * 200])
+    .fluidOutputs(<liquid:biomass> * 300)
+    .duration(1600).EUt(3).buildAndRegister();
+RecipeMap.getByName("brewer").recipeBuilder()
+    .inputs([<minecraft:pumpkin> * 2])
+    .fluidInputs([<liquid:water> * 200])
+    .fluidOutputs(<liquid:biomass> * 300)
+    .duration(1600).EUt(3).buildAndRegister();
+RecipeMap.getByName("brewer").recipeBuilder()
+    .inputs([<minecraft:potato> * 10])
+    .fluidInputs([<liquid:water> * 200])
+    .fluidOutputs(<liquid:biomass> * 300)
+    .duration(1600).EUt(3).buildAndRegister();
+RecipeMap.getByName("brewer").recipeBuilder()
+    .inputs([<minecraft:carrot> * 10])
+    .fluidInputs([<liquid:water> * 200])
+    .fluidOutputs(<liquid:biomass> * 250)
+    .duration(1600).EUt(3).buildAndRegister();
+RecipeMap.getByName("brewer").recipeBuilder()
+    .inputs([<minecraft:rotten_flesh> * 10])
+    .fluidInputs([<liquid:water> * 200])
+    .fluidOutputs(<liquid:biomass> * 200)
+    .duration(1600).EUt(3).buildAndRegister();
+RecipeMap.getByName("brewer").recipeBuilder()
+    .notConsumable(<gregtech:meta_item_1:32766>)
+    .fluidInputs([<liquid:biomass> * 200])
+    .fluidOutputs(<liquid:fermented_biomass> * 200)
+    .duration(1600).EUt(3).buildAndRegister();
+
+//Forge hammer makes wooden planks
+RecipeMap.getByName("forge_hammer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2196> * 2])
+    .outputs([<gregtech:meta_item_1:12196>])
+    .duration(160).EUt(7).buildAndRegister();

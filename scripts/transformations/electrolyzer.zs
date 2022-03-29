@@ -34,7 +34,14 @@ RecipeMap.getByName("electrolyzer").findRecipe(60, null, [<liquid:chloroform> * 
 
 
 /**
-* Make sure electrolyzer recipes follow the same schema throughout - 1 mol of something is # of atoms in it * (buckets|dust|ingots) - and that's how it separates out by #
+* Make sure electrolyzer recipes follow the same schema throughout (dusts) - 1 mol of something is # of atoms in it * (buckets|dust|ingots) - and that's how it separates out by #
+*/
+
+
+
+
+/**
+* Make sure electrolyzer recipes follow the same schema throughout (chemicals)
 */
 
 //Apatite
@@ -43,7 +50,7 @@ RecipeMap.getByName("electrolyzer").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2226> * 21])
     .outputs([<gregtech:meta_item_1:2011> * 5, <gregtech:meta_item_1:2139> * 15])
     .fluidOutputs([<liquid:chlorine> * 1000])
-    .duration(2304).EUt(60).buildAndRegister();
+    .duration(1152).EUt(120).buildAndRegister();
 
 //Water & Distilled Water
 RecipeMap.getByName("electrolyzer").findRecipe(30, null, [<liquid:water> * 1000]).remove();
@@ -71,14 +78,14 @@ RecipeMap.getByName("electrolyzer").recipeBuilder()
     .fluidInputs([<liquid:phosphoric_acid> * 8000])
     .outputs([<gregtech:meta_item_1:2050>])
     .fluidOutputs([<liquid:hydrogen> * 3000, <liquid:oxygen> * 4000])
-    .duration(384).EUt(60).buildAndRegister();
+    .duration(384).EUt(120).buildAndRegister();
 
 //Nitric Acid
 RecipeMap.getByName("electrolyzer").findRecipe(60, null, [<liquid:nitric_acid> * 1000]).remove();
 RecipeMap.getByName("electrolyzer").recipeBuilder()
     .fluidInputs([<liquid:nitric_acid> * 5000])
     .fluidOutputs([<liquid:hydrogen> * 1000, <liquid:nitrogen> * 1000, <liquid:oxygen> * 3000])
-    .duration(384).EUt(60).buildAndRegister();
+    .duration(384).EUt(120).buildAndRegister();
 
 //Hydrochloric Acid
 RecipeMap.getByName("electrolyzer").findRecipe(30, null, [<liquid:hydrochloric_acid> * 1000]).remove();
@@ -99,7 +106,7 @@ RecipeMap.getByName("electrolyzer").findRecipe(60, null, [<liquid:acetic_acid> *
 RecipeMap.getByName("electrolyzer").recipeBuilder()
     .fluidInputs([<liquid:acetic_acid> * 16000])
     .fluidOutputs([<liquid:ethane> * 8000, <liquid:carbon_dioxide> * 6000, <liquid:hydrogen> * 2000])
-    .duration(512).EUt(60).buildAndRegister();
+    .duration(512).EUt(120).buildAndRegister();
   
 //Carbon Oxides
 RecipeMap.getByName("electrolyzer").findRecipe(30, null, [<liquid:carbon_monoxide> * 1000]).remove();
@@ -120,14 +127,14 @@ RecipeMap.getByName("electrolyzer").findRecipe(60, null, [<liquid:methanol> * 10
 RecipeMap.getByName("electrolyzer").recipeBuilder()
     .fluidInputs([<liquid:methanol> * 6000])
     .fluidOutputs([<liquid:carbon_monoxide> * 2000, <liquid:hydrogen> * 4000])
-    .duration(144).EUt(60).buildAndRegister();
+    .duration(300).EUt(30).buildAndRegister();
     
 //Ammonia
 RecipeMap.getByName("electrolyzer").findRecipe(30, null, [<liquid:ammonia> * 1000]).remove();
 RecipeMap.getByName("electrolyzer").recipeBuilder()
     .fluidInputs([<liquid:ammonia> * 4000])
     .fluidOutputs([<liquid:nitrogen> * 1000, <liquid:hydrogen> * 3000])
-    .duration(96).EUt(30).buildAndRegister();
+    .duration(192).EUt(30).buildAndRegister();
     
 //Hydrogen sulfide
 RecipeMap.getByName("electrolyzer").findRecipe(30, null, [<liquid:hydrogen_sulfide> * 1000]).remove();

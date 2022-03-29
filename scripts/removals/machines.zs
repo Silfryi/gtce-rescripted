@@ -40,6 +40,48 @@ removeAndHide(<gregtech:machine:251>);
 removeAndHide(<gregtech:machine:252>);
 removeAndHide(<gregtech:machine:253>);
 
+//Compressor - does very few recipes and is an excess machine to most people
+hideCategory("gregtech:compressor");
+removeAndHide(<gregtech:machine:12>);
+removeAndHide(<gregtech:machine:210>);
+removeAndHide(<gregtech:machine:211>);
+removeAndHide(<gregtech:machine:212>);
+removeAndHide(<gregtech:machine:213>);
+
+//Forming press - does very few recipes and is an excess machine to most people
+hideCategory("gregtech:forming_press");
+removeAndHide(<gregtech:machine:340>);
+removeAndHide(<gregtech:machine:341>);
+removeAndHide(<gregtech:machine:342>);
+removeAndHide(<gregtech:machine:343>);
+
+//Microwave - extra expensive furnace. why does this exist. it does nothing special
+hideCategory("gregtech:microwave");
+removeAndHide(<gregtech:machine:360>);
+removeAndHide(<gregtech:machine:361>);
+removeAndHide(<gregtech:machine:362>);
+removeAndHide(<gregtech:machine:363>);
+
+//Fluid Heater - this thing does about 5 recipes, one of which is like. liquid ice (????) and one of the rest is just a horrid abomination of failed molar chemistry. the other two are steam
+hideCategory("gregtech:fluid_heater");
+removeAndHide(<gregtech:machine:310>);
+removeAndHide(<gregtech:machine:311>);
+removeAndHide(<gregtech:machine:312>);
+removeAndHide(<gregtech:machine:313>);
+
+//Amplifabriactor - does exactly zero recipes
+removeAndHide(<gregtech:machine:80>);
+removeAndHide(<gregtech:machine:81>);
+removeAndHide(<gregtech:machine:82>);
+removeAndHide(<gregtech:machine:83>);
+
+//Fermenter - this thing does ONE recipe! ONE! It can be better handled in the brewery.
+hideCategory("gregtech:fermenter");
+removeAndHide(<gregtech:machine:280>);
+removeAndHide(<gregtech:machine:281>);
+removeAndHide(<gregtech:machine:282>);
+removeAndHide(<gregtech:machine:283>);
+
 //Remove all non-rod recipes from polarizer
 for recipe in RecipeMap.getByName("polarizer").recipes {
     if ((recipe.inputs[0] as IIngredient).itemArray[0].damage % 14000 != 298 && (recipe.inputs[0] as IIngredient).itemArray[0].damage % 14000 != 299) {
