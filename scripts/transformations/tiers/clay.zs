@@ -2,7 +2,6 @@ import crafttweaker.item.IItemStack;
 import mods.jei.JEI.hide;
 import mods.jei.JEI.removeAndHide;
 import mods.gregtech.recipe.RecipeMap;
-import scripts.removals.common.removeCable;
 
 
 
@@ -76,6 +75,12 @@ recipes.addShaped(<gregtech:metal_casing:8> * 2,
     [<gregtech:meta_item_2:32016>, <liquid:water> * 1000, <gregtech:meta_item_2:32016>],
     [<gregtech:meta_item_2:32016>, <gregtech:meta_item_1:2287>, <gregtech:meta_item_2:32016>]]);
     
+    
+
+/**
+* Misc Clay- and Glass- related recipes with specialty production schema
+*/
+    
 //Concrete recipes
 RecipeMap.getByName("fluid_extractor").findRecipe(32, [<gregtech:concrete>], null).remove();
 RecipeMap.getByName("mixer").recipeBuilder()
@@ -113,3 +118,41 @@ RecipeMap.getByName("alloy_smelter").recipeBuilder()
     .inputs([<ore:dustFlint> * 5, <gregtech:meta_item_1:2403>])
     .outputs([<minecraft:glass> * 8])
     .duration(240).EUt(30).buildAndRegister();
+    
+//Their stones from various stone dusts recipes
+furnace.addRecipe(<minecraft:cobblestone>, <gregtech:meta_item_1:2328>);
+furnace.addRecipe(<gregtech:mineral:4>, <gregtech:meta_item_1:2245>);
+furnace.addRecipe(<gregtech:mineral:5>, <gregtech:meta_item_1:2240>);
+furnace.addRecipe(<gregtech:granite:4>, <gregtech:meta_item_1:2251>);
+furnace.addRecipe(<gregtech:granite:5>, <gregtech:meta_item_1:2252>);
+    
+
+
+/**
+* More uses for firebrick! You keep using firebrick as a heatproof material until endgame, because it's a part of firebox casings & heatproof casings
+*/
+//Heatproof Casing
+recipes.removeByRegex(".*(casing_invar_heatproof).");
+RecipeMap.getByName("assembler").findRecipe(16, [<ore:plateInvar>.firstItem * 6, <gregtech:frame_invar>], null).remove();
+recipes.addShaped(<gregtech:metal_casing:2> * 3,
+    [[<ore:plateInvar>, <gregtech:metal_casing:1>, <ore:plateInvar>],
+    [<ore:plateInvar>, <ore:frameGtInvar>, <ore:plateInvar>],
+    [<ore:plateInvar>, <gregtech:metal_casing:1>, <ore:plateInvar>]]);
+//Firebox Casing
+recipes.removeByRegex(".*(casing).*(firebox).*");
+recipes.addShaped(<gregtech:boiler_firebox_casing> * 3,
+    [[<ore:plateBrass>, <gregtech:metal_casing:1>, <ore:plateBrass>],
+    [<ore:stickBrass>, <ore:frameGtBrass>, <ore:stickBrass>],
+    [<ore:plateBrass>, <gregtech:metal_casing:1>, <ore:plateBrass>]]);
+recipes.addShaped(<gregtech:boiler_firebox_casing:1> * 3,
+    [[<ore:plateSteel>, <gregtech:metal_casing:1>, <ore:plateSteel>],
+    [<ore:stickSteel>, <ore:frameGtSteel>, <ore:stickSteel>],
+    [<ore:plateSteel>, <gregtech:metal_casing:1>, <ore:plateSteel>]]);
+recipes.addShaped(<gregtech:boiler_firebox_casing:2> * 3,
+    [[<ore:plateTitanium>, <gregtech:metal_casing:1>, <ore:plateTitanium>],
+    [<ore:stickTitanium>, <ore:frameGtTitanium>, <ore:stickTitanium>],
+    [<ore:plateTitanium>, <gregtech:metal_casing:1>, <ore:plateTitanium>]]);
+recipes.addShaped(<gregtech:boiler_firebox_casing:3> * 3,
+    [[<ore:plateTungstenSteel>, <gregtech:metal_casing:1>, <ore:plateTungstenSteel>],
+    [<ore:stickTungstenSteel>, <ore:frameGtTungstenSteel>, <ore:stickTungstenSteel>],
+    [<ore:plateTungstenSteel>, <gregtech:metal_casing:1>, <ore:plateTungstenSteel>]]);

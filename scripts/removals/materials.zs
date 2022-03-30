@@ -29,7 +29,9 @@ removeDust(107, 3, 76, 90, false, false, false, true, <gregtech:ore_cobaltite_0>
 removeDust(118, 20, 224, 224, false, false, false, true, <gregtech:ore_grossular_0>);
 removeDust(130, 5, 42, 42, false, false, false, true, <gregtech:ore_magnesite_0>);
 removeDust(132, 3, 74, 85, false, false, false, true, <gregtech:ore_molybdenite_0>);
+removeDust(139, 5, 47, 48, false, false, false, true, null);
 removeDust(150, 20, 0, 0, false, false, false, true, <gregtech:ore_pyrope_0>);
+removeDust(159, 3, 30, 30, false, false, false, true, null);
 removeDust(163, 3, 38, 38, false, false, false, true, null);
 removeDust(181, 20, 0, 0, false, false, false, true, <gregtech:ore_spessartine_0>);
 removeDust(191, 7, 112, 149, false, false, false, true, <gregtech:ore_tungstate_0>);
@@ -67,6 +69,7 @@ RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definit
 removeDust(362, 8, 184, 208, false, false, false, true, <gregtech:ore_enargite_0>);
 removeDust(363, 29, 688, 784, false, false, false, true, <gregtech:ore_tennantite_0>);
 removeDust(402, 3, 55, 56, false, false, false, true, null);
+removeDust(466, 14, 95, 96, false, false, false, true, null);
 
 //Remove useless metals of varying complexities
 removeRodIngot(2, 95, 150, false, false, [183, 138, 45], null, null);
@@ -267,6 +270,7 @@ RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definit
 
 //Lithium, Sodium, Calcium, Potassium
 recipes.removeByRegex(".*(lithium).*");
+RecipeMap.getByName("centrifuge").findRecipe(30, [<minecraft:dye:15>], null).remove();
 removeBasicIngot(11, 20, 20, false, false, false, null, null);
 removeBasicIngot(36, 3, 4, false, false, true, [5, 3, 1], <gregtech:ore_lithium_0>);
 removeBasicIngot(63,11, 11, false, false, true, [16, 12, 4], null);

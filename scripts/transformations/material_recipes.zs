@@ -20,10 +20,6 @@ recipes.addShaped(<gregtech:boiler_casing> * 3,
     [[<ore:plateBrass>,<gregtech:fluid_pipe:2094>, <ore:plateBrass>],
     [<gregtech:fluid_pipe:2094>, <ore:frameGtBrass>, <gregtech:fluid_pipe:2094>],
     [<ore:plateBrass>, <gregtech:fluid_pipe:2094>, <ore:plateBrass>]]);
-recipes.addShaped(<gregtech:boiler_firebox_casing> * 3,
-    [[<ore:plateBrass>,<ore:stickBrass>, <ore:plateBrass>],
-    [<ore:stickBrass>, <ore:frameGtBrass>, <ore:stickBrass>],
-    [<ore:plateBrass>, <ore:stickBrass>, <ore:plateBrass>]]);
 recipes.addShaped(<gregtech:turbine_casing> * 3,
     [[<ore:plateBrass>, <ore:craftingToolHardHammer>, <ore:plateBrass>],
     [<ore:gearBrass>, <ore:frameGtBrass>, <ore:gearBrass>],
@@ -124,22 +120,6 @@ RecipeMap.getByName("assembler").findRecipe(16, [<ore:plateMagnalium>.firstItem 
 RecipeMap.getByName("assembler").findRecipe(16, [<ore:plateTitanium>.firstItem * 6, <gregtech:turbine_casing:3>], null).remove();
 RecipeMap.getByName("assembler").findRecipe(16, [<ore:plateStainlessSteel>.firstItem * 6, <gregtech:turbine_casing:3>], null).remove();
 RecipeMap.getByName("assembler").findRecipe(16, [<ore:plateTungstenSteel>.firstItem * 6, <gregtech:turbine_casing:3>], null).remove();
-RecipeMap.getByName("assembler").recipeBuilder()
-            .inputs([<ore:plateMagnalium>.firstItem * 6, <gregtech:fluid_pipe:184> * 2, <ore:frameGtMagnalium>.firstItem])
-            .outputs([<gregtech:turbine_casing:3> * 3])
-            .duration(50).EUt(16).buildAndRegister();
-RecipeMap.getByName("assembler").recipeBuilder()
-            .inputs([<ore:plateTitanium>.firstItem * 6, <gregtech:fluid_pipe:72> * 2, <ore:frameGtTitanium>.firstItem])
-            .outputs([<gregtech:turbine_casing:4> * 3])
-            .duration(50).EUt(16).buildAndRegister();
-RecipeMap.getByName("assembler").recipeBuilder()
-            .inputs([<ore:plateStainlessSteel>.firstItem * 6, <gregtech:fluid_pipe:183> * 2, <ore:frameGtStainlessSteel>.firstItem])
-            .outputs([<gregtech:turbine_casing:5> * 3])
-            .duration(50).EUt(16).buildAndRegister();
-RecipeMap.getByName("assembler").recipeBuilder()
-            .inputs([<ore:plateTungstenSteel>.firstItem * 6, <gregtech:fluid_pipe:235> * 2, <ore:frameGtTungstenSteel>.firstItem])
-            .outputs([<gregtech:turbine_casing:6> * 3])
-            .duration(50).EUt(16).buildAndRegister();
 
 //Brewery no longer uses fruit juice, plantballs, OR honey, none of which are obtainable
 for recipe in RecipeMap.getByName("brewer").recipes {

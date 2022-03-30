@@ -53,8 +53,11 @@ RecipeMap.getByName("distillation_tower").recipeBuilder()
 
 //Saltwater
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2155> * 2], [<liquid:water> * 1000]).remove();
-RecipeMap.getByName("mixer").recipeBuilder().inputs([<gregtech:meta_item_1:2151> * 2]).fluidInputs([<liquid:water> * 3000]).fluidOutputs([<liquid:salt_water> * 5000]).duration(40).EUt(8).buildAndRegister();
-RecipeMap.getByName("mixer").recipeBuilder().inputs([<gregtech:meta_item_1:2155> * 2]).fluidInputs([<liquid:water> * 3000]).fluidOutputs([<liquid:salt_water> * 5000]).duration(40).EUt(8).buildAndRegister();
+RecipeMap.getByName("mixer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2151> * 2 | <gregtech:meta_item_1:2155> * 2]).
+    fluidInputs([<liquid:water> * 3000])
+    .fluidOutputs([<liquid:salt_water> * 5000])
+    .duration(40).EUt(8).buildAndRegister();
 
 //Nitration mixture
 RecipeMap.getByName("mixer").findRecipe(2, null, [<liquid:nitric_acid> * 1000, <liquid:sulfuric_acid> * 1000]).remove();
@@ -412,20 +415,16 @@ RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:20
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:2466> * 14], [<liquid:water> * 6000]).remove();
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:2226> * 9], [<liquid:sulfuric_acid> * 5000, <liquid:water> * 10000]).remove();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2050> * 4])
-    .fluidInputs([<liquid:oxygen> * 10000])
-    .outputs([<gregtech:meta_item_1:2466> * 14])
-    .duration(320).EUt(30).buildAndRegister();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2226> * 21])
     .fluidInputs([<liquid:sulfuric_acid> * 35000, <liquid:water> * 30000])
     .outputs([<gregtech:meta_item_1:2287> * 60])
     .fluidOutputs([<liquid:phosphoric_acid> * 24000,  <liquid:hydrochloric_acid> * 2000])
-    .duration(320).EUt(30).buildAndRegister();
+    .duration(480).EUt(30).buildAndRegister();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2466> * 14])
-    .fluidInputs([<liquid:water> * 18000])
-    .fluidOutputs([<liquid:phosphoric_acid> * 32000])
+    .inputs([<gregtech:meta_item_1:2239> * 13])
+    .fluidInputs([<liquid:sulfuric_acid> * 21000, <liquid:water> * 18000])
+    .outputs([<gregtech:meta_item_1:2287> * 36])
+    .fluidOutputs([<liquid:phosphoric_acid> * 16000])
     .duration(320).EUt(30).buildAndRegister();
 
 //Methyl Acetate
@@ -466,7 +465,7 @@ RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:21
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:2382> * 7], [<liquid:water> * 1000]).remove();
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:2382> * 7], [<liquid:water> * 1000]).remove();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2155> * 2])
+    .inputs([<gregtech:meta_item_1:2155> * 2 | <gregtech:meta_item_1:2155> * 2])
     .fluidInputs([<liquid:sulfuric_acid> * 7000])
     .outputs([<gregtech:meta_item_1:2382> * 7])
     .fluidOutputs([<liquid:hydrochloric_acid> * 2000])

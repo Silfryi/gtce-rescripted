@@ -154,12 +154,12 @@ for recipe in RecipeMap.getByName("blast_furnace").recipes {
 //Replicator & mass fabricator non-elements
 var n = 0;
 for recipe in RecipeMap.getByName("replicator").recipes {
-    if(n > 116 || (n > 10 && n < 79)) recipe.remove();
+    if(n > 112 || (n > 10 && n < 79)) recipe.remove();
     n += 1;
 }
 var m = 0;
 for recipe in RecipeMap.getByName("mass_fab").recipes {
-    if(m > 118 || (m > 10 && m < 79)) recipe.remove();
+    if(m > 114 || (m > 10 && m < 79)) recipe.remove();
     m += 1;
 }
 RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:mixed_vitriols> * 1000]).remove();

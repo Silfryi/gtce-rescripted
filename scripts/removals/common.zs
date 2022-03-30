@@ -11,7 +11,7 @@ global gtBlockID  as IItemStack[] = [<gregtech:meta_block_compressed_0>, <gregte
                                      <gregtech:meta_block_compressed_5>, <gregtech:meta_block_compressed_6>, <gregtech:meta_block_compressed_7>, <gregtech:meta_block_compressed_8>, <gregtech:meta_block_compressed_9>,
                                      <gregtech:meta_block_compressed_10>, <gregtech:meta_block_compressed_11>, <gregtech:meta_block_compressed_12>, <gregtech:meta_block_compressed_13>, <gregtech:meta_block_compressed_14>,
                                      <gregtech:meta_block_compressed_15>, <gregtech:meta_block_compressed_16>, <gregtech:meta_block_compressed_17>, <gregtech:meta_block_compressed_18>, <gregtech:meta_block_compressed_19>,
-                                     <gregtech:meta_block_compressed_20>, <gregtech:meta_block_compressed_21>, <gregtech:meta_block_compressed_22>, <gregtech:meta_block_compressed_23>, <gregtech:meta_block_compressed_24>, <gregtech:meta_block_compressed_25>, <gregtech:meta_block_compressed_26>];
+                                     <gregtech:meta_block_compressed_20>, <gregtech:meta_block_compressed_21>, <gregtech:meta_block_compressed_22>, <gregtech:meta_block_compressed_23>, <gregtech:meta_block_compressed_24>, <gregtech:meta_block_compressed_25>, <gregtech:meta_block_compressed_26>, null, <gregtech:meta_block_compressed_28>, <gregtech:meta_block_compressed_29>];
 
 /**
 * Function that removes an advanced ingot tool material from the game - all tool parts and their recipes, the required stuff below it, etc
@@ -318,7 +318,7 @@ function removeDust(id as int, size as int, protons as int, neutrons as int, ing
     else if (id == 191) RecipeMap.getByName("electrolyzer").findRecipe(1920, [<gregtech:meta_item_1>.definition.makeStack(id + 2000) * size], [<liquid:hydrogen> * 7000]).remove();
     if (protons != 0 && neutrons != 0) {
         RecipeMap.getByName("mass_fab").findRecipe(32, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], null).remove();
-        RecipeMap.getByName("replicator").findRecipe(32, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], [<liquid:neutral_matter> * neutrons, <liquid:positive_matter> * protons]).remove();
+        if (id != 466)RecipeMap.getByName("replicator").findRecipe(32, [<gregtech:meta_item_1>.definition.makeStack(id + 2000)], [<liquid:neutral_matter> * neutrons, <liquid:positive_matter> * protons]).remove();
     }
 }
 
