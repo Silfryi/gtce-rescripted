@@ -138,54 +138,6 @@ RecipeMap.getByName("assembler").findRecipe(16, [<gregtech:cable:1235> * 8, <gre
 RecipeMap.getByName("assembler").findRecipe(16, [<gregtech:cable:1302> * 8, <gregtech:meta_item_1:32766>.withTag({Configuration: 8})], null).remove();
 RecipeMap.getByName("assembler").findRecipe(16, [<gregtech:cable:1307> * 8, <gregtech:meta_item_1:32766>.withTag({Configuration: 8})], null).remove();
 RecipeMap.getByName("assembler").findRecipe(16, [<gregtech:cable:1308> * 8, <gregtech:meta_item_1:32766>.withTag({Configuration: 8})], null).remove();
-
-
-
-/**
-* Remove and redo low-tier brick recipes being insanely complicated from SoG and GT5u
-*/
-removeAndHide(<gregtech:meta_item_2:32013>);
-recipes.remove(<gtadditions:ga_meta_item:32032>);
-furnace.remove(<minecraft:brick>);
-furnace.addRecipe(<minecraft:brick>, <minecraft:clay_ball>);
-RecipeMap.getByName("alloy_smelter").findRecipe(2, [<minecraft:clay_ball>, <gregtech:meta_item_1:32306>], null).remove();
-recipes.addShaped(<gtadditions:ga_meta_item:32032> * 4, 
- [[<minecraft:clay_ball>, <ore:sand>, <minecraft:clay_ball>],
- [<minecraft:clay_ball>, <liquid:water> * 1000, <minecraft:clay_ball>],
- [<minecraft:clay_ball>, <ore:sand>, <minecraft:clay_ball>]]);
-//Fireclay
-recipes.addShaped(<gregtech:meta_item_2:32014> * 2,
- [[<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>],
- [<ore:dustBrick>, <ore:dustFlint>, <ore:dustBrick>],
- [<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>]]);
-recipes.addShaped(<gregtech:meta_item_2:32014> * 4,
- [[<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>],
- [<ore:dustTalc>, <ore:dustFlint>, <ore:dustTalc>],
- [<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>]]);
-recipes.addShaped(<gregtech:meta_item_2:32014> * 4,
- [[<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>],
- [<ore:dustSoapstone>, <ore:dustFlint>, <ore:dustSoapstone>],
- [<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>]]);
-recipes.addShaped(<gregtech:meta_item_2:32014> * 6,
- [[<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>],
- [<ore:dustObsidian>, <ore:dustFlint>, <ore:dustObsidian>],
- [<ore:ingotClay>, <ore:dustFlint>, <ore:ingotClay>]]);
-recipes.addShaped(<gregtech:meta_item_2:32014> * 4,
- [[<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>],
- [<ore:dustBrick>, <ore:dustFlint>, <ore:dustBrick>],
- [<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>]]);
-recipes.addShaped(<gregtech:meta_item_2:32014> * 6,
- [[<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>],
- [<ore:dustTalc>, <ore:dustFlint>, <ore:dustTalc>],
- [<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>]]);
-recipes.addShaped(<gregtech:meta_item_2:32014> * 6,
- [[<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>],
- [<ore:dustSoapstone>, <ore:dustFlint>, <ore:dustSoapstone>],
- [<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>]]);
-recipes.addShaped(<gregtech:meta_item_2:32014> * 8,
- [[<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>],
- [<ore:dustObsidian>, <ore:dustFlint>, <ore:dustObsidian>],
- [<ore:dustBentonite>, <ore:dustFlint>, <ore:dustBentonite>]]);
  
  
  

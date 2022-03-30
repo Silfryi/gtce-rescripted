@@ -82,6 +82,13 @@ removeAndHide(<gregtech:machine:281>);
 removeAndHide(<gregtech:machine:282>);
 removeAndHide(<gregtech:machine:283>);
 
+//Canning Machine - only does batteries, which I have hereforth decided that can be put into their cans in other ways dammit
+hideCategory("gregtech:canner");
+removeAndHide(<gregtech:machine:140>);
+removeAndHide(<gregtech:machine:141>);
+removeAndHide(<gregtech:machine:142>);
+removeAndHide(<gregtech:machine:143>);
+
 //Remove all non-rod recipes from polarizer
 for recipe in RecipeMap.getByName("polarizer").recipes {
     if ((recipe.inputs[0] as IIngredient).itemArray[0].damage % 14000 != 298 && (recipe.inputs[0] as IIngredient).itemArray[0].damage % 14000 != 299) {

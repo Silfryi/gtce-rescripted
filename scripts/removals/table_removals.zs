@@ -34,11 +34,9 @@ RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.ma
 
 //Remove leftover gem turbine blades from JEI, as they're completely nonproducible and wouldn't be good in a turbine anyway
 removeAndHide(<gregtech:meta_item_2:15154>);
-removeAndHide(<gregtech:meta_item_2:15212>);
 removeAndHide(<gregtech:meta_item_2:15113>);
 removeAndHide(<gregtech:meta_item_2:15111>);
 RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15154>], null).remove();
-RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15212>], null).remove();
 RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15113>], null).remove();
 RecipeMap.getByName("macerator").findRecipe(8, [<gregtech:meta_item_2:15111>], null).remove();
 

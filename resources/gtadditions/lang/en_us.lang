@@ -40,7 +40,7 @@ metaitem.circuit.vacuum_tube.tooltip=A Very Simple Circuit
 metaitem.circuit.advanced_parts.tooltip=A Basic Circuit
 
 # Item Tooltips
-metaitem.compressed.fireclay.tooltip=Brick-Shaped
+metaitem.compressed.fireclay.tooltip=Heat-Resistant Clay
 metaitem.stemcells.tooltip=Raw Intelligence
 metaitem.component.glass.fiber.tooltip=B(SiO₂)₇
 metaitem.component.petri.dish.tooltip=For Cultivating Cells
@@ -64,12 +64,12 @@ metaitem.max.battery.name=MAX Battery
 
 # Naming Items
 metaitem.component.petri.dish.name=Petri Dish
-metaitem.compressed.clay.name=Unfired Clay Brick
+metaitem.compressed.clay.name=Mixed Clays
 metaitem.stemcells.name=Stem cells
 metaitem.credit.darmstadtium.name=Neutronium Credit
 metaitem.rubber_drop.name=Sticky Resin
 metaitem.component.glass.fiber.name=Glass Fiber
-metaitem.compressed.coke.clay.name=Compressed Coke Clay
+metaitem.compressed.coke.clay.name=Unfired Coke Brick
 
 # Renaming Circuits
 metaitem.circuit.integrated.name=Programmed Circuit

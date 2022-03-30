@@ -27,8 +27,11 @@ removeDust(86, 20, 250, 258, false, false, false, true, null);
 removeDust(88, 18, 140, 136, false, false, false, true, null);
 removeDust(107, 3, 76, 90, false, false, false, true, <gregtech:ore_cobaltite_0>);
 removeDust(118, 20, 224, 224, false, false, false, true, <gregtech:ore_grossular_0>);
+removeDust(130, 5, 42, 42, false, false, false, true, <gregtech:ore_magnesite_0>);
 removeDust(132, 3, 74, 85, false, false, false, true, <gregtech:ore_molybdenite_0>);
+removeDust(150, 20, 0, 0, false, false, false, true, <gregtech:ore_pyrope_0>);
 removeDust(163, 3, 38, 38, false, false, false, true, null);
+removeDust(181, 20, 0, 0, false, false, false, true, <gregtech:ore_spessartine_0>);
 removeDust(191, 7, 112, 149, false, false, false, true, <gregtech:ore_tungstate_0>);
 removeDust(194, 20, 246, 254, false, false, false, true, null);
 RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:2063> * 2, <gregtech:meta_item_1:2065>], null).remove();
@@ -44,6 +47,7 @@ removeDust(253, 1, 140, 136, false, false, false, true, null);
 removeDust(254, 8, 196, 232, false, false, false, true, null);
 removeDust(266, 2, 634, 650, false, false, false, true, null);
 removeDust(268, 2, 7502, 7746, false, false, false, true, null);
+removeDust(272, 10, 0, 0, false, false, false, true, <gregtech:ore_spodumene_0>);
 removeDust(273, 22, 308, 348, false, false, false, true, null);
 removeDust(275, 21, 193, 192, false, false, false, true, <gregtech:ore_glauconite_0>);
 removeDust(276, 21, 193, 192, false, false, false, true, null);
@@ -62,6 +66,7 @@ removeDust(356, 0, 0, 0, false, false, false, false, null);
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(356 + 2000) * 2], null).remove();
 removeDust(362, 8, 184, 208, false, false, false, true, <gregtech:ore_enargite_0>);
 removeDust(363, 29, 688, 784, false, false, false, true, <gregtech:ore_tennantite_0>);
+removeDust(402, 3, 55, 56, false, false, false, true, null);
 
 //Remove useless metals of varying complexities
 removeRodIngot(2, 95, 150, false, false, [183, 138, 45], null, null);
@@ -87,6 +92,7 @@ RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definit
 removeBasicIngot(410, 64, 81, true, false, true, [54, 40, 13], null);
 
 //Remove useless, nonfindable gems
+removeGem(85, 20, 0, 0, true, false, <gregtech:ore_almandine_0>, null);
 recipes.removeByRegex(".*(blue_topaz).*");
 removeGem(92, 13, 108, 106, true, true, <gregtech:ore_blue_topaz_0>, [12, 9, 3]);
 recipes.removeByRegex(".*(green_sapphire).*");
@@ -99,6 +105,8 @@ recipes.removeByRegex(".*(topaz).*");
 removeGem(190, 13, 108, 106, true, true, <gregtech:ore_topaz_0>, [12, 9, 3]);
 recipes.removeByRegex(".*(jasper).*");
 removeGem(206, 0, 0, 0, false, false, <gregtech:ore_jasper_0>, [73, 55, 18]);
+recipes.removeByRegex(".*(olivine).*");
+removeGem(212, 5, 0, 0, true, true, <gregtech:ore_olivine_0>, [21, 15, 5]);
 recipes.removeByRegex(".*(opal).*");
 removeGem(213, 1, 30, 30, true, true, <gregtech:ore_opal_0>, [15, 11, 3]);
 recipes.removeByRegex(".*(amethyst).*");
@@ -257,6 +265,13 @@ RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:1026> * 4, <gr
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2026> * 4, <gregtech:meta_item_1:2018>], null).remove();
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(228 + 2000) * 5], null).remove();
 
+//Lithium, Sodium, Calcium, Potassium
+recipes.removeByRegex(".*(lithium).*");
+removeBasicIngot(11, 20, 20, false, false, false, null, null);
+removeBasicIngot(36, 3, 4, false, false, true, [5, 3, 1], <gregtech:ore_lithium_0>);
+removeBasicIngot(63,11, 11, false, false, true, [16, 12, 4], null);
+removeRodIngot(54, 19, 20, false, false, [29, 21, 7], null, [4, 3, 1, 4, 3, 1]);
+
 //Naquadah (Ingot Only), Enriched Naquadah (Ingot Only),Tungsten (Ingot Only), Silicon (Ingot Only)
 recipes.removeByRegex(".*(naquadah).*");
 removeTool(307, 0, 0, true, true, [219, 165, 54], null, [7, 5, 1, 4, 3, 1], [false, false, false, false, false, true, false], true, null, true);
@@ -303,7 +318,6 @@ removeOre(26, <gregtech:ore_gold_0>);
 removeOre(32, <gregtech:ore_iridium_0>);
 removeOre(33, <gregtech:ore_iron_0>, false, true, <minecraft:iron_ingot>);
 removeOre(35, <gregtech:ore_lead_0>, false, true);
-removeOre(36, <gregtech:ore_lithium_0>, false, true);
 removeOre(41, <gregtech:ore_molybdenum_0>, false, true);
 removeOre(42, <gregtech:ore_neodymium_0>);
 removeOre(44, <gregtech:ore_nickel_0>, false, true);
@@ -314,7 +328,6 @@ removeOre(51, <gregtech:ore_platinum_0>, false, true);
 removeOre(62, <gregtech:ore_silver_0>);
 removeOre(79, <gregtech:ore_zinc_0>, false, true);
 removeOre(122, <gregtech:ore_rutile_0>, true);
-removeOre(130, <gregtech:ore_magnesite_0>, false, true, <gregtech:meta_item_1:10038>);
 removeOre(139, <gregtech:ore_phosphate_0>);
 removeOre(307, <gregtech:ore_naquadah_0>);
 

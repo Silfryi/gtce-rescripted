@@ -225,7 +225,7 @@ function removeBasicIngot(id as int, protons as int, neutrons as int, blast as b
 */
 function removeGem(id as int, size as int, protons as int, neutrons as int, electrolyze as bool, tool as bool, ore as IItemStack, cut as int[], lens as bool = true, rod as bool = true) {
     print("Removing gem material for " + id);
-    removeDust(id, size, protons, neutrons, true, false, false, electrolyze, ore, false, true);
+    removeDust(id, size, protons, neutrons, false, false, false, electrolyze, ore, false, true);
     //Hide components from JEI
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 8000));
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 12000));
@@ -283,7 +283,7 @@ function removeGem(id as int, size as int, protons as int, neutrons as int, elec
         RecipeMap.getByName("cutting_saw").findRecipe(4, [<gregtech:meta_item_1>.definition.makeStack(id + 14000)], [<liquid:lubricant> * 1]).remove();
     }
     //Plate
-    if (id != 203) {
+    if (id != 203 && id != 85) {
         RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:water> * cut[0]]).remove();
         RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:distilled_water> * cut[1]]).remove();
         RecipeMap.getByName("cutting_saw").findRecipe(30, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], [<liquid:lubricant> * cut[2]]).remove();
@@ -294,7 +294,7 @@ function removeGem(id as int, size as int, protons as int, neutrons as int, elec
 * Function that removes a dust and its constituent parts from the game - this does nothing about _ingot_ parts, just dust. Does no special recipes
 */
 function removeDust(id as int, size as int, protons as int, neutrons as int, ingot as bool, blast as bool, cool as bool, electrolyze as bool, ore as IItemStack, super as bool = false, gem as bool = false) {
-    if (!ingot) print("Removing dust material for " + id);
+    if (!ingot && !gem) print("Removing dust material for " + id);
     if (!isNull(ore)) removeOre(id, ore, gem, ingot);
     //Hide the requisite items from JEI
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id));
@@ -302,9 +302,9 @@ function removeDust(id as int, size as int, protons as int, neutrons as int, ing
     removeAndHide(<gregtech:meta_item_1>.definition.makeStack(id + 2000));
     removeAndHide(gtBlockID[(id/16) as int].definition.makeStack(id % 16));
     //Remove recipes for the block and for block decomposition
-    if (!ingot) RecipeMap.getByName("unpacker").findRecipe(8, [gtBlockID[(id/16) as int].definition.makeStack(id % 16), <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], null).remove();
+    if (!ingot && !gem) RecipeMap.getByName("unpacker").findRecipe(8, [gtBlockID[(id/16) as int].definition.makeStack(id % 16), <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], null).remove();
     RecipeMap.getByName("macerator").findRecipe(super ? 128 : ingot ? 32 : 8, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], null).remove();
-    if (!ingot) RecipeMap.getByName("forge_hammer").findRecipe(24, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], null).remove();
+    if (!ingot && !gem) RecipeMap.getByName("forge_hammer").findRecipe(24, [gtBlockID[(id/16) as int].definition.makeStack(id % 16)], null).remove();
     //Remove recipes for tiny and small dusts
     RecipeMap.getByName("unpacker").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id + 2000), <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], null).remove();
     RecipeMap.getByName("unpacker").findRecipe(12, [<gregtech:meta_item_1>.definition.makeStack(id + 2000), <gregtech:meta_item_1:32766>.withTag({Configuration: 2})], null).remove();
@@ -456,7 +456,7 @@ function removeAllCentrifugedOres() as void {
 * Retools all sifter recipes to not have or use flawed or chipped gems, instead producing small and tiny dusts and removing flawed/chips from JEI
 */
 function recalibrateAllSifterRecipes() as void {
-    var ids = [85, 103, 106, 111, 113, 122, 128, 154, 161, 201, 202, 209, 211, 212, 216, 226, 281, 357] as int[];
+    var ids = [103, 106, 111, 113, 122, 128, 154, 161, 201, 202, 209, 211, 216, 226, 281, 357] as int[];
     print("Removing all chipped and flawed gems from JEI as well as their recipes");
     //Remove default recipes
     recipes.removeByRegex(".*(exquisite).*");

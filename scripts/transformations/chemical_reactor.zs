@@ -53,6 +53,7 @@ RecipeMap.getByName("distillation_tower").recipeBuilder()
 
 //Saltwater
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2155> * 2], [<liquid:water> * 1000]).remove();
+RecipeMap.getByName("mixer").recipeBuilder().inputs([<gregtech:meta_item_1:2151> * 2]).fluidInputs([<liquid:water> * 3000]).fluidOutputs([<liquid:salt_water> * 5000]).duration(40).EUt(8).buildAndRegister();
 RecipeMap.getByName("mixer").recipeBuilder().inputs([<gregtech:meta_item_1:2155> * 2]).fluidInputs([<liquid:water> * 3000]).fluidOutputs([<liquid:salt_water> * 5000]).duration(40).EUt(8).buildAndRegister();
 
 //Nitration mixture
@@ -476,14 +477,6 @@ RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .outputs([<gregtech:meta_item_1:2382> * 7])
     .fluidOutputs([<liquid:water> * 3000])
     .duration(60).EUt(30).buildAndRegister();
-    
-//Sodium Hydroxide
-RecipeMap.getByName("chemical_reactor").findRecipe(8, [<gregtech:meta_item_1:2063> * 2, <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], [<liquid:water> * 1000]).remove();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2063>]).fluidInputs([<liquid:water> * 3000])
-    .outputs([<gregtech:meta_item_1:2373> * 3])
-    .fluidOutputs([<liquid:hydrogen> * 1000])
-    .duration(40).EUt(8).buildAndRegister();
 
 //Magnesium and Calcuim Carbonate recipes
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:2374> * 2], [<liquid:carbon_dioxide> * 1000]).remove();
@@ -491,29 +484,14 @@ RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:24
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:2097> * 5, <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], []).remove();
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:2130> * 5], []).remove();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2011>])
-    .fluidInputs([<liquid:oxygen> * 1000])
-    .outputs([<gregtech:meta_item_1:2374> * 2])
-    .duration(80).EUt(30).buildAndRegister();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2374> * 2])
     .fluidInputs([<liquid:carbon_dioxide> * 3000])
     .outputs([<gregtech:meta_item_1:2097> * 5])
     .duration(80).EUt(30).buildAndRegister();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2460> * 2])
-    .fluidInputs([<liquid:carbon_dioxide> * 3000])
-    .outputs([<gregtech:meta_item_1:2130> * 5])
-    .duration(80).EUt(30).buildAndRegister();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2097> * 5])
     .notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 1}))
     .outputs([<gregtech:meta_item_1:2374> * 2])
-    .fluidOutputs([<liquid:carbon_dioxide> * 3000])
-    .duration(240).EUt(30).buildAndRegister();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2130> * 5])
-    .outputs([<gregtech:meta_item_1:2460> * 2])
     .fluidOutputs([<liquid:carbon_dioxide> * 3000])
     .duration(240).EUt(30).buildAndRegister();
 
@@ -542,11 +520,6 @@ RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .fluidInputs([<liquid:oxygen> * 1000, <liquid:hydrogen> * 2000])
     .fluidOutputs([<liquid:water> * 3000])
     .duration(20).EUt(30).buildAndRegister();
-RecipeMap.getByName("chemical_reactor").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2063>])
-    .fluidInputs([<liquid:chlorine> * 1000])
-    .outputs([<gregtech:meta_item_1:2156> * 2])
-    .duration(40).EUt(30).buildAndRegister();
 
 
 

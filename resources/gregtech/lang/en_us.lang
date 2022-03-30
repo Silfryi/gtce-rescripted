@@ -254,7 +254,7 @@ metaitem.battery.re.lv.cadmium.name=Small Cadmium Battery
 metaitem.battery.re.lv.cadmium.tooltip=Reusable
 metaitem.battery.re.lv.lithium.name=Small Lithium Battery
 metaitem.battery.re.lv.lithium.tooltip=Reusable
-metaitem.battery.re.lv.sodium.name=Small Sodium Battery
+metaitem.battery.re.lv.sodium.name=Small Lead-Acid Battery
 metaitem.battery.re.lv.sodium.tooltip=Reusable
 
 metaitem.battery.su.mv.sulfuricacid.name=Medium Acid Battery
@@ -266,7 +266,7 @@ metaitem.battery.re.mv.cadmium.name=Medium Cadmium Battery
 metaitem.battery.re.mv.cadmium.tooltip=Reusable
 metaitem.battery.re.mv.lithium.name=Medium Lithium Battery
 metaitem.battery.re.mv.lithium.tooltip=Reusable
-metaitem.battery.re.mv.sodium.name=Medium Sodium Battery
+metaitem.battery.re.mv.sodium.name=Medium Lead-Acid Battery
 metaitem.battery.re.mv.sodium.tooltip=Reusable
 
 metaitem.battery.su.hv.sulfuricacid.name=Large Acid Battery
@@ -278,7 +278,7 @@ metaitem.battery.re.hv.cadmium.name=Large Cadmium Battery
 metaitem.battery.re.hv.cadmium.tooltip=Reusable
 metaitem.battery.re.hv.lithium.name=Large Lithium Battery
 metaitem.battery.re.hv.lithium.tooltip=Reusable
-metaitem.battery.re.hv.sodium.name=Large Sodium Battery
+metaitem.battery.re.hv.sodium.name=Large Lead-Acid Battery
 metaitem.battery.re.hv.sodium.tooltip=Reusable
 
 metaitem.energy_crystal.name=Energy Crystal
@@ -619,7 +619,7 @@ metaitem.tool_parts_box.tooltip=Contains some tool parts/nRight click to open
 metaitem.foam_sprayer.name=Foam Sprayer
 metaitem.foam_sprayer.tooltip=Sprays Construction Foam/nUse on a frame to foam connected frames/nUse iron metal to create reinforced stone/nFoam can be colored
 metaitem.energium_dust.name=Energium Dust
-metaitem.compressed.fireclay.name=Compressed Fireclay
+metaitem.compressed.fireclay.name=Fireclay
 metaitem.compressed.clay.name=Compressed Clay
 metaitem.brick.fireclay.name=Fireclay Brick
 metaitem.brick.coke.name=Coke Oven Brick
@@ -1722,7 +1722,7 @@ tile.boiler_casing.titanium_firebox.name=Titanium Firebox Casing
 tile.boiler_casing.tungstensteel_firebox.name=Tungstensteel Firebox Casing
 
 # Metal casing blocks
-tile.metal_casing.primitive_bricks.name=Primitive Bricks
+tile.metal_casing.primitive_bricks.name=Firebrick
 tile.metal_casing.coke_bricks.name=Coke Oven Bricks
 tile.metal_casing.bronze_bricks.name=Brass Machine Casing
 tile.metal_casing.invar_heatproof.name=Heat Proof Machine Casing

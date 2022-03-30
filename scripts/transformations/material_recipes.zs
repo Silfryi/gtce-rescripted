@@ -196,3 +196,37 @@ RecipeMap.getByName("forge_hammer").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2196> * 2])
     .outputs([<gregtech:meta_item_1:12196>])
     .duration(160).EUt(7).buildAndRegister();
+
+//Battery changes - remove lithium, sodium -> lead-acid, add battery recipes to NOT the canning machine (goodbye)
+removeAndHide(<gregtech:meta_item_1:32518>);
+removeAndHide(<gregtech:meta_item_1:32528>);
+removeAndHide(<gregtech:meta_item_1:32538>);
+RecipeMap.getByName("extractor").findRecipe(2, [<gregtech:meta_item_1:32518>], null).remove();
+RecipeMap.getByName("extractor").findRecipe(2, [<gregtech:meta_item_1:32528>], null).remove();
+RecipeMap.getByName("extractor").findRecipe(2, [<gregtech:meta_item_1:32538>], null).remove();
+RecipeMap.getByName("packer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:19035> * 4, <gregtech:meta_item_1:32510>.withTag({Charge: 18000 as long})])
+    .outputs([<gregtech:meta_item_1:32519>])
+    .duration(400).EUt(2).buildAndRegister();
+RecipeMap.getByName("packer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:19035> * 16, <gregtech:meta_item_1:32520>.withTag({Charge: 72000 as long})])
+    .outputs([<gregtech:meta_item_1:32529>])
+    .duration(400).EUt(2).buildAndRegister();
+RecipeMap.getByName("packer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:19035> * 32, <gregtech:meta_item_1:32530>.withTag({Charge: 288000 as long})])
+    .outputs([<gregtech:meta_item_1:32539>])
+    .duration(400).EUt(2).buildAndRegister();
+RecipeMap.getByName("packer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2013> * 2, <gregtech:meta_item_1:32500>])
+    .outputs([<gregtech:meta_item_1:32517>])
+    .duration(400).EUt(2).buildAndRegister();
+RecipeMap.getByName("packer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2013> * 8, <gregtech:meta_item_1:32501>])
+    .outputs([<gregtech:meta_item_1:32527>])
+    .duration(400).EUt(2).buildAndRegister();
+RecipeMap.getByName("packer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2013> * 16, <gregtech:meta_item_1:32502>])
+    .outputs([<gregtech:meta_item_1:32537>])
+    .duration(400).EUt(2).buildAndRegister();
+
+    

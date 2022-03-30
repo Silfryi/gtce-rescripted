@@ -65,6 +65,7 @@ RecipeMap.getByName("electrolyzer").recipeBuilder()
     .duration(5000).EUt(30).buildAndRegister();
 
 //Saltwater
+RecipeMap.getByName("chemical_reactor").findRecipe(8, [<gregtech:meta_item_1:2063> * 2, <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], [<liquid:water> * 1000]).remove();
 RecipeMap.getByName("electrolyzer").findRecipe(30, null, [<liquid:salt_water> * 1000]).remove();
 RecipeMap.getByName("electrolyzer").recipeBuilder()
     .fluidInputs([<liquid:salt_water> * 5000])
