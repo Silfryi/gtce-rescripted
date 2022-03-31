@@ -106,6 +106,8 @@ RecipeMap.getByName("mixer").recipeBuilder()
     .duration(80).EUt(30).buildAndRegister();
     
 //Specialty glass cheapening recipes
+furnace.addRecipe(<minecraft:glass>, <minecraft:quartz>);
+furnace.addRecipe(<minecraft:glass>, <gregtech:meta_item_1:8202>);
 furnace.addRecipe(<minecraft:glass>, <gregtech:meta_item_1:2209>);
 furnace.addRecipe(<minecraft:glass>, <gregtech:meta_item_1:2220>);
 RecipeMap.getByName("alloy_smelter").recipeBuilder()

@@ -45,6 +45,7 @@ RecipeMap.getByName("fluid_extractor").findRecipe(128, [<gregtech:meta_item_1:22
 RecipeMap.getByName("chemical_bath").findRecipe(4, [<gregtech:meta_item_1:2106>], [<liquid:water> * 125]).remove();
 RecipeMap.getByName("chemical_bath").findRecipe(4, [<gregtech:meta_item_1:2106>], [<liquid:distilled_water> * 125]).remove();
 removeDust(248, 4, 269, 258, false, false, false, true, null);
+removeDust(250, 22, 0, 0, false, false, false, true, null);
 removeDust(253, 1, 140, 136, false, false, false, true, null);
 removeDust(254, 8, 196, 232, false, false, false, true, null);
 removeDust(266, 2, 634, 650, false, false, false, true, null);
@@ -283,7 +284,10 @@ removeTool(309, 0, 0, true, true, [73, 55, 18], null, [4, 3, 1, 4, 3, 1], [false
 recipes.removeByRegex(".*(tungsten)(?!steel).*");
 removeCable(74 as int, true, 4, false, true);
 removeTool(74, 0, 0, true, true, [137, 103, 34], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, true], true, null, true);
-removeBasicIngot(61, 0, 0, true, false, true, [21, 15, 5], null, false, false, true);
+hide(<gregtech:meta_item_1:19061>);
+RecipeMap.getByName("fluid_extractor").findRecipe(128, [<gregtech:meta_item_1>.definition.makeStack(61 + 19000)], null).remove();
+RecipeMap.getByName("metal_bender").findRecipe(24, [<gregtech:meta_item_1>.definition.makeStack(61 + 12000), <gregtech:meta_item_1:32766>.withTag({Configuration: 4})], null).remove();
+removeBasicIngot(61, 0, 0, true, false, true, [21, 15, 5], null);
 
 //Niobium & niobium derivates
 removeBasicIngot(45, 41, 53, true, true, true, [70, 52, 17], null, true);
