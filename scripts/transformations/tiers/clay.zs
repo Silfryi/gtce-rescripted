@@ -63,17 +63,17 @@ recipes.addShaped(<gregtech:meta_item_2:32014> * 8,
  
  //Actual brick recipes
 recipes.addShaped(<minecraft:brick_block> * 2, 
-    [[<minecraft:brick>, <gregtech:meta_item_1:2287>, <minecraft:brick>],
+    [[<minecraft:brick>, <gregtech:meta_item_1:2287> | <gregtech:meta_item_1:2374>, <minecraft:brick>],
     [<minecraft:brick>, <liquid:water> * 1000, <minecraft:brick>],
-    [<minecraft:brick>, <gregtech:meta_item_1:2287>, <minecraft:brick>]]);
+    [<minecraft:brick>, <gregtech:meta_item_1:2287> | <gregtech:meta_item_1:2374>, <minecraft:brick>]]);
 recipes.addShaped(<gregtech:metal_casing:1> * 2, 
-    [[<gregtech:meta_item_2:32015>, <gregtech:meta_item_1:2287>, <gregtech:meta_item_2:32015>],
+    [[<gregtech:meta_item_2:32015>, <gregtech:meta_item_1:2287> | <gregtech:meta_item_1:2374>, <gregtech:meta_item_2:32015>],
     [<gregtech:meta_item_2:32015>, <liquid:water> * 1000, <gregtech:meta_item_2:32015>],
-    [<gregtech:meta_item_2:32015>, <gregtech:meta_item_1:2287>, <gregtech:meta_item_2:32015>]]);
+    [<gregtech:meta_item_2:32015>, <gregtech:meta_item_1:2287> | <gregtech:meta_item_1:2374>, <gregtech:meta_item_2:32015>]]);
 recipes.addShaped(<gregtech:metal_casing:8> * 2, 
-    [[<gregtech:meta_item_2:32016>, <gregtech:meta_item_1:2287>, <gregtech:meta_item_2:32016>],
+    [[<gregtech:meta_item_2:32016>, <gregtech:meta_item_1:2287> | <gregtech:meta_item_1:2374>, <gregtech:meta_item_2:32016>],
     [<gregtech:meta_item_2:32016>, <liquid:water> * 1000, <gregtech:meta_item_2:32016>],
-    [<gregtech:meta_item_2:32016>, <gregtech:meta_item_1:2287>, <gregtech:meta_item_2:32016>]]);
+    [<gregtech:meta_item_2:32016>, <gregtech:meta_item_1:2287> | <gregtech:meta_item_1:2374>, <gregtech:meta_item_2:32016>]]);
     
     
 
@@ -83,16 +83,22 @@ recipes.addShaped(<gregtech:metal_casing:8> * 2,
     
 //Concrete recipes
 RecipeMap.getByName("fluid_extractor").findRecipe(32, [<gregtech:concrete>], null).remove();
+RecipeMap.getByName("mixer").findRecipe(16, [<gregtech:meta_item_1:2328> * 6, <minecraft:sand> * 2, <gregtech:meta_item_1:2220>], [<liquid:water> * 1000]).remove();
 RecipeMap.getByName("mixer").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2328> * 6, <gregtech:meta_item_1:2105>, <gregtech:meta_item_1:2287>])
+    .inputs([<gregtech:meta_item_1:2328> * 6, <gregtech:meta_item_1:2105>, <gregtech:meta_item_1:2287> | <gregtech:meta_item_1:2374>])
     .fluidInputs([<liquid:water> * 1000])
     .fluidOutputs([<liquid:concrete> * 1728])
-    .duration(20).EUt(16).buildAndRegister();
+    .duration(30).EUt(16).buildAndRegister();
 RecipeMap.getByName("mixer").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2328> * 6, <gregtech:meta_item_1:2278>, <gregtech:meta_item_1:2287>, <gregtech:meta_item_1:2249>])
+    .inputs([<gregtech:meta_item_1:2328> * 6, <gregtech:meta_item_1:2278>, <gregtech:meta_item_1:2287> | <gregtech:meta_item_1:2374>, <gregtech:meta_item_1:2249>])
     .fluidInputs([<liquid:water> * 1000])
     .fluidOutputs([<liquid:concrete> * 1728])
-    .duration(20).EUt(16).buildAndRegister();
+    .duration(30).EUt(16).buildAndRegister();
+RecipeMap.getByName("mixer").recipeBuilder()
+    .inputs([<ore:sand> * 6, <gregtech:meta_item_1:2105>, <gregtech:meta_item_1:2287>, <gregtech:meta_item_1:2374>])
+    .fluidInputs([<liquid:water> * 1500])
+    .fluidOutputs([<liquid:concrete> * 2304])
+    .duration(40).EUt(16).buildAndRegister();
 RecipeMap.getByName("mixer").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2278> * 6, <gregtech:meta_item_1:2105> * 4, <gregtech:meta_item_1:2287>, <gregtech:meta_item_1:2249> | <gregtech:meta_item_1:2403>])
     .fluidInputs([<liquid:water> * 1000])
@@ -122,7 +128,7 @@ RecipeMap.getByName("alloy_smelter").recipeBuilder()
 //Their stones from various stone dusts recipes
 furnace.addRecipe(<minecraft:cobblestone>, <gregtech:meta_item_1:2328>);
 furnace.addRecipe(<gregtech:mineral:4>, <gregtech:meta_item_1:2245>);
-furnace.addRecipe(<gregtech:mineral:5>, <gregtech:meta_item_1:2240>);
+furnace.addRecipe(<gregtech:mineral:6>, <gregtech:meta_item_1:2240>);
 furnace.addRecipe(<gregtech:granite:4>, <gregtech:meta_item_1:2251>);
 furnace.addRecipe(<gregtech:granite:5>, <gregtech:meta_item_1:2252>);
     
@@ -132,7 +138,7 @@ furnace.addRecipe(<gregtech:granite:5>, <gregtech:meta_item_1:2252>);
 * More uses for firebrick! You keep using firebrick as a heatproof material until endgame, because it's a part of firebox casings & heatproof casings
 */
 //Heatproof Casing
-recipes.removeByRegex(".*(casing_invar_heatproof).");
+recipes.remove(<gregtech:metal_casing:2>);
 RecipeMap.getByName("assembler").findRecipe(16, [<ore:plateInvar>.firstItem * 6, <gregtech:frame_invar>], null).remove();
 recipes.addShaped(<gregtech:metal_casing:2> * 3,
     [[<ore:plateInvar>, <gregtech:metal_casing:1>, <ore:plateInvar>],

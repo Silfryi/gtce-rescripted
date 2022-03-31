@@ -7,37 +7,6 @@ import mods.gregtech.material.MaterialRegistry;
 print("Transforming most electrorefining ore processing recipes into blast furnace pyroprocessing recipes");
 
 /**
-* Remove now-unnecessary and frankly ridiculous recipes for electrorefining of metal ores that should be using pyroprocessing
-*/
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2100> * 4], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2358> * 4], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2359> * 6], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2360> * 10], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2361> * 3], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2188> * 8], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2090> * 5], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2096> * 4], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2255> * 2], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2131> * 7], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2199> * 4], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2148> * 3], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2286> * 6], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2114> * 8], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2103> * 2], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2146> * 6], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2198> * 6], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2149> * 3], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2224> * 9], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2115> * 2], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2271> * 17], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2108> * 6], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2102> * 7], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2185> * 5], []).remove();
-RecipeMap.getByName("electrolyzer").findRecipe(60, [<gregtech:meta_item_1:2270> * 6], []).remove();
-
-
-
-/**
 * Readd pyroprocessing recipes for carbon-requisite (oxide) ores
 */
 //Iron
@@ -423,7 +392,8 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2038> * 2])
     .fluidInputs([<liquid:titanium_tetrachloride> * 5000])
-    .outputs([<gregtech:meta_item_1:11072>, <gregtech:meta_item_1:2125> * 6])
+    .outputs([<gregtech:meta_item_1:11072>])
+    .fluidOutputs([<liquid:magnesium_chloride> * 6000])
     .property("temperature", 2141).duration(800).EUt(480).buildAndRegister();
 
 
@@ -493,13 +463,32 @@ RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .outputs([<gregtech:meta_item_1:1031>])
     .fluidOutputs([<liquid:white_vitriol_solution> * 30000, <liquid:nitrogen_dioxide> * 24000])
     .duration(106).EUt(480).buildAndRegister();
-//Sheldonite dust
+//Nitric Acid-based stone separation for hydrofluoric acid
+RecipeMap.getByName("chemical_reactor").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2274> * 20])
+    .fluidInputs([<liquid:nitric_acid> * 10000])
+    .outputs([<minecraft:gravel> * 20])
+    .fluidOutputs([<liquid:hydrofluoric_acid> * 4000, <liquid:nitrogen_dioxide> * 6000])
+    .duration(318).EUt(30).buildAndRegister();
+RecipeMap.getByName("chemical_reactor").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2251> * 34])
+    .fluidInputs([<liquid:nitric_acid> * 10000])
+    .outputs([<minecraft:gravel> * 34])
+    .fluidOutputs([<liquid:hydrofluoric_acid> * 4000, <liquid:nitrogen_dioxide> * 6000])
+    .duration(318).EUt(30).buildAndRegister();
+//Sheldonite & Emerald
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2108> * 6])
     .fluidInputs([<liquid:nitric_acid> * 40000, <liquid:water> * 9000])
     .outputs([<gregtech:meta_item_1:2982> * 4])
     .fluidOutputs([<liquid:cyan_vitriol_solution> * 27000, <liquid:nitrogen_dioxide> * 24000])
     .duration(318).EUt(480).buildAndRegister();
+RecipeMap.getByName("chemical_reactor").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2113> * 29])
+    .fluidInputs([<liquid:hydrochloric_acid> * 12000, <liquid:water> * 36000])
+    .outputs([<minecraft:gravel> * 23])
+    .fluidOutputs([<liquid:pearl_vitriol_solution> * 54000])
+    .duration(1272).EUt(480).buildAndRegister();
 //Add vitrol separation
 RecipeMap.getByName("centrifuge").recipeBuilder()
     .fluidInputs([<liquid:mixed_vitriols> * 54000])
@@ -637,6 +626,11 @@ RecipeMap.getByName("electrolyzer").recipeBuilder()
     .outputs([<gregtech:meta_item_1:2079>])
     .fluidOutputs([<liquid:oxygen> * 1000, <liquid:diluted_sulfuric_acid> * 10000, <liquid:water> * 18000])
     .duration(672).EUt(30).buildAndRegister();
+RecipeMap.getByName("electrolyzer").recipeBuilder()
+    .fluidInputs([<liquid:pearl_vitriol_solution> * 18000])
+    .outputs([<gregtech:meta_item_1:2007>])
+    .fluidOutputs([<liquid:chlorine> * 2000, <liquid:water> * 15000])
+    .duration(672).EUt(480).buildAndRegister();
 
 
 

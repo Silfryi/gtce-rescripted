@@ -152,6 +152,12 @@ for recipe in RecipeMap.getByName("blast_furnace").recipes {
     recipe.remove();
 }
 //Replicator & mass fabricator non-elements
+RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:white_vitriol> * 1000]).remove();
+RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:pearl_vitriol> * 1000]).remove();
+RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:mixed_vitriols> * 1000]).remove();
+RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:copper_rich_mixed_vitriols> * 1000]).remove();
+RecipeMap.getByName("replicator").findRecipe(32, [<gregtech:meta_item_1:32762>.withTag({Fluid: {FluidName: "mixed_vitriols", Amount: 1000}})], [<liquid:positive_matter> * 291, <liquid:neutral_matter> * 272]).remove();
+RecipeMap.getByName("replicator").findRecipe(32, [<gregtech:meta_item_1:32762>.withTag({Fluid: {FluidName: "copper_rich_mixed_vitriols", Amount: 1000}})], [<liquid:positive_matter> * 839, <liquid:neutral_matter> * 792]).remove();
 var n = 0;
 for recipe in RecipeMap.getByName("replicator").recipes {
     if(n > 112 || (n > 10 && n < 79)) recipe.remove();
@@ -159,8 +165,6 @@ for recipe in RecipeMap.getByName("replicator").recipes {
 }
 var m = 0;
 for recipe in RecipeMap.getByName("mass_fab").recipes {
-    if(m > 114 || (m > 10 && m < 79)) recipe.remove();
+    if(m > 112 || (m > 10 && m < 79)) recipe.remove();
     m += 1;
 }
-RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:mixed_vitriols> * 1000]).remove();
-RecipeMap.getByName("mass_fab").findRecipe(32, [], [<liquid:copper_rich_mixed_vitriols> * 1000]).remove();
