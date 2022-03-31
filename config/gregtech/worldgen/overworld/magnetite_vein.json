@@ -1,14 +1,20 @@
 {
-  "weight": 100,
+  "weight": 35,
   "density": 0.3,
   "min_height": 50,
   "vein_populator": {
     "type": "surface_rock",
     "material": "magnetite"
   },
+  "biome_modifier": {
+    "type": "biome_dictionary",
+    "river": 20,
+    "beach": 30,
+    "ocean": 10
+  },
   "generator": {
     "type": "ellipsoid",
-    "radius": [19, 22]
+    "radius": [10, 30]
   },
   "filler": {
     "type": "simple",
@@ -16,20 +22,20 @@
       "type": "weight_random",
       "values": [
         {
-          "weight": 60,
+          "weight": 65,
           "value": "ore:magnetite"
         },
         {
-          "weight": 15,
-          "value": "ore:iron"
-        },
-		{
-          "weight": 15,
+          "weight": 20,
           "value": "ore:vanadium_magnetite"
         },
 		{
           "weight": 10,
-          "value": "ore:gold"
+          "value": "ore:chromite"
+        },
+		{
+          "weight": 5,
+          "value": "ore:ilmenite"
         }
       ]
     }

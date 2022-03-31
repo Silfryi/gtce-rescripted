@@ -9,7 +9,7 @@
   },
   "generator": {
     "type": "ellipsoid",
-    "radius": [13, 16]
+    "radius": [7, 24]
   },
   "filler": {
     "type": "simple",
@@ -17,16 +17,20 @@
       "type": "weight_random",
       "values": [
         {
-          "weight": 50,
+          "weight": 70,
           "value": "ore:galena"
         },
         {
-          "weight": 25,
-          "value": "ore:silver"
+          "weight": 15,
+          "value": "ore:stibnite"
         },
 		{
-          "weight": 25,
-          "value": "ore:lead"
+          "weight": 10,
+          "value": "ore:barite"
+        },
+        {
+          "weight": 5,
+          "value": "ore:wulfenite"
         }
       ]
     }

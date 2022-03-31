@@ -4,16 +4,15 @@
   "min_height": 50,
   "vein_populator": {
     "type": "surface_rock",
-    "material": "copper"
+    "material": "tetrahedrite"
   },
   "biome_modifier": {
     "type": "biome_dictionary",
     "mountain": 20
   },
-
   "generator": {
     "type": "ellipsoid",
-    "radius": [17, 18]
+    "radius": [9, 27]
   },
   "filler": {
     "type": "simple",
@@ -26,11 +25,15 @@
         },
         {
           "weight": 20,
-          "value": "ore:copper"
+          "value": "ore:sphalerite"
         },
-		    {
-          "weight": 20,
+        {
+          "weight": 10,
           "value": "ore:stibnite"
+        },
+        {
+          "weight": 10,
+          "value": "ore:bornite"
         }
       ]
     }

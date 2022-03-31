@@ -1,35 +1,40 @@
 {
-  "weight": 70,
+  "weight": 25,
   "density": 0.4,
+  "max_height": 70,
   "min_height": 40,
   "vein_populator": {
     "type": "surface_rock",
-    "material": "nether_quartz"
+    "material": "brown_limonite"
+  },
+  "biome_modifier": {
+    "type": "biome_dictionary",
+    "swamp": 25
   },
   "generator": {
     "type": "ellipsoid",
-    "radius": [7, 25]
+    "radius": [7, 20]
   },
   "filler": {
     "type": "simple",
     "value": {
       "type": "weight_random",
       "values": [
-        {
+		{
           "weight": 55,
-          "value": "ore:nether_quartz"
+          "value": "ore:brown_limonite"
         },
         {
           "weight": 30,
-          "value": "ore:certus_quartz"
+          "value": "ore:yellow_limonite"
         },
-        {
+		{
           "weight": 10,
-          "value": "ore:barite"
+          "value": "block:minecraft:clay"
         },
-        {
+		{
           "weight": 5,
-          "value": "ore:galena"
+          "value": "ore:bentonite"
         }
       ]
     }

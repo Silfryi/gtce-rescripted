@@ -8,7 +8,7 @@
   },
   "generator": {
     "type": "ellipsoid",
-    "radius": [14, 17]
+    "radius": [7, 25]
   },
   "filler": {
     "type": "simple",
@@ -16,7 +16,7 @@
       "type": "weight_random",
       "values": [
         {
-          "weight": 40,
+          "weight": 50,
           "value": "ore:salt"
         },
         {
@@ -26,10 +26,6 @@
 		{
           "weight": 15,
           "value": "ore:lepidolite"
-        },
-		{
-          "weight": 10,
-          "value": "ore:spodumene"
         }
       ]
     }

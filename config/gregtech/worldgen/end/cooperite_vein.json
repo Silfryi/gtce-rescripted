@@ -1,15 +1,16 @@
 {
   "weight": 50,
-  "density": 0.5,
-  "max_height": 50,
-  "min_height": 20,
+  "density": 0.4,
+  "max_height": 45,
+  "min_height": 10,
+  "dimension_filter": ["name:the_end"],
   "vein_populator": {
     "type": "surface_rock",
-    "material": "lapis"
+    "material": "nickel"
   },
   "generator": {
     "type": "ellipsoid",
-    "radius": [7, 22]
+    "radius": [7, 9]
   },
   "filler": {
     "type": "simple",
@@ -17,16 +18,16 @@
       "type": "weight_random",
       "values": [
         {
-          "weight": 50,
-          "value": "ore:lapis"
+          "weight": 55,
+          "value": "ore:pentlandite"
         },
         {
-          "weight": 30,
-          "value": "ore:lazurite"
+          "weight": 15,
+          "value": "ore:chalcopyrite"
         },
 		{
           "weight": 20,
-          "value": "ore:sodalite"
+          "value": "ore:cooperite"
         }
       ]
     }

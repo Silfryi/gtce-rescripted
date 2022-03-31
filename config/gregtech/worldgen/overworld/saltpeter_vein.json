@@ -1,16 +1,18 @@
 {
-  "weight": 8,
-  "density": 0.5,
-  "max_height": 65,
-  "min_height": 30,
-  "dimension_filter": ["name:the_end"],
+  "weight": 10,
+  "density": 0.6,
+  "min_height": 65,
   "vein_populator": {
     "type": "surface_rock",
-    "material": "naquadah"
+    "material": "saltpeter"
+  },
+  "biome_modifier": {
+    "type": "biome_dictionary",
+    "sandy": 50
   },
   "generator": {
     "type": "ellipsoid",
-    "radius": [20, 20]
+    "radius": [15, 30]
   },
   "filler": {
     "type": "simple",
@@ -19,7 +21,7 @@
       "values": [
         {
           "weight": 100,
-          "value": "ore:naquadah_enriched"
+          "value": "ore:saltpeter"
         }
       ]
     }

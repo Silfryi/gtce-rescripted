@@ -1,6 +1,6 @@
 {
   "weight": 70,
-  "density": 0.6,
+  "density": 0.75,
   "min_height": 50,
   "vein_populator": {
     "type": "surface_rock",
@@ -8,7 +8,7 @@
   },
   "generator": {
     "type": "ellipsoid",
-    "radius": [16, 16]
+    "radius": [8, 24]
   },
   "filler": {
     "type": "simple",
