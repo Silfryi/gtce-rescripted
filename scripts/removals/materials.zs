@@ -30,6 +30,7 @@ removeDust(118, 20, 224, 224, false, false, false, true, <gregtech:ore_grossular
 removeDust(130, 5, 42, 42, false, false, false, true, <gregtech:ore_magnesite_0>);
 removeDust(132, 3, 74, 85, false, false, false, true, <gregtech:ore_molybdenite_0>);
 removeDust(139, 5, 47, 48, false, false, false, true, null);
+removeDust(149, 3, 41, 46, false, false, false, true, <gregtech:ore_pyrolusite_0>);
 removeDust(150, 20, 0, 0, false, false, false, true, <gregtech:ore_pyrope_0>);
 removeDust(159, 3, 30, 30, false, false, false, true, null);
 removeDust(163, 3, 38, 38, false, false, false, true, null);
@@ -40,6 +41,7 @@ RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:2063> * 2, <g
 removeDust(210, 3, 270, 276, false, false, false, true, null);
 removeDust(221, 10, 366, 374, false, false, false, true, null);
 removeDust(223, 1, 50, 51, false, false, false, true, null);
+removeDust(224, 9, 0, 0, false, false, false, true, <gregtech:ore_tantalite_0>);
 removeDust(225, 9, 58, 56, false, false, false, true, null);
 RecipeMap.getByName("fluid_extractor").findRecipe(128, [<gregtech:meta_item_1:2225>], null).remove();
 RecipeMap.getByName("chemical_bath").findRecipe(4, [<gregtech:meta_item_1:2106>], [<liquid:water> * 125]).remove();
@@ -269,6 +271,11 @@ RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:1026> * 4, <gr
 RecipeMap.getByName("mixer").findRecipe(8, [<gregtech:meta_item_1:2026> * 4, <gregtech:meta_item_1:2018>], null).remove();
 RecipeMap.getByName("centrifuge").findRecipe(30, [<gregtech:meta_item_1>.definition.makeStack(228 + 2000) * 5], null).remove();
 
+//Manganese and Tantalum
+recipes.removeByRegex(".*(manganese).*");
+removeTool(39, 25, 30, false, false, [41, 30, 10], null, null, [false, false, true, false, false, true, false]);
+removeBasicIngot(66, 73, 107, false, false, true, [135, 101, 33], null);
+
 //Lithium, Sodium, Calcium, Potassium
 recipes.removeByRegex(".*(lithium).*");
 RecipeMap.getByName("centrifuge").findRecipe(30, [<minecraft:dye:15>], null).remove();
@@ -281,7 +288,7 @@ removeRodIngot(54, 19, 20, false, false, [29, 21, 7], null, [4, 3, 1, 4, 3, 1]);
 recipes.removeByRegex(".*(naquadah).*");
 removeTool(307, 0, 0, true, true, [219, 165, 54], null, [7, 5, 1, 4, 3, 1], [false, false, false, false, false, true, false], true, null, true);
 removeTool(309, 0, 0, true, true, [73, 55, 18], null, [4, 3, 1, 4, 3, 1], [false, false, false, false, false, true, false], true, null, true);
-recipes.removeByRegex(".*(tungsten)(?!steel).*");
+recipes.removeByRegex(".*(tungsten)(?!steel)(?!_carbide).*");
 removeCable(74 as int, true, 4, false, true);
 removeTool(74, 0, 0, true, true, [137, 103, 34], null, [4, 3, 1, 4, 3, 1], [false, false, true, true, false, true, true], true, null, true);
 hide(<gregtech:meta_item_1:19061>);
@@ -429,20 +436,33 @@ RecipeMap.getByName("alloy_smelter").recipeBuilder()
     .outputs([<gregtech:meta_item_1:10126> * 3])
     .duration(150).EUt(30).buildAndRegister();
 //Stainless steel
-recipes.replaceAllOccurences(<gregtech:meta_item_1:2033>, <gregtech:meta_item_1:2184>, <gregtech:meta_item_1:2183>);
-recipes.replaceAllOccurences(<gregtech:meta_item_1:33>, <gregtech:meta_item_1:184>, <gregtech:meta_item_1:2183>);
+recipes.removeByRegex(".*(dust_stainless_steel).*");
+recipes.removeByRegex(".*(dust_tiny_stainless_steel).*");
 RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:2033> * 4, <gregtech:meta_item_1:2126> * 3, <gregtech:meta_item_1:2039>, <gregtech:meta_item_1:2016>], null).remove();
 RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:1033> * 4, <gregtech:meta_item_1:1126> * 3, <gregtech:meta_item_1:1039>, <gregtech:meta_item_1:1016>], null).remove();
 RecipeMap.getByName("mixer").findRecipe(30, [<gregtech:meta_item_1:33> * 4, <gregtech:meta_item_1:126> * 3, <gregtech:meta_item_1:39>, <gregtech:meta_item_1:16>], null).remove();
 RecipeMap.getByName("mixer").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2184> * 6, <gregtech:meta_item_1:2044>,  <gregtech:meta_item_1:2039>, <gregtech:meta_item_1:2016>])
-    .outputs([<gregtech:meta_item_1:2183> * 9])
+    .inputs([<gregtech:meta_item_1:2184> * 10, <gregtech:meta_item_1:2044> * 3, <gregtech:meta_item_1:2016> * 3,  <gregtech:meta_item_1:2041>])
+    .outputs([<gregtech:meta_item_1:2183> * 17])
     .duration(900).EUt(30).buildAndRegister();
 RecipeMap.getByName("mixer").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:1184> * 6, <gregtech:meta_item_1:1044>,  <gregtech:meta_item_1:1039>, <gregtech:meta_item_1:1016>])
-    .outputs([<gregtech:meta_item_1:1183> * 9])
+    .inputs([<gregtech:meta_item_1:1184> * 10, <gregtech:meta_item_1:1044> * 3, <gregtech:meta_item_1:1016> * 3,  <gregtech:meta_item_1:1041>])
+    .outputs([<gregtech:meta_item_1:1183> * 17])
     .duration(226).EUt(30).buildAndRegister();
 RecipeMap.getByName("mixer").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:184> * 6, <gregtech:meta_item_1:44>,  <gregtech:meta_item_1:39>, <gregtech:meta_item_1:16>])
-    .outputs([<gregtech:meta_item_1:2183>])
+    .inputs([<gregtech:meta_item_1:184> * 10, <gregtech:meta_item_1:44> * 3, <gregtech:meta_item_1:16> * 3,  <gregtech:meta_item_1:41>])
+    .outputs([<gregtech:meta_item_1:183> * 17])
+    .duration(100).EUt(30).buildAndRegister();
+//Carbide-Coated Chrome-Vanadium Steel
+RecipeMap.getByName("mixer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2301> * 9, <gregtech:meta_item_1:2184> * 4,  <gregtech:meta_item_1:2077> * 2, <gregtech:meta_item_1:2012>])
+    .outputs([<gregtech:meta_item_1:2650> * 16])
+    .duration(900).EUt(30).buildAndRegister();
+RecipeMap.getByName("mixer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:1301> * 9, <gregtech:meta_item_1:1184> * 4,  <gregtech:meta_item_1:1077> * 2, <gregtech:meta_item_1:1012>])
+    .outputs([<gregtech:meta_item_1:1650> * 16])
+    .duration(226).EUt(30).buildAndRegister();
+RecipeMap.getByName("mixer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:301> * 9, <gregtech:meta_item_1:84> * 4,  <gregtech:meta_item_1:77> * 2, <gregtech:meta_item_1:12>])
+    .outputs([<gregtech:meta_item_1:650> * 16])
     .duration(100).EUt(30).buildAndRegister();

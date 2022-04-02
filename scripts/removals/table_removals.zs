@@ -59,6 +59,8 @@ removeAndHide(<gregtech:meta_item_1:32005>);
 removeAndHide(<gregtech:meta_item_1:32006>);
 removeAndHide(<gregtech:meta_item_1:32007>);
 removeAndHide(<gregtech:meta_item_1:32009>);
+RecipeMap.getByName("assembler").findRecipe(4, [<gregtech:meta_item_1:2066>, <gregtech:meta_item_1:19039>], [<liquid:plastic> * 144]).remove();
+removeAndHide(<gregtech:meta_item_1:32499>);
 RecipeMap.getByName("forming_press").findRecipe(16, [<gregtech:meta_item_1:12109>, <gregtech:meta_item_1:32304>], null).remove();
 RecipeMap.getByName("forming_press").findRecipe(16, [<gregtech:meta_item_1:12094>, <gregtech:meta_item_1:32304>], null).remove();
 RecipeMap.getByName("autoclave").findRecipe(7680, [<minecraft:nether_star>], [<liquid:neutronium> * 288]).remove();
@@ -136,3 +138,13 @@ removeAndHide(<minecraft:structure_void>);
 removeAndHide(<minecraft:structure_block>);
 removeAndHide(<minecraft:command_block_minecart>);
 removeAndHide(<minecraft:knowledge_book>);
+
+//Remove MC ores
+removeAndHide(<minecraft:lapis_ore>);
+removeAndHide(<minecraft:coal_ore>);
+removeAndHide(<minecraft:iron_ore>);
+removeAndHide(<minecraft:gold_ore>);
+removeAndHide(<minecraft:diamond_ore>);
+removeAndHide(<minecraft:redstone_ore>);
+removeAndHide(<minecraft:emerald_ore>);
+removeAndHide(<minecraft:quartz_ore>);

@@ -9,26 +9,29 @@ import mods.gregtech.material.MaterialCasting;
 print("Editing the properties of some materials to make them better suited for their roles");
 
 /**
-* Edit brass, vanadiumsteel, and cobalt brass! We want them to have as much as bronze has in terms of parts
+* Edit brass, add aluminium brass and carbided chrome-vanadium steel
 */
 MaterialRegistry.get("brass").addFlags(["GENERATE_FRAME", "GENERATE_SMALL_GEAR", "GENERATE_ROTOR"]);
 MaterialCasting.toIngot(MaterialRegistry.get("brass")).setFluidPipeProperties(200, 2000, true);
-//Reserved for new material
-MaterialRegistry.get("vanadium_steel").addFlags(["GENERATE_RING", "GENERATE_ROTOR"]);
-MaterialCasting.toIngot(MaterialRegistry.get("vanadium_steel")).setFluidPipeProperties(2100, 3200, true);
+val aluminium_brass = MaterialRegistry.createIngotMaterial(649, "aluminium_brass", 0xC6A62C, "shiny", 2, [<material:copper> * 8, <material:aluminium> * 1], 8.0, 2, 512);
+aluminium_brass.addFlags(["GENERATE_PLATE","GENERATE_ROD", "NO_SMELTING", "GENERATE_BOLT_SCREW", "GENERATE_RING", "GENERATE_ROTOR", "GENERATE_GEAR", "GENERATE_LONG_ROD", "GENERATE_FINE_WIRE", "GENERATE_FOIL"]);
+val crvsteel = MaterialRegistry.createIngotMaterial(650, "ccrv_steel", 0xA0ACB4, "shiny", 4, [<material:steel> * 11, <material:vanadium> * 3, <material:chrome> * 1, <material:carbon> * 1], 11.3, 4, 2240, 3200);
+crvsteel.addFlags(["GENERATE_PLATE","GENERATE_ROD", "NO_SMELTING", "GENERATE_BOLT_SCREW", "GENERATE_RING", "GENERATE_ROTOR", "GENERATE_GEAR", "GENERATE_LONG_ROD", "GENERATE_FINE_WIRE", "GENERATE_FOIL"]);
 
 /**
 * Edit a bunch of materials - we want pipes to have actually useful throughput(s)
 */
 //MaterialCasting.toIngot(MaterialRegistry.get("wood")).setFluidPipeProperties(250, 310, true);
 MaterialCasting.toIngot(MaterialRegistry.get("copper")).setFluidPipeProperties(150, 1000, true);
-MaterialCasting.toIngot(MaterialRegistry.get("steel")).setFluidPipeProperties(225, 2500, true);
-MaterialCasting.toIngot(MaterialRegistry.get("stainless_steel")).setFluidPipeProperties(300, 3000, true);
+MaterialCasting.toIngot(MaterialRegistry.get("steel")).setFluidPipeProperties(225, 1500, true);
+MaterialCasting.toIngot(MaterialRegistry.get("stainless_steel")).setFluidPipeProperties(300, 2300, true);
+MaterialCasting.toIngot(MaterialRegistry.get("aluminium_brass")).setFluidPipeProperties(400, 1500, true);
 MaterialCasting.toIngot(MaterialRegistry.get("plastic")).setFluidPipeProperties(375, 350, true);
 MaterialCasting.toIngot(MaterialRegistry.get("polyvinyl_chloride")).setFluidPipeProperties(500, 450, true);
 MaterialCasting.toIngot(MaterialRegistry.get("polytetrafluoroethylene")).setFluidPipeProperties(625, 600, true);
-MaterialCasting.toIngot(MaterialRegistry.get("titanium")).setFluidPipeProperties(600, 5000, true);
-MaterialCasting.toIngot(MaterialRegistry.get("tungsten_steel")).setFluidPipeProperties(900, 7500, true);
+MaterialCasting.toIngot(MaterialRegistry.get("titanium")).setFluidPipeProperties(600, 1600, true);
+MaterialCasting.toIngot(MaterialRegistry.get("tungsten_steel")).setFluidPipeProperties(900, 2700, true);
+MaterialCasting.toIngot(MaterialRegistry.get("ccrv_steel")).setFluidPipeProperties(2100, 3000, true);
 MaterialRegistry.get("tungsten_steel").addFlags(["DISABLE_DECOMPOSITION"]);
 
 /**

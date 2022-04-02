@@ -160,11 +160,11 @@ RecipeMap.getByName("replicator").findRecipe(32, [<gregtech:meta_item_1:32762>.w
 RecipeMap.getByName("replicator").findRecipe(32, [<gregtech:meta_item_1:32762>.withTag({Fluid: {FluidName: "copper_rich_mixed_vitriols", Amount: 1000}})], [<liquid:positive_matter> * 839, <liquid:neutral_matter> * 792]).remove();
 var n = 0;
 for recipe in RecipeMap.getByName("replicator").recipes {
-    if(n > 112 || (n > 10 && n < 79)) recipe.remove();
+    if(n > 110 || (n > 10 && n < 79)) recipe.remove();
     n += 1;
 }
 var m = 0;
 for recipe in RecipeMap.getByName("mass_fab").recipes {
-    if(m > 112 || (m > 10 && m < 79)) recipe.remove();
+    if(m > 110 || (m > 10 && m < 79)) recipe.remove();
     m += 1;
 }

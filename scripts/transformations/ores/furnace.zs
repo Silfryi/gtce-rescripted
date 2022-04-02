@@ -66,3 +66,11 @@ furnace.addRecipe(<gregtech:meta_item_1:10140>, <gregtech:ore_pyrite_0>.anyDamag
 furnace.addRecipe(<gregtech:meta_item_1:10140>, <gregtech:ore_banded_iron_0>.anyDamage());
 furnace.addRecipe(<gregtech:meta_item_1:9140> * 6, <gregtech:ore_magnetite_0>.anyDamage());
 furnace.addRecipe(<gregtech:meta_item_1:9140> * 3, <gregtech:ore_vanadium_magnetite_0>.anyDamage());
+
+
+
+/**
+* Add misc. needed iron-processing recipes & fix steel PBF recipes
+*/
+furnace.addRecipe(<minecraft:iron_ingot>, <gregtech:meta_item_1:10140>);
+recipes.addShapeless(<gregtech:meta_item_1:10197>, [<ore:craftingToolHardHammer>, <gregtech:meta_item_1:10140>]);

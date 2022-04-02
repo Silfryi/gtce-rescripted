@@ -76,17 +76,6 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .outputs([<gregtech:meta_item_1:10041>, <gregtech:meta_item_1:10035>])
     .fluidOutputs([<liquid:carbon_dioxide> * 6000])
     .property("temperature", 1800).duration(624).EUt(120).buildAndRegister();
-//Manganese
-RecipeMap.getByName("blast_furnace").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2149> * 3, <gregtech:meta_item_1:2012> * 1])
-    .outputs([<gregtech:meta_item_1:10039>])
-    .fluidOutputs([<liquid:carbon_dioxide> * 3000])
-    .property("temperature", 1800).duration(78).EUt(120).buildAndRegister();
-RecipeMap.getByName("blast_furnace").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2224> * 9, <gregtech:meta_item_1:2012> * 3])
-    .outputs([<gregtech:meta_item_1:10039>, <gregtech:meta_item_1:10066> * 2])
-    .fluidOutputs([<liquid:carbon_dioxide> * 9000])
-    .property("temperature", 1800).duration(864).EUt(120).buildAndRegister();
     
 
 
@@ -171,19 +160,6 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .outputs([<gregtech:meta_item_1:10041>, <gregtech:meta_item_1:10035>])
     .fluidOutputs([<liquid:water> * 12000])
     .property("temperature", 1800).duration(624).EUt(120).buildAndRegister();
-//Manganese
-RecipeMap.getByName("blast_furnace").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2149> * 3])
-    .fluidInputs([<liquid:hydrogen> * 4000])
-    .outputs([<gregtech:meta_item_1:10039>])
-    .fluidOutputs([<liquid:water> * 6000])
-    .property("temperature", 1800).duration(78).EUt(120).buildAndRegister();
-RecipeMap.getByName("blast_furnace").recipeBuilder()
-    .inputs([<gregtech:meta_item_1:2224> * 9])
-    .fluidInputs([<liquid:hydrogen> * 12000])
-    .outputs([<gregtech:meta_item_1:10039>, <gregtech:meta_item_1:10066> * 2])
-    .fluidOutputs([<liquid:water> * 18000])
-    .property("temperature", 1800).duration(864).EUt(120).buildAndRegister();
 
 
 

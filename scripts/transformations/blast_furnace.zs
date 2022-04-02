@@ -1,6 +1,7 @@
 import mods.gregtech.recipe.RecipeMap;
 import mods.gregtech.recipe.RecipeMaps;
 import mods.gregtech.material.MaterialRegistry;
+import mods.gregtech.recipe.PBFRecipeBuilder;
 
 
 
@@ -147,6 +148,10 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .outputs([<gregtech:meta_item_1:11235>])
     .property("temperature", 3000).duration(7140).EUt(120).buildAndRegister();
 RecipeMap.getByName("blast_furnace").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2650>])
+    .outputs([<gregtech:meta_item_1:11650>])
+    .property("temperature", 3200).duration(3304).EUt(120).buildAndRegister();
+RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2047>])
     .outputs([<gregtech:meta_item_1:11047>])
     .property("temperature", 3306).duration(12562).EUt(120).buildAndRegister();
@@ -162,3 +167,20 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2310>])
     .outputs([<gregtech:meta_item_1:11310>])
     .property("temperature", 3600).duration(52740).EUt(120).buildAndRegister();
+    
+    
+
+/**
+* Deal with steel production in the PBF
+*/
+for recipe in RecipeMaps.getPrimitiveBlastFurnaceRecipes() {
+    recipe.remove();
+}
+PBFRecipeBuilder.start()
+    .input(<gregtech:meta_item_1:10140>)
+    .output(<gregtech:meta_item_1:10184>)
+    .duration(800).fuelAmount(2).buildAndRegister();
+PBFRecipeBuilder.start()
+    .input(<minecraft:iron_ingot>)
+    .output(<gregtech:meta_item_1:10184>)
+    .duration(600).fuelAmount(2).buildAndRegister();
