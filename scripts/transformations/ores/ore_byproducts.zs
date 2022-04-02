@@ -45,7 +45,7 @@ retoolByproducts(361, <gregtech:ore_chalcocite_0>        , 4 , 114, 182, 112);
 retoolByproducts(274, <gregtech:ore_lepidolite_0>        , 10, 151, 313, 313);
 retoolByproducts(358, <gregtech:ore_tenorite_0>          , 4 , 359, 149, 26);
 retoolByproducts(239, <gregtech:ore_phosphor_0>          , 6 , 226, 158, 146);
-retoolByproducts(114, <gregtech:ore_galena_0>            , 2 , 100, 13 , 182);
+retoolByproducts(114, <gregtech:ore_galena_0>            , 8 , 100, 13 , 182);
 retoolByproducts(224, <gregtech:ore_tantalite_0>         , 4 , 149, 326, 326);
 retoolByproducts(188, <gregtech:ore_tetrahedrite_0>      , 6 , 185, 360, 62);
 retoolByproducts(65 , <gregtech:ore_sulfur_0>            , 2 , 182, 148, 100);

@@ -1,6 +1,7 @@
 import mods.gregtech.recipe.RecipeMap;
 import mods.gregtech.recipe.RecipeMaps;
 import mods.gregtech.material.MaterialRegistry;
+import mods.gregtech.recipe.PBFRecipeBuilder;
 
 
 
@@ -91,7 +92,7 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
 
 /**
 * Readd pyroprocessing recipes for hydrogen versions of carbon-requisite ores
-*///.fluidInputs([<liquid:oxygen> * 1000])
+*/
 //Iron
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2090> * 10])
@@ -446,6 +447,37 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
 /**
 * Add PBF recipes for carbon-requisite (oxide) ores
 */
+//Iron
+PBFRecipeBuilder.start()
+    .input(<gregtech:ore_banded_iron_0>.anyDamage() * 2)
+    .output(<gregtech:meta_item_1:10140> * 4)
+    .duration(300).fuelAmount(5).buildAndRegister();
+PBFRecipeBuilder.start()
+    .input(<gregtech:ore_brown_limonite_0>.anyDamage() * 2 | <gregtech:ore_yellow_limonite_0>.anyDamage() * 2)
+    .output(<gregtech:meta_item_1:10140> * 4)
+    .duration(640).fuelAmount(5).buildAndRegister();
+PBFRecipeBuilder.start()
+    .input(<gregtech:ore_magnetite_0>.anyDamage() * 2)
+    .output(<gregtech:meta_item_1:10140> * 3)
+    .duration(210).fuelAmount(4).buildAndRegister();
+PBFRecipeBuilder.start()
+    .input(<gregtech:ore_vanadium_magnetite_0>.anyDamage() * 4)
+    .output(<gregtech:meta_item_1:10140> * 3)
+    .duration(286).fuelAmount(4).buildAndRegister();
+//Copper
+PBFRecipeBuilder.start()
+    .input(<gregtech:ore_tenorite_0>.anyDamage())
+    .output(<gregtech:meta_item_1:10018> * 2)
+    .duration(144).fuelAmount(3).buildAndRegister();
+PBFRecipeBuilder.start()
+    .input(<gregtech:ore_cuprite_0>.anyDamage() * 3)
+    .output(<gregtech:meta_item_1:10018> * 8)
+    .duration(528).fuelAmount(4).buildAndRegister();
+//Nickel
+PBFRecipeBuilder.start()
+    .input(<gregtech:ore_garnierite_0>.anyDamage())
+    .output(<gregtech:meta_item_1:10044> * 2)
+    .duration(72).fuelAmount(3).buildAndRegister();
 
 
 
