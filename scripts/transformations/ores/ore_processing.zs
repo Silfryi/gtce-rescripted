@@ -76,7 +76,12 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .outputs([<gregtech:meta_item_1:10041>, <gregtech:meta_item_1:10035>])
     .fluidOutputs([<liquid:carbon_dioxide> * 6000])
     .property("temperature", 1800).duration(624).EUt(120).buildAndRegister();
-    
+//Tungsten
+RecipeMap.getByName("blast_furnace").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2651> * 8, <gregtech:meta_item_1:2012> * 3])
+    .outputs([<gregtech:meta_item_1:2074> * 2])
+    .fluidOutputs([<liquid:carbon_dioxide> * 9000])
+    .property("temperature", 1800).duration(864).EUt(120).buildAndRegister();
 
 
 /**
@@ -160,6 +165,13 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .outputs([<gregtech:meta_item_1:10041>, <gregtech:meta_item_1:10035>])
     .fluidOutputs([<liquid:water> * 12000])
     .property("temperature", 1800).duration(624).EUt(120).buildAndRegister();
+//Tungsten
+RecipeMap.getByName("blast_furnace").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2651> * 8])
+    .fluidInputs([<liquid:hydrogen> * 12000])
+    .outputs([<gregtech:meta_item_1:2074> * 2])
+    .fluidOutputs([<liquid:water> * 18000])
+    .property("temperature", 1800).duration(864).EUt(120).buildAndRegister();
 
 
 
@@ -416,6 +428,12 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
     .fluidInputs([<liquid:air> * 5000])
     .outputs([<gregtech:meta_item_1:2460> * 2, <gregtech:meta_item_1:2374> * 14])
     .fluidOutputs([<liquid:carbon_dioxide> * 21000])
+    .property("temperature", 1800).duration(408).EUt(120).buildAndRegister();
+RecipeMap.getByName("blast_furnace").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2652> * 5])
+    .fluidInputs([<liquid:hydrofluoric_acid> * 12000])
+    .outputs([<gregtech:meta_item_1:122>])
+    .fluidOutputs([<liquid:aluminium_fluoride> * 8000])
     .property("temperature", 1800).duration(408).EUt(120).buildAndRegister();
     
 
@@ -699,3 +717,29 @@ RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .fluidInputs([<liquid:chlorine> * 4000])
     .fluidOutputs([<liquid:titanium_tetrachloride> * 5000, <liquid:carbon_monoxide> * 4000])
     .duration(500).EUt(480).buildAndRegister();
+
+    
+    
+/**
+* What's left of processing - scheelite & bauxite
+*/ 
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2158>])
+    .fluidInputs([<liquid:hydrochloric_acid> * 1000])
+    .outputs([<gregtech:meta_item_1:2651>])
+    .chancedOutput(<gregtech:meta_item_1:2374>, 7000, 580)
+    .chancedOutput(<gregtech:meta_item_1:2328>, 4000, 650)
+    .duration(800).EUt(8).buildAndRegister();
+RecipeMap.getByName("chemical_bath").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2123>])
+    .fluidInputs([<liquid:sodium_persulfate> * 1000])
+    .outputs([<gregtech:meta_item_1:2652>])
+    .chancedOutput(<gregtech:meta_item_1:2122>, 7000, 580)
+    .chancedOutput(<gregtech:meta_item_1:2090>, 4000, 650)
+    .duration(800).EUt(8).buildAndRegister();
+RecipeMap.getByName("electrolyzer").recipeBuilder()
+    .inputs([<gregtech:meta_item_1:2652> * 5])
+    .fluidInputs([<liquid:aluminium_fluoride> * 8000])
+    .outputs([<gregtech:meta_item_1:2001> * 2])
+    .fluidOutputs([<liquid:oxygen> * 3000, <liquid:aluminium_fluoride> * 8000])
+    .duration(708).EUt(120).buildAndRegister();

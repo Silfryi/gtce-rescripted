@@ -13,10 +13,10 @@ print("Editing the properties of some materials to make them better suited for t
 */
 MaterialRegistry.get("brass").addFlags(["GENERATE_FRAME", "GENERATE_SMALL_GEAR", "GENERATE_ROTOR"]);
 MaterialCasting.toIngot(MaterialRegistry.get("brass")).setFluidPipeProperties(200, 2000, true);
-val aluminium_brass = MaterialRegistry.createIngotMaterial(649, "aluminium_brass", 0xC6A62C, "shiny", 2, [<material:copper> * 8, <material:aluminium> * 1], 8.0, 2, 512);
-aluminium_brass.addFlags(["GENERATE_PLATE","GENERATE_ROD", "NO_SMELTING", "GENERATE_BOLT_SCREW", "GENERATE_RING", "GENERATE_ROTOR", "GENERATE_GEAR", "GENERATE_LONG_ROD", "GENERATE_FINE_WIRE", "GENERATE_FOIL"]);
-val crvsteel = MaterialRegistry.createIngotMaterial(650, "ccrv_steel", 0xA0ACB4, "shiny", 4, [<material:steel> * 11, <material:vanadium> * 3, <material:chrome> * 1, <material:carbon> * 1], 11.3, 4, 2240, 3200);
-crvsteel.addFlags(["GENERATE_PLATE","GENERATE_ROD", "NO_SMELTING", "GENERATE_BOLT_SCREW", "GENERATE_RING", "GENERATE_ROTOR", "GENERATE_GEAR", "GENERATE_LONG_ROD", "GENERATE_FINE_WIRE", "GENERATE_FOIL"]);
+MaterialRegistry.createIngotMaterial(649, "aluminium_brass", 0xC6A62C, "shiny", 2, [<material:copper> * 8, <material:aluminium> * 1], 8.0, 2, 512);
+MaterialCasting.toIngot(MaterialRegistry.get("aluminium_brass")).addFlags(["GENERATE_PLATE","GENERATE_ROD", "NO_SMELTING", "GENERATE_BOLT_SCREW", "GENERATE_RING", "GENERATE_ROTOR", "GENERATE_GEAR", "GENERATE_LONG_ROD", "GENERATE_FINE_WIRE", "GENERATE_FOIL"]);
+MaterialRegistry.createIngotMaterial(650, "ccrv_steel", 0xA0ACB4, "shiny", 4, [<material:steel> * 11, <material:vanadium> * 3, <material:chrome> * 1, <material:carbon> * 1], 11.3, 4, 2240, 3200);
+MaterialCasting.toIngot(MaterialRegistry.get("ccrv_steel")).addFlags(["GENERATE_PLATE","GENERATE_ROD", "NO_SMELTING", "GENERATE_BOLT_SCREW", "GENERATE_RING", "GENERATE_ROTOR", "GENERATE_GEAR", "GENERATE_LONG_ROD", "GENERATE_FINE_WIRE", "GENERATE_FOIL"]);
 
 /**
 * Edit a bunch of materials - we want pipes to have actually useful throughput(s)
@@ -46,14 +46,19 @@ MaterialCasting.toDust(MaterialRegistry.get("magnesium_chloride")).addFlags(["SM
 MaterialRegistry.createFluidMaterial(981, "nitrobenzene", 0xFFFBBE, "fluid", [<material:benzene> * 1, <material:nitrogen_dioxide> * 1]);
 MaterialRegistry.get("nitrobenzene").addFlags(["DISABLE_DECOMPOSITION"]);
 //Dusts needed for ore production
+//Tungsten & aluminium
+MaterialRegistry.createDustMaterial(651, "tungsten_trioxide", 0xC9C27B, "dull", 0, [<material:tungsten> * 1, <material:oxygen> * 3]);
+MaterialRegistry.createDustMaterial(652, "alumina", 0x8D9599, "rough", 0, [<material:aluminium> * 2, <material:oxygen> * 3]);
+MaterialRegistry.createFluidMaterial(653, "aluminium_fluoride", 0x97939B, "fluid", [<material:aluminium> * 1, <material:fluorine> * 3]);
+MaterialCasting.toFluid(MaterialRegistry.get("aluminium_fluoride")).setFluidTemperature(1300);
+//Platinum
 MaterialRegistry.createDustMaterial(982, "platpalladium", 0xF0F0B4, "shiny", 0, [<material:platinum> * 3, <material:palladium> * 1]);
 MaterialRegistry.createDustMaterial(983, "sperrylite", 0xB6C199, "sand", 0, [<material:platinum> * 1, <material:sulfur> * 2]);
 MaterialRegistry.createDustMaterial(984, "sperrylite_omeiite", 0xD5D5C2, "sand", 0, [<material:sperrylite> * 5, <material:osmiridium> * 1, <material:sulfur> * 4]);
 MaterialRegistry.createDustMaterial(985, "barium_peroxide", 0xF0F0F0, "dull", 0, [<material:barium> * 1, <material:oxygen> * 2]);
 MaterialRegistry.get("platpalladium").addFlags(["DECOMPOSITION_BY_CENTRIFUGING"]);
-MaterialRegistry.get("sperrylite").addFlags(["DISABLE_DECOMPOSITION", "GENERATE_ORE"]);
-MaterialRegistry.get("sperrylite_omeiite").addFlags(["DISABLE_DECOMPOSITION", "GENERATE_ORE"]);
-MaterialRegistry.get("barium_peroxide").addFlags(["DISABLE_DECOMPOSITION"]);
+MaterialRegistry.get("sperrylite").addFlags(["GENERATE_ORE"]);
+MaterialRegistry.get("sperrylite_omeiite").addFlags(["GENERATE_ORE"]);
 //Fluid materials (some hidden, some not) for platinum sludge production
 MaterialRegistry.createFluidMaterial(698, "pearl_vitriol", 0xFFFBBE, "fluid", [<material:beryllium> * 1, <material:chlorine> * 2, <material:water> * 4]);
 MaterialRegistry.createFluidMaterial(699, "green_vitriol", 0xFFFBBE, "fluid", [<material:iron> * 1, <material:sulfur> * 1, <material:oxygen> * 4, <material:water> * 7]);

@@ -52,10 +52,10 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2074>, <gregtech:meta_item_1:2012>])
     .outputs([<gregtech:meta_item_1:11300> * 2, <gregtech:meta_item_1:2110>])
-    .property("temperature", 2460).duration(4920).EUt(480).buildAndRegister();
+    .property("temperature", 2460).duration(4920).EUt(1920).buildAndRegister();
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2044> * 4, <gregtech:meta_item_1:2016>])
-    .outputs([<gregtech:meta_item_1:11207> * 5, <gregtech:meta_item_1:2110>])
+    .outputs([<gregtech:meta_item_1:11133> * 5, <gregtech:meta_item_1:2110>])
     .property("temperature", 2700).duration(2700).EUt(480).buildAndRegister();
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2032> * 3, <gregtech:meta_item_1:2047>])
@@ -65,7 +65,7 @@ RecipeMap.getByName("blast_furnace").recipeBuilder()
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2301> * 9, <gregtech:meta_item_1:2074>, <gregtech:meta_item_1:2041>])
     .outputs([<gregtech:meta_item_1:11235> * 11, <gregtech:meta_item_1:2110>])
-    .property("temperature", 3000).duration(3000).EUt(480).buildAndRegister();
+    .property("temperature", 3000).duration(3000).EUt(1920).buildAndRegister();
 RecipeMap.getByName("blast_furnace").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2077> * 3, <gregtech:meta_item_1:2025>])
     .outputs([<gregtech:meta_item_1:11195> * 4, <gregtech:meta_item_1:2110>])
