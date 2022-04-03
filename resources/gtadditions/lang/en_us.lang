@@ -2,15 +2,6 @@
 
 ## Item Tooltips
 
-# Board Tooltips
-metaitem.board.coated.tooltip=A Basic Board
-metaitem.board.epoxy.tooltip=An Advanced Board
-metaitem.board.fiber_reinforced.tooltip=An Extreme Board
-metaitem.board.multilayer.fiber_reinforced.tooltip=An Elite Board
-metaitem.board.phenolic.tooltip=A Good Board
-metaitem.board.plastic.tooltip=A Good Board
-metaitem.board.wetware.tooltip=The Board That Keeps Life
-
 # Electronic Components Tooltips
 metaitem.component.diode.tooltip=Basic Electronic Component
 metaitem.component.capacitor.tooltip=Basic Electronic Component
@@ -30,14 +21,6 @@ metaitem.plate.qbit_central_processing_unit.tooltip=Quantum CPU
 metaitem.wafer.silicon.tooltip=Raw Circuit
 metaitem.wafer.glowstone.tooltip=Raw Circuit
 metaitem.wafer.naquadah.tooltip=Raw Circuit
-
-# Circuit Tooltips
-metaitem.circuit.basic.tooltip=A Basic Circuit
-metaitem.circuit.good.tooltip=A Good Circuit
-metaitem.circuit.advanced.tooltip=An Advanced Circuit
-metaitem.circuit.wetware_mainframe.tooltip=An Infinite Circuit
-metaitem.circuit.vacuum_tube.tooltip=A Very Simple Circuit
-metaitem.circuit.advanced_parts.tooltip=A Basic Circuit
 
 # Item Tooltips
 metaitem.compressed.fireclay.tooltip=Heat-Resistant Clay
@@ -70,14 +53,6 @@ metaitem.credit.darmstadtium.name=Neutronium Credit
 metaitem.rubber_drop.name=Sticky Resin
 metaitem.component.glass.fiber.name=Glass Fiber
 metaitem.compressed.coke.clay.name=Unfired Coke Brick
-
-# Renaming Circuits
-metaitem.circuit.integrated.name=Programmed Circuit
-metaitem.circuit.advanced.name=Integrated Processor
-metaitem.circuit.crystal_processor.name=Crystal Processor
-metaitem.circuit.nano_processor.name=Nano Processor
-metaitem.circuit.quantum_processor.name=Quantum Processor
-metaitem.processor.neuro.name=Neuro Processing Unit
 
 # Naming Schematics
 metaitem.schematic.dust.name=Schematic (Dust)
@@ -658,3 +633,31 @@ material.amethyst.name=Amethyst
 material.garnet_red.name=Red Garnet
 material.garnet_yellow.name=Yellow Garnet
 material.vinteum.name=Vinteum
+
+#SIIIIIIGHHHHHH
+# Board Tooltips
+metaitem.board.coated.tooltip=A Basic Board
+metaitem.board.epoxy.tooltip=An Advanced Board
+metaitem.board.fiber_reinforced.tooltip=Copper-Coated
+metaitem.board.multilayer.fiber_reinforced.tooltip=An Elite Board
+metaitem.board.phenolic.tooltip=Palladium-Coated
+metaitem.board.plastic.tooltip=A Good Board
+metaitem.board.wetware.tooltip=Electrum-Coated
+
+# Circuit Tooltips
+metaitem.circuit.basic.tooltip=The Best The World Has To Offer
+metaitem.circuit.good.tooltip=Miniaturzed Computing
+metaitem.circuit.advanced.tooltip=Underclocked: 1x
+metaitem.circuit.wetware_mainframe.tooltip=A Step Up
+metaitem.circuit.vacuum_tube.tooltip=A Very Simple Circuit
+metaitem.circuit.advanced_parts.tooltip=A Basic Circuit
+metaitem.circuit.quantum_processor.tooltip=Assembled With Care
+metaitem.circuit.wetware_processor.tooltip=Silicon Processor
+metaitem.circuit.crystal_processor.tooltip=Expensive But Powerful
+
+# Renaming Circuits
+metaitem.circuit.integrated.name=Programmed Circuit
+metaitem.circuit.advanced.name=Nanocircuit
+metaitem.circuit.crystal_processor.name=Integrated Assembly
+metaitem.circuit.nano_processor.name=Microcircuit Assembly
+metaitem.circuit.quantum_processor.name=Microcircuit
