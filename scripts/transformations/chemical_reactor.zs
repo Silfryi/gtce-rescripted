@@ -464,6 +464,7 @@ RecipeMap.getByName("chemical_reactor").recipeBuilder()
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:2155> * 2], [<liquid:sulfuric_acid> * 1000]).remove();
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:2382> * 7], [<liquid:water> * 1000]).remove();
 RecipeMap.getByName("chemical_reactor").findRecipe(30, [<gregtech:meta_item_1:2382> * 7], [<liquid:water> * 1000]).remove();
+RecipeMap.getByName("chemical_reactor").findRecipe(8, [<gregtech:meta_item_1:2063>, <gregtech:meta_item_1:32766>.withTag({Configuration: 1})], [<liquid:water> * 1000]).remove();
 RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2155> * 2 | <gregtech:meta_item_1:2155> * 2])
     .fluidInputs([<liquid:sulfuric_acid> * 7000])

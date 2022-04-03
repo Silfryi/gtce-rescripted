@@ -34,7 +34,7 @@ metaitem.component.petri.dish.tooltip=For Cultivating Cells
 # Renaming Boules
 metaitem.boule.silicon.name=Monocrystalline Silicon Boule
 metaitem.boule.glowstone.name=Glowstone-doped Monocrystalline Silicon Boule
-metaitem.boule.naquadah.name=Naquadah-doped Monocrystalline Silicon Boule
+metaitem.boule.naquadah.name=Ultrapure Monocrystalline Silicon Boule
 
 # Naming Multiblock Parts
 tile.ga_multiblock_casing.tungstensteel_gearbox_casing.name=Assembly Line Casing

@@ -95,7 +95,7 @@ RecipeMap.getByName("electrolyzer").recipeBuilder()
 //Molten solids
 RecipeMap.getByName("electrolyzer").recipeBuilder()
     .fluidInputs([<liquid:glass> * 3000])
-    .fluidOutputs([<liquid:silicon> * 1000, <liquid:oxygen> * 2000])
+    .fluidOutputs([<liquid:silicon> * 144, <liquid:oxygen> * 2000])
     .duration(412).EUt(30).buildAndRegister();   
 RecipeMap.getByName("electrolyzer").recipeBuilder()
     .fluidInputs([<liquid:magnesium_chloride> * 3000])

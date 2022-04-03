@@ -417,7 +417,7 @@ metaitem.boule.glowstone.name=Glowstone-doped Boule
 metaitem.boule.naquadah.name=Naquadah-doped Boule
 metaitem.wafer.silicon.name=Silicon Wafer
 metaitem.wafer.glowstone.name=Glowstone-doped Wafer
-metaitem.wafer.naquadah.name=Naquadah-doped Wafer
+metaitem.wafer.naquadah.name=Ultrapure Silicon Wafer
 
 metaitem.board.coated.name=Coated Circuit Board
 metaitem.board.epoxy.name=Epoxy Circuit Board
