@@ -121,7 +121,6 @@ removeAndHide(<gregtech:meta_item_2:32475>);
 removeAndHide(<gregtech:meta_item_2:32474>);
 removeAndHide(<gregtech:meta_item_2:32462>);
 removeAndHide(<gregtech:meta_item_2:32497>);
-removeAndHide(<gregtech:meta_item_2:32507>);
 removeAndHide(<gregtech:meta_item_2:32484>);
 removeAndHide(<gregtech:meta_item_2:32470>);
 removeAndHide(<gregtech:meta_item_2:32476>);
@@ -207,6 +206,7 @@ RecipeMap.getByName("chemical_reactor").recipeBuilder()
     .outputs([<gregtech:meta_item_2:32469> * 4])
     .duration(600).EUt(480).buildAndRegister();
 //SMD
+RecipeMap.getByName("assembler").findRecipe(6, [<gregtech:meta_item_2:16018> * 4, <gregtech:meta_item_1:2106>], null).remove();
 RecipeMap.getByName("assembler").findRecipe(96, [<gregtech:meta_item_2:16087> * 6, <gregtech:meta_item_1:12025>], [<liquid:plastic> * 288]).remove();
 RecipeMap.getByName("assembler").findRecipe(96, [<gregtech:meta_item_2:16112> * 4, <gregtech:meta_item_1:2012>], [<liquid:plastic> * 144]).remove();
 RecipeMap.getByName("assembler").findRecipe(120, [<gregtech:meta_item_1:19965> * 4, <gregtech:meta_item_1:19001>], [<liquid:plastic> * 36]).remove();
@@ -312,6 +312,154 @@ RecipeMap.getByName("packer").recipeBuilder()
     .duration(20).EUt(4).buildAndRegister();  
     
     
+
+/**
+* Circuit Recipes - finally! The part of the file where we make the recipes for circuits, after 300 lines of Other Stuff
+*/
+//Basic
+recipes.addShaped(<gregtech:meta_item_2:32503>, 
+    [[<gregtech:meta_item_2:32450>, <gregtech:meta_item_1:12197>, <gregtech:meta_item_2:32450>],
+    [<gregtech:meta_item_2:32450>, <gregtech:meta_item_2:32443>, <gregtech:meta_item_2:32450>],
+    [<gregtech:meta_item_2:32455>, <gregtech:cable:5237>, <gregtech:meta_item_2:32455>]]);
+//Assembled
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32450> * 4, <gregtech:meta_item_2:16237> * 8, <gregtech:meta_item_2:32443>])
+    .outputs([<gregtech:meta_item_2:32502>])
+    .duration(200).EUt(30).buildAndRegister();
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32459> * 4, <gregtech:meta_item_2:32458> * 2, <gregtech:meta_item_2:32457> * 2, <gregtech:meta_item_2:32502> * 2, <gregtech:meta_item_2:16237> * 2, <gregtech:meta_item_2:32443>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .outputs([<gregtech:meta_item_2:32501>])
+    .duration(100).EUt(30).buildAndRegister();
+//Integrated
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32460> * 4, <gregtech:meta_item_2:32459> * 4, <gregtech:meta_item_2:32458> * 2, <gregtech:meta_item_2:32477> * 2, <gregtech:meta_item_2:16087> * 2, <gregtech:meta_item_2:32448>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .outputs([<gregtech:meta_item_2:32500>])
+    .duration(200).EUt(120).buildAndRegister();
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32485> * 4, <gregtech:meta_item_2:32459> * 4, <gregtech:meta_item_2:32457> * 2, <gregtech:meta_item_2:32500> * 2, <gregtech:meta_item_2:16087> * 2, <gregtech:meta_item_2:32448>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .outputs([<gregtech:meta_item_2:32498>])
+    .duration(100).EUt(120).buildAndRegister();
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32485> * 16, <gregtech:meta_item_2:32482> * 4, <gregtech:meta_item_2:32457> * 2, <gregtech:meta_item_2:32498> * 2, <gregtech:meta_item_2:16087> * 2, <gregtech:meta_item_2:32448>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .outputs([<gregtech:meta_item_2:32496>])
+    .duration(100).EUt(120).buildAndRegister();
+//Micro
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32460> * 4, <gregtech:meta_item_2:32459> * 4, <gregtech:meta_item_2:32458> * 2, <gregtech:meta_item_2:32478> * 2, <gregtech:meta_item_2:16112> * 2, <gregtech:meta_item_2:32444>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 1}))
+    .outputs([<gregtech:meta_item_2:32495>])
+    .duration(200).EUt(480).buildAndRegister();
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32460> * 4, <gregtech:meta_item_2:32459> * 4, <gregtech:meta_item_2:32458> * 2, <gregtech:meta_item_2:32478> * 2, <gregtech:meta_item_2:16112> * 2, <gregtech:meta_item_2:32444>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .notConsumable(<gregtech:meta_item_1:32766>)
+    .outputs([<gregtech:meta_item_2:32494>])
+    .duration(200).EUt(480).buildAndRegister();
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32485> * 4, <gregtech:meta_item_2:32459> * 4, <gregtech:meta_item_2:32457> * 2, <gregtech:meta_item_2:32494> * 2, <gregtech:meta_item_2:16112> * 2, <gregtech:meta_item_2:32444>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .outputs([<gregtech:meta_item_2:32493>])
+    .duration(100).EUt(480).buildAndRegister();
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32485> * 16, <gregtech:meta_item_2:32482> * 4, <gregtech:meta_item_2:32457> * 2, <gregtech:meta_item_2:32493> * 2, <gregtech:meta_item_2:16112> * 2, <gregtech:meta_item_2:32444>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .outputs([<gregtech:meta_item_2:32492>])
+    .duration(100).EUt(480).buildAndRegister();
+//Nano
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32483> * 4, <gregtech:meta_item_2:32459> * 4, <gregtech:meta_item_2:32458> * 2, <gregtech:meta_item_2:32481> * 2, <gregtech:meta_item_2:16051> * 2, <gregtech:meta_item_2:32446>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 2}))
+    .outputs([<gregtech:meta_item_2:32491>])
+    .duration(200).EUt(1920).buildAndRegister();
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32483> * 4, <gregtech:meta_item_2:32459> * 4, <gregtech:meta_item_2:32458> * 2, <gregtech:meta_item_2:32481> * 2, <gregtech:meta_item_2:16051> * 2, <gregtech:meta_item_2:32446>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .notConsumable(<gregtech:meta_item_1:32766>.withTag({Configuration: 1}))
+    .outputs([<gregtech:meta_item_2:32490>])
+    .duration(200).EUt(1920).buildAndRegister();
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32483> * 4, <gregtech:meta_item_2:32459> * 4, <gregtech:meta_item_2:32458> * 2, <gregtech:meta_item_2:32481> * 2, <gregtech:meta_item_2:16051> * 2, <gregtech:meta_item_2:32446>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .notConsumable(<gregtech:meta_item_1:32766>)
+    .outputs([<gregtech:meta_item_2:32489>])
+    .duration(200).EUt(1920).buildAndRegister();
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32485> * 4, <gregtech:meta_item_2:32459> * 4, <gregtech:meta_item_2:32457> * 2, <gregtech:meta_item_2:32489> * 2, <gregtech:meta_item_2:16051> * 2, <gregtech:meta_item_2:32446>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .outputs([<gregtech:meta_item_2:32488>])
+    .duration(100).EUt(1920).buildAndRegister();
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32485> * 16, <gregtech:meta_item_2:32482> * 4, <gregtech:meta_item_2:32457> * 2, <gregtech:meta_item_2:32488> * 2, <gregtech:meta_item_2:16051> * 2, <gregtech:meta_item_2:32446>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .outputs([<gregtech:meta_item_2:32487>])
+    .duration(100).EUt(1920).buildAndRegister();
     
     
     
+/**
+* Specialty circuit components
+*/
+//Data Orb
+RecipeMap.getByName("assembler").findRecipe(1200, [<gregtech:meta_item_2:32480> * 64, <gregtech:meta_item_2:32482> * 32, <gregtech:meta_item_2:16051> * 32,
+                                                   <gregtech:meta_item_2:32485> * 4, <gregtech:meta_item_2:32444>, <gregtech:meta_item_2:32492>], [<liquid:tin> * 288]).remove();
+RecipeMap.getByName("assembler").findRecipe(1200, [<gregtech:meta_item_2:32480> * 64, <gregtech:meta_item_2:32482> * 32, <gregtech:meta_item_2:16051> * 32,
+                                                   <gregtech:meta_item_2:32485> * 4, <gregtech:meta_item_2:32444>, <gregtech:meta_item_2:32492>], [<liquid:soldering_alloy> * 144]).remove();
+RecipeMap.getByName("assembler").recipeBuilder()
+    .inputs([<gregtech:meta_item_2:32480> * 64, <gregtech:meta_item_2:32482> * 32, <gregtech:meta_item_2:32485> * 12, <gregtech:meta_item_2:32483> * 8, <gregtech:meta_item_2:16051> * 8, <gregtech:meta_item_2:32444>])
+    .fluidInputs([<liquid:soldering_alloy> * 144])
+    .outputs([<gregtech:meta_item_1:32707>])
+    .duration(400).EUt(480).buildAndRegister();
+//Clockwork Mechanism
+recipes.addShaped(<gregtech:meta_item_2:32507>, 
+    [[<gregtech:meta_item_1:16197>, <gregtech:meta_item_2:17094>, <gregtech:meta_item_1:14197>], 
+    [<gregtech:meta_item_2:17094>, <gregtech:meta_item_1:18197>, <gregtech:meta_item_2:17094>],
+    [<gregtech:meta_item_1:12197>, <gregtech:meta_item_2:17094>, <gregtech:meta_item_1:16197>]]);
+    
+
+    
+/**
+* Circuit oredictionary entries
+*/
+//Clockwork mechanism
+<ore:circuitBasic>.remove(<gregtech:meta_item_2:32507>);
+<ore:circuitClockwork>.add(<gregtech:meta_item_2:32507>);
+//Basic Circuit
+<ore:circuitBasic>.add(<gregtech:meta_item_2:32503>);
+//Assembled Circuits
+<ore:circuitBasic>.add(<gregtech:meta_item_2:32502>);
+<ore:circuitInfinite>.remove(<gregtech:meta_item_2:32501>);
+<ore:circuitGood>.add(<gregtech:meta_item_2:32501>);
+//Integrated Circuit
+<ore:circuitSuperconductor>.remove(<gregtech:meta_item_2:32500>);
+<ore:circuitBasic>.add(<gregtech:meta_item_2:32500>);
+<ore:circuitMaster>.remove(<gregtech:meta_item_2:32498>);
+<ore:circuitGood>.add(<gregtech:meta_item_2:32498>);
+<ore:circuitElite>.remove(<gregtech:meta_item_2:32496>);
+<ore:circuitAdvanced>.add(<gregtech:meta_item_2:32496>);
+//Microcircuits
+<ore:circuitElite>.remove(<gregtech:meta_item_2:32495>);
+<ore:circuitBasic>.add(<gregtech:meta_item_2:32495>);
+<ore:circuitExtreme>.remove(<gregtech:meta_item_2:32494>);
+<ore:circuitGood>.add(<gregtech:meta_item_2:32494>);
+<ore:circuitExtreme>.remove(<gregtech:meta_item_2:32493>);
+<ore:circuitAdvanced>.add(<gregtech:meta_item_2:32493>);
+<ore:circuitAdvanced>.remove(<gregtech:meta_item_2:32492>);
+<ore:circuitExtreme>.add(<gregtech:meta_item_2:32492>);
+//Nanocircuits
+<ore:circuitAdvanced>.remove(<gregtech:meta_item_2:32491>);
+<ore:circuitBasic>.add(<gregtech:meta_item_2:32491>);
+<ore:circuitGood>.remove(<gregtech:meta_item_2:32489>);
+<ore:circuitAdvanced>.add(<gregtech:meta_item_2:32489>);
+<ore:circuitBasic>.remove(<gregtech:meta_item_2:32488>);
+<ore:circuitExtreme>.add(<gregtech:meta_item_2:32488>);
+<ore:circuitBasic>.remove(<gregtech:meta_item_2:32487>);
+<ore:circuitElite>.add(<gregtech:meta_item_2:32487>);
+//Hidden circuits that still need to have ODs removed
+<ore:circuitMaster>.remove(<gregtech:meta_item_2:32497>);
+<ore:circuitUltimate>.remove(<gregtech:meta_item_2:32499>);

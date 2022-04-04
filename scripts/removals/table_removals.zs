@@ -106,6 +106,7 @@ removeAndHide(<gregtech:machine:794>);
 removeAndHide(<gregtech:machine:795>);
 
 //High-tier rotor holders & machines
+removeAndHide(<gregtech:machine:104>);
 removeAndHide(<gregtech:machine:114>);
 removeAndHide(<gregtech:machine:434>);
 removeAndHide(<gregtech:machine:818>);

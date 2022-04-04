@@ -480,7 +480,7 @@ metaitem.plate.system_on_chip.tooltip=System on Chip
 
 metaitem.circuit.basic.name=Nanocircuit Assembly
 metaitem.circuit.basic_electronic.name=Nanocircuit Processor
-metaitem.circuit.advanced_parts.name=Advanced Circuit Parts
+metaitem.circuit.advanced_parts.name=Clockwork Mechanism
 metaitem.circuit.good.name=Nanocircuit
 metaitem.circuit.advanced.name=Advanced Circuit
 metaitem.circuit.processor_assembly.name=Nanocircuit
