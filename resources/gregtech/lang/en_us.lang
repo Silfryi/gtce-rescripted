@@ -1744,10 +1744,10 @@ tile.machine_casing.bronze_hull.name=Bronze Hull
 tile.machine_casing.bronze_hull.tooltip=For your first Steam Machines
 tile.machine_casing.bronze_bricks_hull.name=Bricked Bronze Hull
 tile.machine_casing.bronze_bricks_hull.tooltip=For your first Steam Machines
-tile.machine_casing.steel_hull.name=Steel Hull
-tile.machine_casing.steel_hull.tooltip=For improved Steam Machines
-tile.machine_casing.steel_bricks_hull.name=Bricked Steel Hull
-tile.machine_casing.steel_bricks_hull.tooltip=For improved Steam Machines
+tile.machine_casing.steel_hull.name=Wrought Iron Hull
+tile.machine_casing.steel_hull.tooltip=For Steam Machines
+tile.machine_casing.steel_bricks_hull.name=Bricked Wrought Iron Hull
+tile.machine_casing.steel_bricks_hull.tooltip=For Steam Machines
 
 # Turbine casing blocks
 tile.turbine_casing.bronze_gearbox.name=Brass Gear Box Casing
@@ -1866,7 +1866,7 @@ gregtech.machine.steam_boiler_coal_bronze.name=Small Steam Coal Boiler
 gregtech.machine.steam_boiler_coal_bronze.tooltip=An early way to get Steam Power
 gregtech.machine.steam_boiler_coal_steel.name=High Pressure Steam Coal Boiler
 gregtech.machine.steam_boiler_coal_steel.tooltip=An early way to get Steam Power
-gregtech.machine.steam_boiler_solar_bronze.name=Steam Solar Boiler
+gregtech.machine.steam_boiler_solar_bronze.name=High Pressure Steam Solar Boiler
 gregtech.machine.steam_boiler_solar_bronze.tooltip=Steam Power by Sun
 gregtech.machine.steam_boiler_lava_bronze.name=Small Steam Lava Boiler
 gregtech.machine.steam_boiler_lava_bronze.tooltip=A Boiler running off Lava
