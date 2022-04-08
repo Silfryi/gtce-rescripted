@@ -35,6 +35,17 @@ MaterialCasting.toIngot(MaterialRegistry.get("ccrv_steel")).setFluidPipeProperti
 MaterialRegistry.get("tungsten_steel").addFlags(["DISABLE_DECOMPOSITION"]);
 
 /**
+* Edit wire materials to shuffle around what tiers wires are at and where their usages are best
+*/
+MaterialCasting.toIngot(MaterialRegistry.get("red_alloy")).setCableProperties(32, 1, 0);
+MaterialCasting.toIngot(MaterialRegistry.get("brass")).setCableProperties(32, 1, 1);
+MaterialCasting.toIngot(MaterialRegistry.get("copper")).setCableProperties(128, 1, 1);
+MaterialCasting.toIngot(MaterialRegistry.get("silver")).setCableProperties(128, 2, 1);
+MaterialCasting.toIngot(MaterialRegistry.get("annealed_copper")).setCableProperties(512, 1, 1);
+MaterialCasting.toIngot(MaterialRegistry.get("gold")).setCableProperties(512, 3, 2);
+MaterialCasting.toIngot(MaterialRegistry.get("electrum")).setCableProperties(512, 2, 1);
+
+/**
 * Add needed parts to some materials - magnalium frames, vanadium-gallium fine wire
 */
 MaterialRegistry.get("magnalium").addFlags(["GENERATE_FRAME"]);

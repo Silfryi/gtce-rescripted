@@ -97,10 +97,11 @@ removeInsulation(44, false, [48, 96, 192, 384, 768], [36, 72, 144, 288, 576]);
 removeInsulation(47, true, [144, 288, 576, 1152, 2305], [48, 96, 192, 384, 768]);
 removeInsulation(49, true, [144, 288, 576, 1152, 2305], [48, 96, 192, 384, 768]);
 removeInsulation(51, true, [144, 288, 576, 1152, 2305], [48, 96, 192, 384, 768]);
-removeInsulation(62, true, [72, 144, 288, 576, 1152], [36, 72, 144, 288, 576]);
+removeInsulation(62, false, [72, 144, 288, 576, 1152], [36, 72, 144, 288, 576]);
 removeInsulation(72, true, [72, 144, 288, 576, 1152], [48, 96, 192, 384, 768]);
 removeInsulation(79, false, [48, 96, 192, 384, 768], [36, 72, 144, 288, 576]);
-removeInsulation(87, false, [48, 96, 192, 384, 768], [36, 72, 144, 288, 576]);
+removeInsulation(87, false, [72, 144, 288, 576, 1152], [36, 72, 144, 288, 576]);
+removeInsulation(94, false, [48, 96, 192, 384, 768], [36, 72, 144, 288, 576]);
 removeInsulation(109, false, [48, 96, 192, 384, 768], [36, 72, 144, 288, 576]);
 removeInsulation(112, false, [72, 144, 288, 576, 1152], [36, 72, 144, 288, 576]);
 removeInsulation(127, false, [72, 144, 288, 576, 1152], [36, 72, 144, 288, 576]);
@@ -109,12 +110,12 @@ removeInsulation(180, false, [48, 96, 192, 384, 768], [36, 72, 144, 288, 576]);
 removeInsulation(184, true, [72, 144, 288, 576, 1152], [48, 96, 192, 384, 768]);
 removeInsulation(205, true, [144, 288, 576, 1152, 2305], [48, 96, 192, 384, 768]);
 removeInsulation(235, true, [144, 288, 576, 1152, 2305], [48, 96, 192, 384, 768]);
-removeInsulation(237, false, [36, 72, 144, 288, 576], [36, 72, 144, 288, 576]);
+removeInsulation(237, false, [48, 96, 192, 384, 768], [36, 72, 144, 288, 576]);
 
 //The function that does the special rubber removals
-function removeInsulation(id as int, add as bool, styrene as int[], silicone as int[]) {
+function removeInsulation(id as int, add as bool, styrene as int[], silicone as int[], rubber2 as bool = false ) {
     print("Fixing removed rubber insulation recipes for material " + id);
-    var rubber = [144, 288, 576, 1152, 2305] as int[];
+    var rubber = [144, 288, 576, 1152, 2304] as int[];
     //Remove all cables from the assembling machine
     for i in 0 to 5 {
         if (i < 5) {
@@ -126,6 +127,11 @@ function removeInsulation(id as int, add as bool, styrene as int[], silicone as 
             RecipeMap.getByName("assembler").findRecipe(8,
                 [<gregtech:cable>.definition.makeStack(id + (i * 1000)), <gregtech:meta_item_1:32766>.withTag({Configuration: 24})],
                 [<liquid:styrene_butadiene_rubber> * styrene[i]]).remove();
+            if (rubber2) {
+                RecipeMap.getByName("assembler").findRecipe(8,
+                    [<gregtech:cable>.definition.makeStack(id + (i * 1000)), <gregtech:meta_item_1:32766>.withTag({Configuration: 24})],
+                    [<liquid:rubber> * (2 * silicone[i])]).remove();
+            }
             if(i != 0) {
                 RecipeMap.getByName("assembler").findRecipe(8,
                     [<gregtech:cable>.definition.makeStack(id) * tierMult, <gregtech:meta_item_1:32766>.withTag({Configuration: (24 + i)})],
@@ -133,6 +139,11 @@ function removeInsulation(id as int, add as bool, styrene as int[], silicone as 
                 RecipeMap.getByName("assembler").findRecipe(8,
                     [<gregtech:cable>.definition.makeStack(id) * tierMult, <gregtech:meta_item_1:32766>.withTag({Configuration: (24 + i)})],
                     [<liquid:styrene_butadiene_rubber> * styrene[i]]).remove();
+                if (rubber2) {
+                    RecipeMap.getByName("assembler").findRecipe(8,
+                        [<gregtech:cable>.definition.makeStack(id) * tierMult, <gregtech:meta_item_1:32766>.withTag({Configuration: (24 + i)})],
+                        [<liquid:rubber> * (2 * silicone[i])]).remove();
+                }
             
             }
             if(add) {

@@ -2622,3 +2622,17 @@ material.white_vitriol_solution=White Vitriol
 material.pearl_vitriol_solution=Pearl Vitriol
 material.mixed_vitriols=Mixed Vitriols
 material.copper_rich_mixed_vitriols=Copper-Rich Mixed Vitriols
+
+#Brass -> Braided Copper
+item.brass.wireGtHex=16x Braided Copper Wire
+item.brass.wireGtTwelve=12x Braided Copper Wire
+item.brass.wireGtOctal=8x Braided Copper Wire
+item.brass.wireGtQuadruple=4x Braided Copper Wire
+item.brass.wireGtDouble=2x Braided Copper Wire
+item.brass.wireGtSingle=1x Braided Copper Wire
+item.brass.cableGtHex=16x Braided Copper Cable
+item.brass.cableGtTwelve=12x Braided Copper Cable
+item.brass.cableGtOctal=8x Braided Copper Cable
+item.brass.cableGtQuadruple=4x Braided Copper Cable
+item.brass.cableGtDouble=2x Braided Copper Cable
+item.brass.cableGtSingle=1x Braided Copper Cable
