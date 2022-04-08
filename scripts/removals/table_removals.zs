@@ -19,6 +19,7 @@ removeAndHide(<gtadditions:ga_meta_item:2235>);
 removeAndHide(<gtadditions:ga_meta_item:2298>);
 removeAndHide(<gtadditions:ga_meta_item:2302>);
 removeAndHide(<gtadditions:ga_meta_item:2303>);
+removeAndHide(<gtadditions:ga_meta_item:2648>);
 removeAndHide(<gtadditions:ga_meta_item:2972>);
 RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9001)], null).remove();
 RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9043)], null).remove();
@@ -30,6 +31,7 @@ RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.ma
 RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9298)], null).remove();
 RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9302)], null).remove();
 RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9303)], null).remove();
+RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9648)], null).remove();
 RecipeMap.getByName("lathe").findRecipe(8, [<gregtech:meta_item_1>.definition.makeStack(9972)], null).remove();
 
 //Remove leftover gem turbine blades from JEI, as they're completely nonproducible and wouldn't be good in a turbine anyway

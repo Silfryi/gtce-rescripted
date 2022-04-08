@@ -16,7 +16,13 @@ MaterialCasting.toIngot(MaterialRegistry.get("brass")).setFluidPipeProperties(20
 MaterialRegistry.createIngotMaterial(649, "aluminium_brass", 0xC6A62C, "shiny", 2, [<material:copper> * 8, <material:aluminium> * 1], 8.0, 2, 512);
 MaterialCasting.toIngot(MaterialRegistry.get("aluminium_brass")).addFlags(["GENERATE_PLATE","GENERATE_ROD", "NO_SMELTING", "GENERATE_BOLT_SCREW", "GENERATE_RING", "GENERATE_ROTOR", "GENERATE_GEAR", "GENERATE_LONG_ROD", "GENERATE_FINE_WIRE", "GENERATE_FOIL"]);
 MaterialRegistry.createIngotMaterial(650, "ccrv_steel", 0xA0ACB4, "shiny", 4, [<material:steel> * 11, <material:vanadium> * 3, <material:chrome> * 1, <material:carbon> * 1], 11.3, 4, 2240, 3200);
-MaterialCasting.toIngot(MaterialRegistry.get("ccrv_steel")).addFlags(["GENERATE_PLATE","GENERATE_ROD", "NO_SMELTING", "GENERATE_BOLT_SCREW", "GENERATE_RING", "GENERATE_ROTOR", "GENERATE_GEAR", "GENERATE_LONG_ROD", "GENERATE_FINE_WIRE", "GENERATE_FOIL"]);
+MaterialCasting.toIngot(MaterialRegistry.get("ccrv_steel")).addFlags(["GENERATE_PLATE","GENERATE_ROD", "NO_SMELTING", "NO_WORKING", "NO_SMASHING", "EXCLUDE_BLOCK_CRAFTING_RECIPES", "GENERATE_BOLT_SCREW", "GENERATE_RING", "GENERATE_ROTOR", "GENERATE_GEAR", "GENERATE_LONG_ROD", "GENERATE_FINE_WIRE", "GENERATE_FOIL"]);
+
+/**
+* Add Galvanized Steel
+*/
+MaterialRegistry.createIngotMaterial(648, "galvanized_steel", 0xBDB6B6, "metallic", 2, [<material:steel> * 9, <material:zinc> * 1], 6.0, 3.0, 640);
+MaterialCasting.toIngot(MaterialRegistry.get("galvanized_steel")).addFlags(["GENERATE_PLATE", "GENERATE_ROD", "GENERATE_BOLT_SCREW", "GENERATE_LONG_ROD", "GENERATE_GEAR", "GENERATE_RING", "GENERATE_ROTOR", "GENERATE_SMALL_GEAR", "DISABLE_DECOMPOSITION", "GENERATE_FRAME", "GENERATE_LONG_ROD"]);
 
 /**
 * Edit a bunch of materials - we want pipes to have actually useful throughput(s)

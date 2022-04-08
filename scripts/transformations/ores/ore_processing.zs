@@ -740,6 +740,5 @@ RecipeMap.getByName("chemical_bath").recipeBuilder()
 RecipeMap.getByName("electrolyzer").recipeBuilder()
     .inputs([<gregtech:meta_item_1:2652> * 5])
     .fluidInputs([<liquid:aluminium_fluoride> * 8000])
-    .outputs([<gregtech:meta_item_1:2001> * 2])
-    .fluidOutputs([<liquid:oxygen> * 3000, <liquid:aluminium_fluoride> * 8000])
+    .fluidOutputs([<liquid:aluminium> * 288, <liquid:oxygen> * 3000, <liquid:aluminium_fluoride> * 8000])
     .duration(708).EUt(120).buildAndRegister();

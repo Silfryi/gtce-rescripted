@@ -2605,6 +2605,7 @@ gregtech.command.util.hand.no_item=You must hold something in mainhand before ex
 gregtech.universal.clear_nbt_recipe.tooltip=§cThis will destroy all contents!
 
 #Materials added by the pack
+material.galvanized_steel=Galvanized Steel
 material.tungsten_trioxide=Tungsten Trioxide
 material.alumina=Alumina
 material.aluminium_fluoride=Aluminium Trifluoride
